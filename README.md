@@ -243,6 +243,7 @@ Distributed under the MIT License. See [LICENSE](https://github.com/Sven-Seyfert
 
 - Opportunity by [GitHub](https://github.com)
 - Badges by [Shields](https://shields.io)
+- Extension creation with the help of [Yo Code](https://github.com/Microsoft/vscode-generator-code) and [VSCE](https://github.com/microsoft/vscode-vsce)
 - Utilities components by
   - Me (SnippetOverviewGenerator.au3)
 
