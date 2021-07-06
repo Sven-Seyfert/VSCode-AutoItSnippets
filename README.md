@@ -1,7 +1,7 @@
 #####
 
 <p align="center">
-    <img src="https://github.com/Sven-Seyfert/VSCode-AutoItSnippets/blob/main/media/favicon.ico" width="80" />
+    <img src="images/icon.png" width="80" />
     <h2 align="center">Welcome to <code>VSCode-AutoItSnippets</code>【ツ】</h2>
 </p>
 
