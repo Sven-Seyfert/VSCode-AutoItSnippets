@@ -1,0 +1,273 @@
+{
+    "AddBackslashToPathEnd": {
+        "body": [
+            "Func _addBackslashToPathEnd( $$sPath )",
+            "    If StringRight( $$sPath, 1 ) <> '\\' Then $$sPath &= '\\'",
+            "",
+            "    Return $$sPath",
+            "EndFunc"
+        ],
+        "description": "Ensure trailing backslash for a path.",
+        "prefix": "!au3_addBackslashToPathEnd"
+    },
+    "AppendToFile": {
+        "body": [
+            "Func _appendToFile( $$sFile, $$sText )",
+            "    Local $$hFile = FileOpen( $$sFile, 1 + 256 )",
+            "    FileWrite( $$hFile, $$sText )",
+            "    FileClose( $$hFile )",
+            "EndFunc"
+        ],
+        "description": "Append text to file.",
+        "prefix": "!au3_appendToFile"
+    },
+    "CreateFileWithSpecificSize": {
+        "body": [
+            "Func _createFileWithSpecificSize( $$iSize = 5, $$sUnit = 'MB', $$sPath = @ScriptDir & '\\', $$sFile = 'SpecificFile.tmp' )",
+            "    DllCall( 'kernel32.dll', 'int', 'Wow64DisableWow64FsRedirection', 'int', 1 )",
+            "",
+            "    Local $$iByteSize",
+            "    Select",
+            "        Case $$sUnit = 'B'",
+            "            $$iByteSize = Int( $$iSize * 1024 ^ 0 )",
+            "        Case $$sUnit = 'KB'",
+            "            $$iByteSize = Int( $$iSize * 1024 ^ 1 )",
+            "        Case $$sUnit = 'MB'",
+            "            $$iByteSize = Int( $$iSize * 1024 ^ 2 )",
+            "        Case $$sUnit = 'GB'",
+            "            $$iByteSize = Int( $$iSize * 1024 ^ 3 )",
+            "        Case $$sUnit = 'TB'",
+            "            $$iByteSize = Int( $$iSize * 1024 ^ 4 )",
+            "        Case Else",
+            "    EndSelect",
+            "",
+            "    ShellExecuteWait( @ComSpec, '/C fsutil file createnew \"' & $$sPath & $$sFile & '\" ' & $$iByteSize, '', 'runas', @SW_HIDE )",
+            "    If FileExists( $$sFile ) Then FileMove( $$sPath & $$sFile, $$sPath & $$iSize & $$sUnit & '_' & $$sFile )",
+            "EndFunc"
+        ],
+        "description": "Create a dummy file with a specific file size.",
+        "prefix": "!au3_createFileWithSpecificSize"
+    },
+    "FileExistsBranch": {
+        "body": [
+            "Func _fileExistsBranch( $$sFileOrPath )",
+            "    If FileExists( $$sFileOrPath ) Then",
+            "        ; ...",
+            "    Else",
+            "        ; ...",
+            "    EndIf",
+            "EndFunc"
+        ],
+        "description": "Check condition for file or directory exists.",
+        "prefix": "!au3_fileExistsBranch"
+    },
+    "GetFileContent": {
+        "body": [
+            "Func _getFileContent( $$sFile )",
+            "    Local Const $$iOverwriteMode = 256",
+            "",
+            "    Local $$hFile        = FileOpen( $$sFile, $$iOverwriteMode )",
+            "    Local $$sFileContent = FileRead( $$hFile )",
+            "    FileClose( $$hFile )",
+            "",
+            "    Return $$sFileContent",
+            "EndFunc"
+        ],
+        "description": "Get file content to string.",
+        "prefix": "!au3_getFileContent"
+    },
+    "GetFileProperties": {
+        "body": [
+            "Func _getFileProperties( $$sDirectory, $$sFileName, $$bRemoveEmptyLines = True )",
+            "    Local $$oShellApp           = ObjCreate( 'Shell.Application' )",
+            "    Local $$oFolder             = $$oShellApp.NameSpace( $$sDirectory )",
+            "    Local $$oFolderItem         = $$oFolder.Parsename( $$sFileName )",
+            "    Local $$aPropertyList[1][2] = [[1]]",
+            "",
+            "    For $$i = 0 To 400 Step 1",
+            "        If $$oFolder.GetDetailsOf( $$oFolder.Items, $$i ) Then",
+            "            ReDim $$aPropertyList[$$aPropertyList[0][0] + 1][2]",
+            "            $$aPropertyList[$$aPropertyList[0][0]][0] = $$oFolder.GetDetailsOf( $$oFolder.Items, $$i )",
+            "            $$aPropertyList[$$aPropertyList[0][0]][1] = $$oFolder.GetDetailsOf( $$oFolderItem, $$i )",
+            "            $$aPropertyList[0][0] += 1",
+            "        EndIf",
+            "    Next",
+            "    _ArraySort( $$aPropertyList, 0, 1, 0 )",
+            "",
+            "    If $$bRemoveEmptyLines Then",
+            "        For $$i = $$aPropertyList[0][0] - 1 To 1 Step - 1",
+            "            If $$aPropertyList[$$i][1] == '' Then _ArrayDelete( $$aPropertyList, $$i )",
+            "        Next",
+            "    EndIf",
+            "",
+            "    $$aPropertyList[0][0] = UBound( $$aPropertyList, 1 ) - 1",
+            "",
+            "    Return $$aPropertyList",
+            "EndFunc"
+        ],
+        "description": "Get all possible file properties to array.",
+        "prefix": "!au3_getFileProperties"
+    },
+    "GetFileShare": {
+        "body": [
+            "Func _getFileShare()",
+            "    Local $$oWMIService = ObjGet( 'winmgmts:\\\\\\\\.\\root\\CIMV2' )",
+            "    Local $$oColItems   = $$oWMIService.ExecQuery( 'SELECT * FROM Win32_Share' )",
+            "    Local $$aFileShares[1]",
+            "",
+            "    For $$sObjItem in $$oColItems",
+            "        _ArrayAdd( $$aFileShares, $$sObjItem.Name )",
+            "        _ArrayAdd( $$aFileShares, $$sObjItem.Path )",
+            "        _ArrayAdd( $$aFileShares, $$sObjItem.Description )",
+            "        _ArrayAdd( $$aFileShares, $$sObjItem.Status )",
+            "    Next",
+            "",
+            "    Return $$aFileShares",
+            "EndFunc"
+        ],
+        "description": "Get a list of FileShares as array.",
+        "prefix": "!au3_getFileShare"
+    },
+    "GetJustFileExtension": {
+        "body": [
+            "Func _getJustFileExtension( $$sFileName )",
+            "    Return StringReverse( _StringBetween( StringReverse( $$sFileName ), '', '.' )[0] )",
+            "EndFunc"
+        ],
+        "description": "Get just the file extension of a file name or file path.",
+        "prefix": "!au3_getJustFileExtension"
+    },
+    "GetJustFileName": {
+        "body": [
+            "Func _getJustFileName( $$sFilePath )",
+            "    Return StringRegExpReplace( $$sFilePath, '(.+?)\\\\\\', '', 0 )",
+            "EndFunc"
+        ],
+        "description": "Get just the file name of a file path (including the file extension).",
+        "prefix": "!au3_getJustFileName"
+    },
+    "GetJustPathOfFile": {
+        "body": [
+            "Func _getJustPathOfFile( $$sFilePath )",
+            "    Return StringTrimRight( $$sFilePath, StringLen( _getJustFileName( $$sFilePath ) ) )",
+            "EndFunc"
+        ],
+        "description": "Get just the path of a file.",
+        "prefix": "!au3_getJustPathOfFile"
+    },
+    "IsFileInUse": {
+        "body": [
+            "Func _isFileInUse( $$sFile )",
+            "    Local $$vGENERIC_READ          = 0x80000000",
+            "    Local $$vGENERIC_WRITE         = 0x40000000",
+            "    Local $$vFILE_ATTRIBUTE_NORMAL = 0x80",
+            "    Local $$iOPEN_EXISTING         = 3",
+            "    Local $$iDA                    = BitOR( $$vGENERIC_READ, $$vGENERIC_WRITE )",
+            "",
+            "    Local $$aRet = DllCall( 'Kernel32.dll', 'hwnd', 'CreateFile', 'str', $$sFile, 'dword', $$iDA, 'dword', _",
+            "        0x00000000, 'dword', 0x00000000, 'dword', $$iOPEN_EXISTING, 'dword', $$vFILE_ATTRIBUTE_NORMAL, 'hwnd', 0 )",
+            "",
+            "    Local $$iError = @error",
+            "    If @error Or IsArray( $$aRet ) == 0 Then Return SetError( $$iError, 0, -1 )",
+            "",
+            "    Local $$hFile = $$aRet[0]",
+            "",
+            "    If $$hFile = -1 Then",
+            "        $$aRet = DllCall( 'Kernel32.dll', 'int', 'GetLastError' )",
+            "        If @error Or IsArray( $$aRet ) == 0 Then Return SetError( $$iError, 0, 1 )",
+            "        Return SetError( $$aRet[0], 0, True )",
+            "    Else",
+            "        DllCall( 'Kernel32.dll', 'int', 'CloseHandle', 'hwnd', $$hFile )",
+            "        Return SetError( @error, 0, False )",
+            "    EndIf",
+            "EndFunc"
+        ],
+        "description": "Check is file in use by another process.",
+        "prefix": "!au3_isFileInUse"
+    },
+    "RelativeToAbsolutePath": {
+        "body": [
+            "Func _relativeToAbsolutePath( $$sRelativePath )",
+            "    Local $$aPathHierarchy = StringRegExp( $$sRelativePath, '(.+?)\\\\\\', 3 )",
+            "    Local $$iRelativeCount = 0",
+            "",
+            "    For $$i = 0 To UBound( $$aPathHierarchy ) - 1 Step 1",
+            "        If $$aPathHierarchy[$$i] == '..' Then $$iRelativeCount += 1",
+            "    Next",
+            "",
+            "    If $$iRelativeCount > 0 Then",
+            "        Local $$sNewPath      = StringReverse( @ScriptDir )",
+            "        Local $$sRelativePart = _StringRepeat( '..\\', $$iRelativeCount )",
+            "",
+            "        $$sNewPath = StringRegExpReplace( $$sNewPath, '(.+?)\\\\\\', '', $$iRelativeCount )",
+            "        $$sNewPath = StringReverse( $$sNewPath ) & '\\'",
+            "",
+            "        Return StringReplace( $$sRelativePath, $$sRelativePart, $$sNewPath )",
+            "    Else",
+            "        Return $$sRelativePath",
+            "    EndIf",
+            "EndFunc"
+        ],
+        "description": "Resolve relative path to absolute path.",
+        "prefix": "!au3_relativeToAbsolutePath"
+    },
+    "SetMaxDirectories": {
+        "body": [
+            "Func _setMaxDirectories( $$sPath, $$i = 10 )",
+            "    Local $$aListOfPaths = _FileListToArray( $$sPath, '*', 2, True )",
+            "    If IsArray( $$aListOfPaths ) == 1 Then",
+            "        If $$aListOfPaths[0] >= $$i Then",
+            "            DirRemove( $$aListOfPaths[1], 1 )",
+            "        EndIf",
+            "    EndIf",
+            "EndFunc"
+        ],
+        "description": "Remove directories until the maximum count of directories is reached (e. g. for log directories with a timestamp as name).",
+        "prefix": "!au3_setMaxDirectories"
+    },
+    "SetMaxFiles": {
+        "body": [
+            "Func _setMaxFiles( $$sPath, $$i = 10 )",
+            "    Local $$aListOfFiles = _FileListToArray( $$sPath, '*.log', 1, True )",
+            "    If IsArray( $$aListOfFiles ) Then",
+            "        If $$aListOfFiles[0] >= $$i Then",
+            "            FileDelete( $$aListOfFiles[1] )",
+            "        EndIf",
+            "    EndIf",
+            "EndFunc"
+        ],
+        "description": "Remove files until the maximum count of files is reached (e. g. for log files with a timestamp as name).",
+        "prefix": "!au3_setMaxFiles"
+    },
+    "SortFileByAscOrDesc": {
+        "body": [
+            "Func _sortFileByAscOrDesc( $$sFile, $$iAscOrDesc = 0 )",
+            "    Local $$sFileContent = _getFileContent( $$sFile )",
+            "    Local $$aFileContent = StringSplit( $$sFileContent, @CRLF, 1 )",
+            "",
+            "    _ArrayDelete( $$aFileContent, 0 )",
+            "    _ArraySort( $$aFileContent, $$iAscOrDesc, 1 )",
+            "",
+            "    Local $$sText = _ArrayToString( $$aFileContent, @CRLF )",
+            "    If @error <> 0 Then",
+            "        ; ...",
+            "    EndIf",
+            "",
+            "    _writeFile( $$sFile, $$sText )",
+            "EndFunc"
+        ],
+        "description": "Sort file content ascending or descending.",
+        "prefix": "!au3_sortFileByAscOrDesc"
+    },
+    "WriteFile": {
+        "body": [
+            "Func _writeFile( $$sFile, $$sText )",
+            "    Local $$hFile = FileOpen( $$sFile, 2 + 8 + 256 )",
+            "    FileWrite( $$hFile, $$sText )",
+            "    FileClose( $$hFile )",
+            "EndFunc"
+        ],
+        "description": "Create or overwrite a file with the given content.",
+        "prefix": "!au3_writeFile"
+    }
+}

@@ -1,0 +1,179 @@
+{
+    "GetLabelSize": {
+        "body": [
+            "Func _getLabelSize( $$sLabel, $$sWidthOrHeight = 'w', $$iSize = 9, $$iWeight = 400, $$sFontName = '' )",
+            "    Local $$hWnd       = GUICreate( $$sLabel, 0, 0, 0, 0, BitOR( 0x80000000, 0x20000000 ), BitOR( 0x00000080, 0x00000020 ) )",
+            "    Local $$hGuiSwitch = GUISwitch( $$hWnd )",
+            "",
+            "    GUISetFont( $$iSize, $$iWeight, -1, $$sFontName, $$hWnd )",
+            "",
+            "    Local $$aCtrlSize  = ControlGetPos( $$hWnd, '', GUICtrlCreateLabel( $$sLabel, 0, 0 ) )",
+            "",
+            "    GUIDelete( $$hWnd )",
+            "    GUISwitch( $$hGuiSwitch )",
+            "",
+            "    If $$sWidthOrHeight == 'w' Then Return $$aCtrlSize[2]",
+            "    If $$sWidthOrHeight == 'h' Then Return $$aCtrlSize[3]",
+            "EndFunc"
+        ],
+        "description": "Get the label size (with or height in pixel).",
+        "prefix": "!au3_getLabelSize"
+    },
+    "GetWindowHandle": {
+        "body": [
+            "Func _getWindowHandle( $$sTitle )",
+            "    Local $$aListOfOpenWindows = WinList()",
+            "",
+            "    For $$i = 1 To $$aListOfOpenWindows[0][0] Step 1",
+            "        If StringInStr( $$aListOfOpenWindows[$$i][0], $$sTitle, 2 ) <> 0 Then Return $$aListOfOpenWindows[$$i][1]",
+            "    Next",
+            "",
+            "    Return False",
+            "EndFunc"
+        ],
+        "description": "Get window handle by title.",
+        "prefix": "!au3_getWindowHandle"
+    },
+    "GuiAllowedInputs": {
+        "body": [
+            "Func _guiAllowedInputs( $$cControl, $$sAllowedPattern, $$iReturnValue = 1 )",
+            "    Local $$sControlData = GUICtrlRead( $$cControl )",
+            "",
+            "    If StringRegExp( $$sControlData, $$sAllowedPattern, 0 ) == $$iReturnValue Then",
+            "        Return GUICtrlSetData( $$cControl, StringTrimRight( $$sControlData, 1 ) )",
+            "    EndIf",
+            "EndFunc"
+        ],
+        "description": "Control GUI input data by allowed input values (keystrokes).",
+        "prefix": "!au3_guiAllowedInputs"
+    },
+    "GuiInputFilterWMCommand": {
+        "body": [
+            "; example ------------------------------",
+            "; Local  $$oMain = GUICreate( '_guiAllowedInputs', 300, 90, -1, -1 )",
+            "; Global $$cInp1 = GUICtrlCreateInput( '', 5, 5, 290 )",
+            "; Global $$cInp2 = GUICtrlCreateInput( '', 5, 35, 290 )",
+            "; Global $$cInp3 = GUICtrlCreateInput( '', 5, 65, 290 )",
+            "; GUISetState( @SW_SHOW, $$oMain )",
+            ";",
+            "; GUIRegisterMsg( $$WM_COMMAND, '_guiInputFilterWMCommand' )",
+            ";",
+            "; While 1",
+            ";     Switch GUIGetMsg()",
+            ";         Case $$GUI_EVENT_CLOSE",
+            ";             GUIDelete( $$oMain )",
+            ";",
+            ";             Exit",
+            ";     EndSwitch",
+            "; WEnd",
+            "; --------------------------------------",
+            "Func _guiInputFilterWMCommand( $$hWnd, $$iMsg, $$iwParam, $$ilParam )",
+            "    Switch $$ilParam",
+            "        Case GUICtrlGetHandle( $$cInp1 ), GUICtrlGetHandle( $$cInp2 ), GUICtrlGetHandle( $$cInp3 )",
+            "            Switch _WinAPI_HiWord( $$iwParam )",
+            "                Case 0x300",
+            "                    _guiAllowedInputs( $$cInp1, '\\D', 1 )             ; just numbers",
+            "                    _guiAllowedInputs( $$cInp2, '\\d', 1 )             ; just letters",
+            "                    _guiAllowedInputs( $$cInp3, '^\\d+,?(\\d+)?$', 0 ) ; just money (DE format)",
+            "            EndSwitch",
+            "    EndSwitch",
+            "",
+            "    Return $$GUI_RUNDEFMSG",
+            "EndFunc"
+        ],
+        "description": "Watch and filter specific GUI input controls by specific RegEx pattern.",
+        "prefix": "!au3_guiInputFilterWMCommand"
+    },
+    "GuiSetWinToCenter": {
+        "body": [
+            "Func _guiSetWinToCenter( $$hWin, $$sTitle = '', $$iWWindow = @DesktopWidth, $$iHWindow = @DesktopHeight )",
+            "    Local $$aSize  = WinGetClientSize( $$hWin, $$sTitle )",
+            "    Local $$iSizeX = ( $$iWWindow / 2 ) - ( $$aSize[0] / 2 )",
+            "    Local $$iSizeY = ( $$iHWindow / 2 ) - ( $$aSize[1] / 2 )",
+            "",
+            "    Return WinMove( $$hWin, $$sTitle, $$iSizeX, $$iSizeY )",
+            "EndFunc"
+        ],
+        "description": "Set window to center on screen.",
+        "prefix": "!au3_guiSetWinToCenter"
+    },
+    "GuiWindowShakeAsHint": {
+        "body": [
+            "Func _guiWindowShakeAsHint( $$sTitle, $$iDistance = 20, $$sSleep = 90 )",
+            "    Local $$hWin    = WinGetHandle( $$sTitle )",
+            "    Local $$aWinPos = WinGetPos( $$hWin )",
+            "    Local $$aArray[5] = [4, $$aWinPos[0] + $$iDistance, $$aWinPos[0], $$aWinPos[0] + $$iDistance, $$aWinPos[0]]",
+            "",
+            "    WinActivate( $$sTitle )",
+            "    For $$i = 1 To $$aArray[0] Step 1",
+            "        WinMove( $$hWin, '', $$aArray[$$i], Default )",
+            "        Sleep( $$sSleep )",
+            "    Next",
+            "EndFunc"
+        ],
+        "description": "Let the window shake a bit as a popup hint.",
+        "prefix": "!au3_guiWindowShakeAsHint"
+    },
+    "IsFocusOnGui": {
+        "body": [
+            "Func _isFocusOnGui( $$hGuiOrTitle )",
+            "    Local Const $$iStateOfFocusedWindow = 15",
+            "",
+            "    Return WinGetState( $$hGuiOrTitle ) == $$iStateOfFocusedWindow",
+            "EndFunc"
+        ],
+        "description": "Is given GUI in focus (window exists, window is visible, window is enabled and window is active).",
+        "prefix": "!au3_isFocusOnGui"
+    },
+    "IsMouseOnGui": {
+        "body": [
+            "Func _isMouseOnGui( $$hGui )",
+            "    Local $$aMouse = MouseGetPos()",
+            "    Local $$aGui   = WinGetPos( $$hGui )",
+            "",
+            "    If $$aMouse[0] >= $$aGui[0] And _",
+            "       $$aMouse[1] >= $$aGui[1] And _",
+            "       $$aMouse[0] <= $$aGui[0] + $$aGui[2] And _",
+            "       $$aMouse[1] <= $$aGui[1] + $$aGui[3] Then",
+            "       Return True",
+            "    EndIf",
+            "",
+            "    Return False",
+            "EndFunc"
+        ],
+        "description": "Is mouse over the GUI.",
+        "prefix": "!au3_isMouseOnGui"
+    },
+    "SetVisualStateOfStartBar": {
+        "body": [
+            "Func _setVisualStateOfStartBar( $$bShouldBeVisible )",
+            "    If $$bShouldBeVisible Then",
+            "        _startBarToggle( '@SW_HIDE' )",
+            "    Else",
+            "        _startBarToggle( '@SW_MAXIMIZE' )",
+            "    EndIf",
+            "EndFunc"
+        ],
+        "description": "Toggle visual state of the windows start bar.",
+        "prefix": "!au3_setVisualStateOfStartBar"
+    },
+    "ShowToolTipInfo": {
+        "body": [
+            "Func _showToolTipInfo( $$sInfo )",
+            "    ToolTip( @CRLF & @TAB & @TAB & $$sInfo & @TAB & @TAB & @CRLF & ' ', 5, 5 )",
+            "EndFunc"
+        ],
+        "description": "Show tool tip text with padding.",
+        "prefix": "!au3_showToolTipInfo"
+    },
+    "StartBarToggle": {
+        "body": [
+            "Func _startBarToggle( $$sState )",
+            "    WinSetState( 'classname=Shell_TrayWnd', '', Execute( $$sState ) )",
+            "    ControlHide( 'classname=Button', '', '' )",
+            "EndFunc"
+        ],
+        "description": "Show or hide windows start bar.",
+        "prefix": "!au3_startBarToggle"
+    }
+}

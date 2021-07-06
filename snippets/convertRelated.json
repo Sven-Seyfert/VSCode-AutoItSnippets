@@ -1,0 +1,91 @@
+{
+    "ConvertBinToInt": {
+        "body": [
+            "Func _convertBinToInt( $$vBin )",
+            "    Local $$iInt, $$j = 1",
+            "    Local $$aTmp = StringSplit( StringReverse( $$vBin ), '' )",
+            "",
+            "    For $$i = 1 To UBound( $$aTmp ) - 1 Step 1",
+            "        $$iInt += $$aTmp[$$i] * $$j",
+            "        $$j *= 2",
+            "    Next",
+            "",
+            "    $$aTmp = 0",
+            "",
+            "    Return StringFormat( '%.0f', $$iInt )",
+            "EndFunc"
+        ],
+        "description": "Convert binary to integer.",
+        "prefix": "!au3_convertBinToInt"
+    },
+    "ConvertHexToInt": {
+        "body": [
+            "Func _convertHexToInt( $$vHex )",
+            "    Return Int( $$vHex )",
+            "EndFunc"
+        ],
+        "description": "Convert hex to integer.",
+        "prefix": "!au3_convertHexToInt"
+    },
+    "ConvertIntToBin": {
+        "body": [
+            "Func _convertIntToBin( $$i )",
+            "    If $$i == 0 Then Return 0",
+            "",
+            "    Local $$vBin",
+            "    While $$i > 0",
+            "        $$vBin &= Mod( $$i, 2 )",
+            "        $$i     = Floor( $$i / 2 )",
+            "    WEnd",
+            "",
+            "    Return( StringReverse( $$vBin ) )",
+            "EndFunc"
+        ],
+        "description": "Convert integer to binary.",
+        "prefix": "!au3_convertIntToBin"
+    },
+    "ConvertIntToHex": {
+        "body": [
+            "Func _convertIntToHex( $$i )",
+            "    Local $$aHex[16] = [0, 1, 2, 3, 4, 5 ,6 ,7 ,8, 9, 'A', 'B', 'C', 'D', 'E', 'F']",
+            "    Local $$vHex",
+            "",
+            "    While 1",
+            "        $$vHex &= $$aHex[Mod( $$i, 0x10 )]",
+            "        $$i     = Floor( $$i / 0x10 )",
+            "        If Not $$i Then ExitLoop",
+            "    WEnd",
+            "",
+            "    Return StringReverse( $$vHex )",
+            "EndFunc"
+        ],
+        "description": "Convert integer to hex.",
+        "prefix": "!au3_convertIntToHex"
+    },
+    "ConvertIntToOct": {
+        "body": [
+            "Func _convertIntToOct( $$i )",
+            "    Local $$iOct",
+            "",
+            "    While 1",
+            "        $$iOct &= Mod( $$i, 0x8 )",
+            "        $$i     = Floor( $$i / 0x8 )",
+            "        If Not $$i Then ExitLoop",
+            "    WEnd",
+            "",
+            "    Return StringReverse( $$iOct )",
+            "EndFunc"
+        ],
+        "description": "Convert integer to octal number.",
+        "prefix": "!au3_convertIntToOct"
+    },
+    "HexColorInvert": {
+        "body": [
+            "Func _hexColorInvert( $$vHexCode )",
+            "    Return '0x' & Hex ( 0xFFFFFF - $$vHexCode, 6 )",
+            "EndFunc"
+        ],
+        "description": "Invert the given hex color.",
+        "prefix": "!au3_hexColorInvert"
+    }
+}

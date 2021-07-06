@@ -1,0 +1,84 @@
+{
+    "ArrayDisplay": {
+        "body": [
+            "_ArrayDisplay( ${1:$$aArray}, '$1' )"
+        ],
+        "description": "Default _ArrayDisplay with the array name as title.",
+        "prefix": "!au3_arrayDisplay"
+    },
+    "FileContentToArray": {
+        "body": [
+            "Func _fileContentToArray( $$sContent, $$sDelimiter = @CRLF )",
+            "    Local $$aList = StringSplit( $$sContent, $$sDelimiter, 1 )",
+            "          $$aList = _transformToZeroBasedArray( $$aList )",
+            "",
+            "    Return _filterEmptyLinesFromArray( $$aList )",
+            "EndFunc"
+        ],
+        "description": "File content or multiline string to array.",
+        "prefix": "!au3_fileContentToArray"
+    },
+    "FilterEmptyLinesFromArray": {
+        "body": [
+            "Func _filterEmptyLinesFromArray( $$aList )",
+            "    For $$i = _getCount( $$aList ) To 1 Step -1",
+            "        If $$aList[$$i] == '' Then",
+            "            _ArrayDelete( $$aList, $$i )",
+            "        EndIf",
+            "    Next",
+            "",
+            "    Return $$aList",
+            "EndFunc"
+        ],
+        "description": "Remove empty strings from array.",
+        "prefix": "!au3_filterEmptyLinesFromArray"
+    },
+    "GetCount": {
+        "body": [
+            "Func _getCount( $$aList )",
+            "    Return UBound( $$aList ) - 1",
+            "EndFunc"
+        ],
+        "description": "Get array index count.",
+        "prefix": "!au3_getCount"
+    },
+    "SortColumnSequenceOf2dArray": {
+        "body": [
+            "Func _sortColumnSequenceOf2dArray( $$a2dArray, $$iAscOrDesc = 0 )",
+            "    Local $$aJustColumns[1]",
+            "    For $$i = 0 To UBound( $$a2dArray, 2 ) - 2 Step 1",
+            "        _ArrayAdd( $$aJustColumns, $$a2dArray[0][$$i] )",
+            "    Next",
+            "",
+            "    _ArrayDelete( $$aJustColumns, 0 )",
+            "    _ArraySort( $$aJustColumns, $$iAscOrDesc )",
+            "",
+            "    Local $$aNew2DArray[UBound( $$a2dArray, 1 )][UBound( $$a2dArray, 2 )]",
+            "    For $$i = 0 To UBound( $$aJustColumns ) - 1 Step 1",
+            "        For $$j = 0 To UBound( $$aJustColumns ) - 1 Step 1",
+            "            If $$a2dArray[0][$$j] == $$aJustColumns[$$i] Then",
+            "                For $$k = 0 To UBound( $$a2dArray, 1 ) - 1 Step 1",
+            "                    $$aNew2DArray[$$k][$$i] = $$a2dArray[$$k][$$j]",
+            "                Next",
+            "            EndIf",
+            "        Next",
+            "    Next",
+            "",
+            "    Return $$aNew2DArray",
+            "EndFunc"
+        ],
+        "description": "Sort column sequence alphabetically of a multidimensional array.",
+        "prefix": "!au3_sortColumnSequenceOf2dArray"
+    },
+    "TransformToZeroBasedArray": {
+        "body": [
+            "Func _transformToZeroBasedArray( $$aList )",
+            "    _ArrayDelete( $$aList, 0 )",
+            "",
+            "    Return $$aList",
+            "EndFunc"
+        ],
+        "description": "Transform an array which starts on index one to a zero based array.",
+        "prefix": "!au3_transformToZeroBasedArray"
+    }
+}

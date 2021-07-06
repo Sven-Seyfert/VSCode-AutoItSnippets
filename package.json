@@ -1,0 +1,70 @@
+{
+    "name": "autoit-snippets",
+    "displayName": "AutoIt Snippets",
+    "description": "AutoIt Snippets is a Visual Studio Code extension that provides helpful functions which are commonly used for all kind of programming or automation tasks within AutoIt. For example for the work with strings, dates, arrays, for getting information (system and more) or to record mouse actions or even for the work with GUIs.",
+    "version": "1.0.0",
+    "publisher": "Sven Seyfert",
+    "homepage": "https://github.com/Sven-Seyfert/VSCode-AutoItSnippets/blob/main/README.md",
+    "license": "See LICENSE.md file next to the README.md.",
+    "engines": {
+        "vscode": "^1.57.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Sven-Seyfert/VSCode-AutoItSnippets.git"
+      },
+    "categories": [
+        "Snippets"
+    ],
+    "keywords": [
+        "AutoIt",
+        "au3",
+        "AutoIt3",
+        "Snippets"
+    ],
+    "icon": "./images/icon.png",
+    "contributes": {
+        "snippets": [
+            {
+                "language": "autoit",
+                "path": "./snippets/arrayRelated.json"
+            },
+            {
+                "language": "autoit",
+                "path": "./snippets/convertRelated.json"
+            },
+            {
+                "language": "autoit",
+                "path": "./snippets/cryptRelated.json"
+            },
+            {
+                "language": "autoit",
+                "path": "./snippets/dateRelated.json"
+            },
+            {
+                "language": "autoit",
+                "path": "./snippets/fileRelated.json"
+            },
+            {
+                "language": "autoit",
+                "path": "./snippets/guiRelated.json"
+            },
+            {
+                "language": "autoit",
+                "path": "./snippets/mathRelated.json"
+            },
+            {
+                "language": "autoit",
+                "path": "./snippets/miscRelated.json"
+            },
+            {
+                "language": "autoit",
+                "path": "./snippets/outputRelated.json"
+            },
+            {
+                "language": "autoit",
+                "path": "./snippets/stringRelated.json"
+            }
+        ]
+    }
+}

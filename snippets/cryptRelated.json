@@ -1,0 +1,20 @@
+{
+    "DecryptFromUtf16LittleEndian": {
+        "body": [
+            "Func _decryptFromUtf16LittleEndian( $$sText )",
+            "    Return BinaryToString( '0x' & $$sText, 2 )",
+            "EndFunc"
+        ],
+        "description": "Decrypt from UTF16 Little Endian (UTF-16LE).",
+        "prefix": "!au3_decryptFromUtf16LittleEndian"
+    },
+    "EncryptToUtf16LittleEndian": {
+        "body": [
+            "Func _encryptToUtf16LittleEndian( $$sText )",
+            "    Return StringTrimLeft( StringToBinary( $$sText, 2 ), 2 )",
+            "EndFunc"
+        ],
+        "description": "Encrypt to UTF16 Little Endian (UTF-16LE).",
+        "prefix": "!au3_encryptToUtf16LittleEndian"
+    }
+}

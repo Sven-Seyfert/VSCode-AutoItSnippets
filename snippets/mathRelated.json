@@ -1,0 +1,34 @@
+{
+    "IsNumberOdd": {
+        "body": [
+            "Func _isNumberOdd( $$iNumber )",
+            "    Return ( Mod( $$iNumber, 2 ) <> 0 ) ? True : False",
+            "EndFunc"
+        ],
+        "description": "Is number odd or even.",
+        "prefix": "!au3_isNumberOdd"
+    },
+    "Math_GgT_kgV": {
+        "body": [
+            "Func _math_GgT_kgV( $$a = 5, $$b = 37 )",
+            "    Local $$sString1 = 'ggT von ' & $$a & ' und ' & $$b & ' = '",
+            "    Local $$sString2 = 'kgV von ' & $$a & ' und ' & $$b & ' = '",
+            "    Local $$c, $$f, $$m = $$a, $$n = $$b",
+            "",
+            "    $$c = 1",
+            "    While $$c <> 0",
+            "        $$f = Int( $$a / $$b )",
+            "        $$c = $$a - $$b * $$f",
+            "        If $$c <> 0 Then",
+            "            $$a = $$b",
+            "            $$b = $$c",
+            "        EndIf",
+            "    WEnd",
+            "",
+            "    Return $$sString1 & $$b & @CRLF & $$sString2 & $$m * $$n / $$b",
+            "EndFunc"
+        ],
+        "description": "Get 'greatest common divisor' and 'least common multiple'.",
+        "prefix": "!au3_math_GgT_kgV"
+    }
+}

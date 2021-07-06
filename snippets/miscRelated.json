@@ -1,0 +1,266 @@
+{
+    "DeleteCurrentScriptAfterRun": {
+        "body": [
+            "Func _deleteCurrentScriptAfterRun( $$sCmd = @SystemDir & '\\cmd.exe' )",
+            "    Run( $$sCmd & ' /C del /F /Q \"' & @ScriptFullPath & '\"', @TempDir, @SW_HIDE )",
+            "EndFunc"
+        ],
+        "description": "Delete current script after execution (after run).",
+        "prefix": "!au3_deleteCurrentScriptAfterRun"
+    },
+    "DrawRecordedMouseMovesFromFile": {
+        "body": [
+            "Func _drawRecordedMouseMovesFromFile( $$sFile, $$iXInitPosition = 0, $$iYInitPosition = 0 )",
+            "    MouseMove( $$iXInitPosition, $$iYInitPosition, 4 )",
+            "    MouseDown( 'left' )",
+            "",
+            "    Local $$sFileContent = _getFileContent( $$sFile )",
+            "    Local $$aFileContent = StringSplit( $$sFileContent, @CRLF, 1 )",
+            "",
+            "    For $$i = 1 To $$aFileContent[0] Step 1",
+            "        ; expected line(s) in file are like this 'MouseMove( 400, 337, 4 )'",
+            "        If $$aFileContent[$$i] <> '' Then Execute( $$aFileContent[$$i] )",
+            "    Next",
+            "",
+            "    MouseUp( 'left' )",
+            "EndFunc"
+        ],
+        "description": "Draw recorded mouse moves (like a curve) from data of a file (see function _recordMouseMovesToConsole).",
+        "prefix": "!au3_drawRecordedMouseMovesFromFile"
+    },
+    "ExtractZipVia7z": {
+        "body": [
+            "Func _extractZipVia7z( $$sZipTool, $$sZip, $$sDestinationPath )",
+            "    Local $$sFileName  = _getJustFileName( $$sZip )",
+            "    $$sDestinationPath &= StringTrimRight( $$sFileName, 4 )",
+            "",
+            "    DirRemove( $$sDestinationPath, 1 )",
+            "",
+            "    Local $$iExitCode = ShellExecuteWait( @ComSpec, ' /C ' & $$sZipTool & ' x \"' & $$sZip & '\" -o\"' & $$sDestinationPath & '\"', '', '', @SW_HIDE )",
+            "    If $$iExitCode == 0 Then",
+            "        ; ...",
+            "    Else",
+            "        ; ...",
+            "    EndIf",
+            "EndFunc"
+        ],
+        "description": "Extract zip archive by 7z call.",
+        "prefix": "!au3_extractZipVia7z"
+    },
+    "GetGuid": {
+        "body": [
+            "Func _getGuid()",
+            "    Local $$sGuid  = _getGuidSegment( 8 )",
+            "        $$sGuid &= '-' & _getGuidSegment( 4 )",
+            "        $$sGuid &= '-' & _getGuidSegment( 4 )",
+            "        $$sGuid &= '-' & _getGuidSegment( 4 )",
+            "        $$sGuid &= '-' & _getGuidSegment( 12 )",
+            "",
+            "    Return $$sGuid",
+            "EndFunc"
+        ],
+        "description": "Get a valid GUID.",
+        "prefix": "!au3_getGuid"
+    },
+    "GetGuidSegment": {
+        "body": [
+            "Func _getGuidSegment( $$iSegmentCount )",
+            "    Local $$sGuidSegment",
+            "",
+            "    For $$i = 1 To $$iSegmentCount Step 1",
+            "        ; Ten digits, 6 alphabetical characters",
+            "        Switch Random( 1, 16, 1 )",
+            "            Case 1 To 10",
+            "                ; Character 0-9",
+            "                $$sGuidSegment &= Chr( Random( 48, 57, 1 ) )",
+            "",
+            "            Case 11 To 16",
+            "                ; Character A-F",
+            "                $$sGuidSegment &= Chr( Random( 65, 70, 1 ) )",
+            "        EndSwitch",
+            "    Next",
+            "",
+            "    Return $$sGuidSegment",
+            "EndFunc"
+        ],
+        "description": "Get GUID segment which is used in function _getGuid.",
+        "prefix": "!au3_getGuidSegment"
+    },
+    "GetMacOrIpAddress": {
+        "body": [
+            "Func _getMacOrIpAddress()",
+            "    Local $oWmiService      = ObjGet( 'winmgmts:{impersonationLevel=impersonate}!\\\\.\\root\\cimv2' )",
+            "    Local $oNetworkAdapters = $oWmiService.ExecQuery( 'select * from Win32_NetworkAdapterConfiguration where IPEnabled = True' )",
+            "",
+            "    Local $sMacAddress = ''",
+            "",
+            "    For $oNetworkAdapter in $oNetworkAdapters",
+            "    $sMacAddress = $oNetworkAdapter.MACAddress",
+            "    If $sMacAddress <> '' Then ExitLoop",
+            "    Next",
+            "",
+            "    Return $sMacAddress <> '' ? $sMacAddress : @IPAddress1",
+            "EndFunc"
+        ],
+        "description": "Get MAC address or if not found the IP address.",
+        "prefix": "!au3_getMacOrIpAddress"
+    },
+    "GetMonitorResolution": {
+        "body": [
+            "Func _getMonitorResolution()",
+            "    Local $$aPosition, $$aMonitorData = _WinAPI_EnumDisplayMonitors()",
+            "",
+            "    If IsArray( $$aMonitorData ) Then",
+            "        ReDim $$aMonitorData[$$aMonitorData[0][0] + 1][5]",
+            "        For $$i = 1 To $$aMonitorData[0][0] Step 1",
+            "            $$aPosition = _WinAPI_GetPosFromRect( $$aMonitorData[$$i][1] )",
+            "            For $$j = 0 To 3 Step 1",
+            "                $$aMonitorData[$$i][$$j + 1] = $$aPosition[$$j]",
+            "            Next",
+            "        Next",
+            "    EndIf",
+            "",
+            "    Return $$aMonitorData",
+            "EndFunc"
+        ],
+        "description": "Get monitor resolution data as array.",
+        "prefix": "!au3_getMonitorResolution"
+    },
+    "GetProcessPathByPID": {
+        "body": [
+            "Func _getProcessPathByPID( $$iPID = -1 )",
+            "    If $$iPID = -1 Then $$iPID = WinGetProcess( WinGetTitle( '[active]' ) )",
+            "",
+            "    Local $$hProcess = _WinAPI_OpenProcess( 0x00000400, True, $$iPID, True )",
+            "    Local $$strPath  = DllStructCreate( 'char path[256]' )",
+            "    Local $$aRet, $$sDeviceLetter",
+            "",
+            "    DllCall( @SystemDir & '\\Psapi.dll', 'uint64', 'GetProcessImageFileNameA', 'hwnd', $$hProcess, 'ptr', DllStructGetPtr( $$strPath ), 'int', 256 )",
+            "",
+            "    Local $$sPath  = DllStructGetData( $$strPath, 'path' )",
+            "    If $$sPath    == '' Then Return -1",
+            "",
+            "    Local $$aDevicePath = StringRegExp( $$sPath, '\\\\\\\\Device\\\\\\\\\\\\w*', 1 )",
+            "    Local $$aDrive      = DriveGetDrive( 'ALL' )",
+            "    Local $$lpTargetPath",
+            "",
+            "    For $$i = 1 To UBound( $$aDrive ) - 1 Step 1",
+            "        $$aRet = DllCall( 'kernel32.dll', 'long', 'QueryDosDeviceA', 'str', $$aDrive[$$i], 'str', $$lpTargetPath, 'long', 256 )",
+            "        If $$aRet[2] == $$aDevicePath[0] Then",
+            "            $$sDeviceLetter = $$aDrive[$$i]",
+            "            ExitLoop",
+            "        EndIf",
+            "    Next",
+            "",
+            "    DllCall( 'kernel32.dll', 'long', 'CloseHandle', 'long', $$hProcess )",
+            "",
+            "    Return StringReplace( $$sPath, $$aDevicePath[0], StringUpper( $$sDeviceLetter ) )",
+            "EndFunc"
+        ],
+        "description": "Get process path by process id (PID).",
+        "prefix": "!au3_getProcessPathByPID"
+    },
+    "MsgBoxWithoutStop": {
+        "body": [
+            "Func _msgBoxWithoutStop( $$iFlag, $$sTitle, $$sText, $$iTimeout = 0 )",
+            "    Local $$sAu3Exe  = '\"' & @AutoItExe & '\"'",
+            "    Local $$sParam   = ' /AutoIt3ExecuteLine '",
+            "    Local $$sMessage = '\"MsgBox( ' & $$iFlag & ', ''' & $$sTitle & ''', ''' & $$sText & ''', ''' & $$iTimeout & ''' )\"'",
+            "",
+            "    Return Run( $$sAu3Exe & $$sParam & $$sMessage )",
+            "EndFunc"
+        ],
+        "description": "Show a message box without stop/pause the program execution.",
+        "prefix": "!au3_msgBoxWithoutStop"
+    },
+    "PressKeyOrSendStringSeveralTimes": {
+        "body": [
+            "Func _pressKeyOrSendStringSeveralTimes( $$sKey, $$iHowOften = 1 )",
+            "    For $$i = 1 To $$iHowOften Step 1",
+            "        Send( $$sKey )",
+            "        Sleep( 120 )",
+            "    Next",
+            "EndFunc"
+        ],
+        "description": "Press key (keystroke) or send a string several times.",
+        "prefix": "!au3_pressKeyOrSendStringSeveralTimes"
+    },
+    "RecordMouseMovesToConsole": {
+        "body": [
+            "Global $$iXSave, $$iYSave, $$sMouseMoveAction",
+            "",
+            "Func _recordMouseMovesToConsole( $$iMouseMoveSpeed = 4 )",
+            "    If MouseGetPos()[0] <> $$iXSave Or $$iYSave <> MouseGetPos()[1] Then",
+            "        Local $$aPos = MouseGetPos()",
+            "        ConsoleWrite( 'MouseMove( ' & $$aPos[0] & ', ' & $$aPos[1] & ', ' & $$iMouseMoveSpeed & ' )' & @CRLF )",
+            "        $$iXSave = $$aPos[0]",
+            "        $$iYSave = $$aPos[1]",
+            "    EndIf",
+            "    Sleep( 100 )",
+            "EndFunc",
+            "",
+            "For $$i = 1 To 10 Step 1",
+            "    _recordMouseMovesToConsole()",
+            "Next"
+        ],
+        "description": "Record mouse move as 'MouseMove( ... )' string to console. Which is a preparation step for function _drawRecordedMouseMovesFromFile.",
+        "prefix": "!au3_recordMouseMovesToConsole"
+    },
+    "SetDisplayResolution": {
+        "body": [
+            "Func _setDisplayResolution( $$iDisplayWidth, $$iDisplayHeight )",
+            "    Local Const $$CDS_TEST               = 0x00000002",
+            "    Local Const $$CDS_UPDATEREGISTRY     = 0x00000001",
+            "    Local Const $$DM_BITSPERPEL          = 0x00040000",
+            "    Local Const $$DM_DISPLAYFREQUENCY    = 0x00400000",
+            "    Local Const $$DM_PELSHEIGHT          = 0x00100000",
+            "    Local Const $$DM_PELSWIDTH           = 0x00080000",
+            "    Local Const $$HWND_BROADCAST         = 0xffff",
+            "    Local Const $$WM_DISPLAYCHANGE       = 0x007E",
+            "",
+            "    Local $$iDisplayDepthInBitsPerPixel  = @DesktopDepth",
+            "    Local $$iDisplayRefreshRateInHertz   = @DesktopRefresh",
+            "",
+            "    Local $$tDEVMODE                     = DllStructCreate( 'byte[32];int[10];byte[32];int[6]' )",
+            "    Local $$aEnumDisplaySettingsResult   = DllCall( 'user32.dll', 'int', 'EnumDisplaySettings', 'ptr', 0, 'long', 0, 'ptr', DllStructGetPtr( $$tDEVMODE ) )",
+            "",
+            "    If @error Then Return -1",
+            "    If Not IsArray( $$aEnumDisplaySettingsResult ) Then Return -2",
+            "    If $$aEnumDisplaySettingsResult[0] == 0 Then Return -3",
+            "",
+            "    DllStructSetData( $$tDEVMODE, 2, BitOR( $$DM_PELSWIDTH, $$DM_PELSHEIGHT, $$DM_BITSPERPEL, $$DM_DISPLAYFREQUENCY ), 5 )",
+            "    DllStructSetData( $$tDEVMODE, 4, $$iDisplayWidth, 2 )",
+            "    DllStructSetData( $$tDEVMODE, 4, $$iDisplayHeight, 3 )",
+            "    DllStructSetData( $$tDEVMODE, 4, $$iDisplayDepthInBitsPerPixel, 1 )",
+            "    DllStructSetData( $$tDEVMODE, 4, $$iDisplayRefreshRateInHertz, 5 )",
+            "",
+            "    Local $$aChangeDisplaySettingsResult = DllCall( 'user32.dll', 'int', 'ChangeDisplaySettings', 'ptr', DllStructGetPtr( $$tDEVMODE ), 'int', $$CDS_TEST )",
+            "",
+            "    If @error Then Return -4",
+            "    If Not IsArray( $$aChangeDisplaySettingsResult ) Then Return -5",
+            "",
+            "    If $$aChangeDisplaySettingsResult[0] == 0 Then",
+            "        DllCall( 'user32.dll', 'int', 'ChangeDisplaySettings', 'ptr', DllStructGetPtr( $$tDEVMODE ), 'int', $$CDS_UPDATEREGISTRY )",
+            "        DllCall( 'user32.dll', 'int', 'SendMessage', 'hwnd', $$HWND_BROADCAST, 'int', $$WM_DISPLAYCHANGE, 'int', $$iDisplayDepthInBitsPerPixel, 'int', $$iDisplayHeight * 2 ^ 16 + $$iDisplayWidth )",
+            "    EndIf",
+            "",
+            "    $$tDEVMODE = ''",
+            "EndFunc"
+        ],
+        "description": "Set display resolution to specific display width and height.",
+        "prefix": "!au3_setDisplayResolution"
+    },
+    "TalkOverPcVoice": {
+        "body": [
+            "Func _talkOverPcVoice( $$sText = 'This is a test.', $$iVolume = 75 )",
+            "    Local $$objSpeech = ObjCreate( 'SAPI.SpVoice' )",
+            "    $$objSpeech.Rate = -0.8",
+            "    $$objSpeech.Volume = $$iVolume",
+            "    $$objSpeech.Speak( '<pitch middle=''0''>' & $$sText )",
+            "    $$objSpeech = ''",
+            "EndFunc"
+        ],
+        "description": "Let the computer read out your text by the use of the SAPI API.",
+        "prefix": "!au3_talkOverPcVoice"
+    }
+}

@@ -1,0 +1,50 @@
+{
+    "ConsoleWrite": {
+        "body": [
+            "ConsoleWrite( '|' & $1 & '|' & @CRLF )"
+        ],
+        "description": "Extends the default ConsoleWrite by start- and trailing pipe sign for better notice of whitespaces.",
+        "prefix": "!au3_consoleWrite"
+    },
+    "ConsoleWriteUnicodeChars": {
+        "body": [
+            "Func _consoleWriteUnicodeChars()",
+            "    For $$i = 160 To 255",
+            "        ConsoleWrite( 'Ascii Char Number: ' & $$i & '    Unicode: U+' & Hex( AscW( Chr( $$i ) ), 6 ) & @CRLF )",
+            "    Next",
+            "EndFunc"
+        ],
+        "description": "Write Unicode characters to the console.",
+        "prefix": "!au3_consoleWriteUnicodeChars"
+    },
+    "GetAutoItEnvironmentInfos": {
+        "body": [
+            "Func _getAutoItEnvironmentInfos()",
+            "    ConsoleWrite( '@AutoItExe:     ' & @AutoItExe & @CRLF )",
+            "    ConsoleWrite( '@AutoItVersion: ' & @AutoItVersion & @CRLF )",
+            "    ConsoleWrite( '@CPUArch:       ' & @CPUArch & @CRLF )",
+            "    ConsoleWrite( '@OSArch:        ' & @OSArch & @CRLF )",
+            "    ConsoleWrite( '@OSVersion:     ' & @OSVersion & @CRLF )",
+            "EndFunc"
+        ],
+        "description": "Get AutoIt environment information.",
+        "prefix": "!au3_getAutoItEnvironmentInfos"
+    },
+    "GetComputerInfos": {
+        "body": [
+            "Func _getComputerInfos()",
+            "    ConsoleWrite( '@ComputerName:   ' & @ComputerName & @CRLF )",
+            "    ConsoleWrite( '@UserName:       ' & @UserName & @CRLF )",
+            "    ConsoleWrite( '@UserProfileDir: ' & @UserProfileDir & @CRLF )",
+            "    ConsoleWrite( '@OSType:         ' & @StartupDir & @CRLF )",
+            "    ConsoleWrite( '@IPAddress1:     ' & @IPAddress1 & @CRLF )",
+            "    ConsoleWrite( '@OSVersion:      ' & @OSVersion & @CRLF )",
+            "    ConsoleWrite( '@CPUArch:        ' & @CPUArch & @CRLF )",
+            "    ConsoleWrite( '@OSArch:         ' & @OSArch & @CRLF )",
+            "    ConsoleWrite( '@OSType:         ' & @OSType & @CRLF )",
+            "EndFunc"
+        ],
+        "description": "Get computer information.",
+        "prefix": "!au3_getComputerInfos"
+    }
+}
