@@ -15,15 +15,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Icon image displays correctly now in README.md file (png instead of ico).
 
-## [1.0.0] - 2021-07-07
-
-### Added
+### Added (already in version v1.0.0 - 2021-07-07)
 
 - The whole extension with all repository dependencies.
 
 [unreleased]: https://github.com/Sven-Seyfert/VSCode-AutoItSnippets/compare/v1.0.1...HEAD
-[1.0.1]: https://github.com/Sven-Seyfert/VSCode-AutoItSnippets/compare/v1.0.0...v1.0.1
-[1.0.0]: https://github.com/Sven-Seyfert/VSCode-AutoItSnippets/releases/tag/v1.0.0
+[1.0.1]: https://github.com/Sven-Seyfert/VSCode-AutoItSnippets/releases/tag/v1.0.1
 
 ---
 
