@@ -1,4 +1,28 @@
 {
+    "GuiFadeIn": {
+        "body": [
+            "Func _guiFadeIn( $$hGui, $$iSleep = 10 )",
+            "    For $$i = 0 To 255 Step 5",
+            "        WinSetTrans( $$hGui, '', $$i )",
+            "        Sleep( $$iSleep )",
+            "    Next",
+            "EndFunc"
+        ],
+        "description": "Fade GUI window in.",
+        "prefix": "!au3_guiFadeIn"
+    },
+    "GuiFadeOut": {
+        "body": [
+            "Func _guiFadeOut( $$hGui, $$iSleep = 10 )",
+            "    For $$i = 255 To 0 Step -5",
+            "        WinSetTrans( $$hGui, '', $$i )",
+            "        Sleep( $$iSleep )",
+            "    Next",
+            "EndFunc"
+        ],
+        "description": "Fade GUI window out.",
+        "prefix": "!au3_guiFadeOut"
+    },
     "GetLabelSize": {
         "body": [
             "Func _getLabelSize( $$sLabel, $$sWidthOrHeight = 'w', $$iSize = 9, $$iWeight = 400, $$sFontName = '' )",

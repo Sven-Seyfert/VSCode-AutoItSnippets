@@ -100,9 +100,11 @@ When your current file in VSCode is in "AutoIt language mode" then just type `!a
 | !au3_addBackslashToPathEnd | AddBackslashToPathEnd | Ensure trailing backslash for a path. |
 | !au3_appendToFile | AppendToFile | Append text to file. |
 | !au3_createFileWithSpecificSize | CreateFileWithSpecificSize | Create a dummy file with a specific file size. |
+| !au3_existsNotAllowedCharacters | ExistsNotAllowedCharacters | Check string for not allowed characters regarding a file renaming action. |
 | !au3_fileExistsBranch | FileExistsBranch | Check condition for file or directory exists. |
 | !au3_getFileContent | GetFileContent | Get file content to string. |
 | !au3_getFileProperties | GetFileProperties | Get all possible file properties to array. |
+| !au3_getFilePropertyValue | GetFilePropertyValue | Get specific file property value. |
 | !au3_getFileShare | GetFileShare | Get a list of FileShares as array. |
 | !au3_getJustFileExtension | GetJustFileExtension | Get just the file extension of a file name or file path. |
 | !au3_getJustFileName | GetJustFileName | Get just the file name of a file path (including the file extension). |
@@ -123,6 +125,8 @@ When your current file in VSCode is in "AutoIt language mode" then just type `!a
 
 | Prefix | Snippet | Description |
 | :--- | :--- | :--- |
+| !au3_guiFadeIn | GuiFadeIn | Fade GUI window in. |
+| !au3_guiFadeOut | GuiFadeOut | Fade GUI window out. |
 | !au3_getLabelSize | GetLabelSize | Get the label size (with or height in pixel). |
 | !au3_getWindowHandle | GetWindowHandle | Get window handle by title. |
 | !au3_guiAllowedInputs | GuiAllowedInputs | Control GUI input data by allowed input values (keystrokes). |

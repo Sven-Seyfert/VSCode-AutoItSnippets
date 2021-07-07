@@ -48,6 +48,24 @@
         "description": "Create a dummy file with a specific file size.",
         "prefix": "!au3_createFileWithSpecificSize"
     },
+    "ExistsNotAllowedCharacters": {
+        "body": [
+            "Func _existsNotAllowedCharacters( $$sString )",
+            "    If StringInStr( $$sString, '\\' ) <> 0 Then Return True",
+            "    If StringInStr( $$sString, '/' ) <> 0 Then Return True",
+            "    If StringInStr( $$sString, ':' ) <> 0 Then Return True",
+            "    If StringInStr( $$sString, '*' ) <> 0 Then Return True",
+            "    If StringInStr( $$sString, '?' ) <> 0 Then Return True",
+            "    If StringInStr( $$sString, '\"' ) <> 0 Then Return True",
+            "    If StringInStr( $$sString, '<' ) <> 0 Then Return True",
+            "    If StringInStr( $$sString, '>' ) <> 0 Then Return True",
+            "    If StringInStr( $$sString, '|' ) <> 0 Then Return True",
+            "    Return False",
+            "EndFunc"
+        ],
+        "description": "Check string for not allowed characters regarding a file renaming action.",
+        "prefix": "!au3_existsNotAllowedCharacters"
+    },
     "FileExistsBranch": {
         "body": [
             "Func _fileExistsBranch( $$sFileOrPath )",
@@ -107,6 +125,27 @@
         ],
         "description": "Get all possible file properties to array.",
         "prefix": "!au3_getFileProperties"
+    },
+    "GetFilePropertyValue": {
+        "body": [
+            "Func _getFilePropertyValue( $$sFile, $$sPropertyKey )",
+            "    Local $$oShellApp      = ObjCreate( 'Shell.Application' )",
+            "    Local $$oFolder        = $$oShellApp.NameSpace( _getJustPathOfFile( $$sFile ) )",
+            "    Local $$oFileName      = $$oFolder.Parsename( _getJustFileName( $$sFile ) )",
+            "    Local $$sPropertyValue = ''",
+            "",
+            "    For $$i = 0 To 400 Step 1",
+            "        If $$oFolder.GetDetailsOf( $$oFolder.Items, $$i ) == $$sPropertyKey Then",
+            "            $$sPropertyValue = $$oFolder.GetDetailsOf( $$oFileName, $$i )",
+            "            ExitLoop",
+            "        EndIf",
+            "    Next",
+            "",
+            "    Return $$sPropertyValue == '' ? '-' : $$sPropertyValue",
+            "EndFunc"
+        ],
+        "description": "Get specific file property value.",
+        "prefix": "!au3_getFilePropertyValue"
     },
     "GetFileShare": {
         "body": [

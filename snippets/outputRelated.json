@@ -36,7 +36,7 @@
             "    ConsoleWrite( '@ComputerName:   ' & @ComputerName & @CRLF )",
             "    ConsoleWrite( '@UserName:       ' & @UserName & @CRLF )",
             "    ConsoleWrite( '@UserProfileDir: ' & @UserProfileDir & @CRLF )",
-            "    ConsoleWrite( '@OSType:         ' & @StartupDir & @CRLF )",
+            "    ConsoleWrite( '@StartupDir:     ' & @StartupDir & @CRLF )",
             "    ConsoleWrite( '@IPAddress1:     ' & @IPAddress1 & @CRLF )",
             "    ConsoleWrite( '@OSVersion:      ' & @OSVersion & @CRLF )",
             "    ConsoleWrite( '@CPUArch:        ' & @CPUArch & @CRLF )",
