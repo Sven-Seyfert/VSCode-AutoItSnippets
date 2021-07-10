@@ -13,7 +13,9 @@
     "AppendToFile": {
         "body": [
             "Func _appendToFile( $$sFile, $$sText )",
-            "    Local $$hFile = FileOpen( $$sFile, 1 + 256 )",
+            "    Local Const $iUtf8WithoutBomAndAppendMode = 256 + 1",
+            "",
+            "    Local $$hFile = FileOpen( $$sFile, $$iUtf8WithoutBomAndAppendMode )",
             "    FileWrite( $$hFile, $$sText )",
             "    FileClose( $$hFile )",
             "EndFunc"
@@ -82,9 +84,9 @@
     "GetFileContent": {
         "body": [
             "Func _getFileContent( $$sFile )",
-            "    Local Const $$iOverwriteMode = 256",
+            "    Local Const $$iUtf8WithoutBomMode = 256",
             "",
-            "    Local $$hFile        = FileOpen( $$sFile, $$iOverwriteMode )",
+            "    Local $$hFile        = FileOpen( $$sFile, $$iUtf8WithoutBomMode )",
             "    Local $$sFileContent = FileRead( $$hFile )",
             "    FileClose( $$hFile )",
             "",
@@ -214,9 +216,11 @@
             "    If $$hFile = -1 Then",
             "        $$aRet = DllCall( 'Kernel32.dll', 'int', 'GetLastError' )",
             "        If @error Or IsArray( $$aRet ) == 0 Then Return SetError( $$iError, 0, 1 )",
+            "",
             "        Return SetError( $$aRet[0], 0, True )",
             "    Else",
             "        DllCall( 'Kernel32.dll', 'int', 'CloseHandle', 'hwnd', $$hFile )",
+            "",
             "        Return SetError( @error, 0, False )",
             "    EndIf",
             "EndFunc"
@@ -266,8 +270,8 @@
     },
     "SetMaxFiles": {
         "body": [
-            "Func _setMaxFiles( $$sPath, $$i = 10 )",
-            "    Local $$aListOfFiles = _FileListToArray( $$sPath, '*.log', 1, True )",
+            "Func _setMaxFiles( $$sPath, $$i = 10, $$sFileExtension = 'log' )",
+            "    Local $$aListOfFiles = _FileListToArray( $$sPath, '*.' & $$sFileExtension, 1, True )",
             "    If IsArray( $$aListOfFiles ) Then",
             "        If $$aListOfFiles[0] >= $$i Then",
             "            FileDelete( $$aListOfFiles[1] )",
@@ -301,7 +305,9 @@
     "WriteFile": {
         "body": [
             "Func _writeFile( $$sFile, $$sText )",
-            "    Local $$hFile = FileOpen( $$sFile, 2 + 8 + 256 )",
+            "    Local Const $$iUtf8WithoutBomAndOverwriteCreationMode = 256 + 2 + 8",
+            "",
+            "    Local $$hFile = FileOpen( $$sFile, $$iUtf8WithoutBomAndOverwriteCreationMode )",
             "    FileWrite( $$hFile, $$sText )",
             "    FileClose( $$hFile )",
             "EndFunc"

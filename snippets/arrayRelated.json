@@ -1,4 +1,42 @@
 {
+    "ArrayCreate": {
+        "body": [
+            "#include <Array.au3>",
+            "",
+            "Global $$aList[7] = _",
+            "    [ _",
+            "        'Monday', _",
+            "        'Tuesday', _",
+            "        'Wednesday', _",
+            "        'Thursday', _",
+            "        'Friday', _",
+            "        'Saturday', _",
+            "        'Sunday' _",
+            "    ]",
+            "",
+            "_ArrayDisplay( $$aList )"
+        ],
+        "description": "Create and initialize a 1D array as example.",
+        "prefix": "!au3_arrayCreate"
+    },
+    "ArrayCreate2D": {
+        "body": [
+            "#include <Array.au3>",
+            "",
+            "Global $$aList[5][2] = _",
+            "    [ _",
+            "        ['1', 'One'], _",
+            "        ['2', 'Two'], _",
+            "        ['3', 'Three'], _",
+            "        ['4', 'Four'], _",
+            "        ['5', 'Five'] _",
+            "    ]",
+            "",
+            "_ArrayDisplay( $$aList )"
+        ],
+        "description": "Create and initialize a 2D array as example.",
+        "prefix": "!au3_arrayCreate2D"
+    },
     "ArrayDisplay": {
         "body": [
             "_ArrayDisplay( ${1:$$aArray}, '$1' )"

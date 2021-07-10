@@ -74,7 +74,12 @@
     "GuiInputFilterWMCommand": {
         "body": [
             "; example ------------------------------",
-            "; Local  $$oMain = GUICreate( '_guiAllowedInputs', 300, 90, -1, -1 )",
+            "; #include-once",
+            "; #include <GUIConstantsEx.au3>",
+            "; #include <WinAPI.au3>",
+            "; #include <WindowsConstants.au3>",
+            ";",
+            "; Global $$oMain = GUICreate( '_guiAllowedInputs', 300, 90, -1, -1 )",
             "; Global $$cInp1 = GUICtrlCreateInput( '', 5, 5, 290 )",
             "; Global $$cInp2 = GUICtrlCreateInput( '', 5, 35, 290 )",
             "; Global $$cInp3 = GUICtrlCreateInput( '', 5, 65, 290 )",

@@ -1,11 +1,4 @@
 {
-    "ConsoleWrite": {
-        "body": [
-            "ConsoleWrite( '|' & $1 & '|' & @CRLF )"
-        ],
-        "description": "Extends the default ConsoleWrite by start- and trailing pipe sign for better notice of whitespaces.",
-        "prefix": "!au3_consoleWrite"
-    },
     "ConsoleWriteUnicodeChars": {
         "body": [
             "Func _consoleWriteUnicodeChars()",
@@ -46,5 +39,15 @@
         ],
         "description": "Get computer information.",
         "prefix": "!au3_getComputerInfos"
+    },
+    "Print": {
+        "body": [
+            "Func _print( $$sText, $$bWithPipeBoundaries = False )",
+            "    If $$bWithPipeBoundaries Then ConsoleWrite( '|' & $$sText & '|' & @CRLF )",
+            "    If Not $$bWithPipeBoundaries Then ConsoleWrite( $$sText & @CRLF )",
+            "EndFunc"
+        ],
+        "description": "Extends the default ConsoleWrite function by a default line break and optionally by start- and trailing pipe sign for better notice of whitespaces.",
+        "prefix": "!au3_print"
     }
 }

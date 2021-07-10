@@ -37,6 +37,8 @@ When your current file in VSCode is in "AutoIt language mode" then just type `!a
 
 | Prefix | Snippet | Description |
 | :--- | :--- | :--- |
+| !au3_arrayCreate | ArrayCreate | Create and initialize a 1D array as example. |
+| !au3_arrayCreate2D | ArrayCreate2D | Create and initialize a 2D array as example. |
 | !au3_arrayDisplay | ArrayDisplay | Default _ArrayDisplay with the array name as title. |
 | !au3_fileContentToArray | FileContentToArray | File content or multiline string to array. |
 | !au3_filterEmptyLinesFromArray | FilterEmptyLinesFromArray | Remove empty strings from array. |
@@ -70,6 +72,8 @@ When your current file in VSCode is in "AutoIt language mode" then just type `!a
 | Prefix | Snippet | Description |
 | :--- | :--- | :--- |
 | !au3_decryptFromUtf16LittleEndian | DecryptFromUtf16LittleEndian | Decrypt from UTF16 Little Endian (UTF-16LE). |
+| !au3_decryptString | DecryptString | Decrypt a encrypted string by your default crypt key to be human readable. |
+| !au3_encryptString | EncryptString | Encrypt string by your default crypt key to encrypted unreadable string. |
 | !au3_encryptToUtf16LittleEndian | EncryptToUtf16LittleEndian | Encrypt to UTF16 Little Endian (UTF-16LE). |
 
 <p>
@@ -149,7 +153,7 @@ When your current file in VSCode is in "AutoIt language mode" then just type `!a
 | Prefix | Snippet | Description |
 | :--- | :--- | :--- |
 | !au3_isNumberOdd | IsNumberOdd | Is number odd or even. |
-| !au3_math_GgT_kgV | Math_GgT_kgV | Get 'greatest common divisor' and 'least common multiple'. |
+| !au3_math_GreatestCommonDivisor_LeastCommonMultiple | Math_GreatestCommonDivisor_LeastCommonMultiple | Get 'greatest common divisor' and 'least common multiple' of to numbers. |
 
 <p>
 </details>
@@ -183,10 +187,10 @@ When your current file in VSCode is in "AutoIt language mode" then just type `!a
 
 | Prefix | Snippet | Description |
 | :--- | :--- | :--- |
-| !au3_consoleWrite | ConsoleWrite | Extends the default ConsoleWrite by start- and trailing pipe sign for better notice of whitespaces. |
 | !au3_consoleWriteUnicodeChars | ConsoleWriteUnicodeChars | Write Unicode characters to the console. |
 | !au3_getAutoItEnvironmentInfos | GetAutoItEnvironmentInfos | Get AutoIt environment information. |
 | !au3_getComputerInfos | GetComputerInfos | Get computer information. |
+| !au3_print | Print | Extends the default ConsoleWrite function by a default line break and optionally by start- and trailing pipe sign for better notice of whitespaces. |
 
 <p>
 </details>

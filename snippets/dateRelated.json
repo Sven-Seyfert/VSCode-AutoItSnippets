@@ -1,7 +1,7 @@
 {
     "CalendarWeekToDays": {
         "body": [
-            "Func _calendarWeekToDays( $$iKW, $$iYear = @YEAR )",
+            "Func _calendarWeekToDays( $$iCalendarWeek, $$iYear = @YEAR )",
             "    Local $$iDateReduce, $$iMaxWeeks, $$aReturnDate[8]",
             "    Local $$s4thJanuary = _DateToDayOfWeek( $$iYear, '01', '04' )",
             "    Local $$s1thJanuary = _DateToDayOfWeek( $$iYear, '01', '01' )",
@@ -26,18 +26,18 @@
             "            $$iMaxWeeks = 52",
             "    EndSwitch",
             "",
-            "    If $$iMaxWeeks == 52 And $$iKW == 53 Then",
+            "    If $$iMaxWeeks == 52 And $$iCalendarWeek == 53 Then",
             "        MsgBox( 16, 'Error', 'The given year only got 52 calendar weeks.', 30 )",
             "        Return -1",
             "    EndIf",
             "",
-            "    $$aReturnDate[0] = $$iMaxWeeks",
+            "    $$aDaysOfTheWeek[0] = $$iMaxWeeks",
             "",
             "    For $$i = 1 To 7 Step 1",
-            "        $$aReturnDate[$$i] = _DateAdd( 'w', $$iKW - 1, _DateAdd( 'D', $$i - 1, $$sFirstDayWeekISO ) )",
+            "        $$aDaysOfTheWeek[$$i] = _DateAdd( 'w', $$iCalendarWeek - 1, _DateAdd( 'D', $$i - 1, $$sFirstDayWeekISO ) )",
             "    Next",
             "",
-            "    Return $$aReturnDate",
+            "    Return $$aDaysOfTheWeek",
             "EndFunc"
         ],
         "description": "Get an array of days from the given calendar week.",

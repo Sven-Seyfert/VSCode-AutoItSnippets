@@ -2,8 +2,8 @@
 #AutoIt3Wrapper_AU3Check_Stop_OnWarning=y
 #AutoIt3Wrapper_Icon=..\media\favicon.ico
 #AutoIt3Wrapper_Outfile_x64=
-#AutoIt3Wrapper_Res_Description=FormatBddTable (2021-07-02)
-#AutoIt3Wrapper_Res_Fileversion=1.0.0
+#AutoIt3Wrapper_Res_Description=SnippetOverviewGenerator (2021-07-10)
+#AutoIt3Wrapper_Res_Fileversion=1.0.3
 #AutoIt3Wrapper_UseUpx=n
 #AutoIt3Wrapper_UseX64=y
 
@@ -43,9 +43,9 @@ Func _getJustFileName( $sFilePath )
 EndFunc
 
 Func _getFileContent( $sFile )
-    Local Const $iOverwriteMode = 256
+    Local Const $iUtf8WithoutBomMode = 256
 
-    Local $hFile        = FileOpen( $sFile, $iOverwriteMode )
+    Local $hFile        = FileOpen( $sFile, $iUtf8WithoutBomMode )
     Local $sFileContent = FileRead( $hFile )
     FileClose( $hFile )
 
@@ -102,4 +102,3 @@ EndFunc
 Func _getCount( $aList )
     Return UBound( $aList ) - 1
 EndFunc
-
