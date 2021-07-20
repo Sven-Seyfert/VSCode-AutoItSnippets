@@ -44,6 +44,22 @@
         "description": "Default _ArrayDisplay with the array name as title.",
         "prefix": "!au3_arrayDisplay"
     },
+    "ArrayItemsToString": {
+        "body": [
+            "Func _arrayItemsToString( $$aArray, $$sDelimiter = @CRLF )",
+            "    Local $$sString = ''",
+            "    Local $$iCount  = $$aArray[0]",
+            "",
+            "    For $$i = 1 To $$iCount Step 1",
+            "        $$sString &= $$aArray[$$i] & $$sDelimiter",
+            "    Next",
+            "",
+            "    Return $$sString",
+            "EndFunc"
+        ],
+        "description": "Combines all array items to a string. Similar to _ArrayToString function, but simpler.",
+        "prefix": "!au3_arrayItemsToString"
+    },
     "FileContentToArray": {
         "body": [
             "Func _fileContentToArray( $$sContent, $$sDelimiter = @CRLF )",

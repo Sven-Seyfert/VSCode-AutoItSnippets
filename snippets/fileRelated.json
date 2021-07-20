@@ -254,6 +254,19 @@
         "description": "Resolve relative path to absolute path.",
         "prefix": "!au3_relativeToAbsolutePath"
     },
+    "SaveBinaryToFile": {
+        "body": [
+            "Func _saveBinaryToFile( $$vString, $$sFilePath )",
+            "    Local Const $$iBinaryAndWriteMode = 16 + 2",
+            "",
+            "    Local $$hFile = FileOpen( $$sFilePath, $$iBinaryAndWriteMode )",
+            "    FileWrite( $$hFile, $$vString )",
+            "    FileClose( $$hFile )",
+            "EndFunc"
+        ],
+        "description": "Create a binary file out of a binary string (vString). See _base64ToBinary function.",
+        "prefix": "!au3_saveBinaryToFile"
+    },
     "SetMaxDirectories": {
         "body": [
             "Func _setMaxDirectories( $$sPath, $$i = 10 )",

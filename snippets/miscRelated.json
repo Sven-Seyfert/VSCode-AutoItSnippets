@@ -47,45 +47,6 @@
         "description": "Extract zip archive by 7z call.",
         "prefix": "!au3_extractZipVia7z"
     },
-    "GetGuid": {
-        "body": [
-            "Func _getGuid()",
-            "    Local $$sGuid  = _getGuidSegment( 8 )",
-            "        $$sGuid &= '-' & _getGuidSegment( 4 )",
-            "        $$sGuid &= '-' & _getGuidSegment( 4 )",
-            "        $$sGuid &= '-' & _getGuidSegment( 4 )",
-            "        $$sGuid &= '-' & _getGuidSegment( 12 )",
-            "",
-            "    Return $$sGuid",
-            "EndFunc"
-        ],
-        "description": "Get a valid GUID.",
-        "prefix": "!au3_getGuid"
-    },
-    "GetGuidSegment": {
-        "body": [
-            "Func _getGuidSegment( $$iSegmentCount )",
-            "    Local $$sGuidSegment",
-            "",
-            "    For $$i = 1 To $$iSegmentCount Step 1",
-            "        ; Ten digits, 6 alphabetical characters",
-            "        Switch Random( 1, 16, 1 )",
-            "            Case 1 To 10",
-            "                ; Character 0-9",
-            "                $$sGuidSegment &= Chr( Random( 48, 57, 1 ) )",
-            "",
-            "            Case 11 To 16",
-            "                ; Character A-F",
-            "                $$sGuidSegment &= Chr( Random( 65, 70, 1 ) )",
-            "        EndSwitch",
-            "    Next",
-            "",
-            "    Return $$sGuidSegment",
-            "EndFunc"
-        ],
-        "description": "Get GUID segment which is used in function _getGuid.",
-        "prefix": "!au3_getGuidSegment"
-    },
     "GetMacOrIpAddress": {
         "body": [
             "Func _getMacOrIpAddress()",
@@ -264,5 +225,14 @@
         ],
         "description": "Let the computer read out your text by the use of the SAPI API.",
         "prefix": "!au3_talkOverPcVoice"
+    },
+    "ToggleDesktopIcons": {
+        "body": [
+            "Func _toggleDesktopIcons()",
+            "    DllCall( 'user32.dll', 'lresult', 'SendMessage', 'hwnd', ControlGetHandle( '[CLASS:Progman]', '', '[CLASS:SHELLDLL_DefView]' ), 'uint', 0x0111, 'wparam', 29698, 'lparam', 0 )",
+            "EndFunc"
+        ],
+        "description": "Toggles the visibility of the desktop icons.",
+        "prefix": "!au3_toggleDesktopIcons"
     }
 }

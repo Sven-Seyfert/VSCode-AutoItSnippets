@@ -9,6 +9,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Nothing yet.
 
+## [1.0.4] - 2021-07-20
+
+### Added
+
+- Snippet file snippets/gameRelated.json.
+- One new snippets/functions in arrayRelated.json (_arrayItemsToString).
+- Two new snippets/functions in convertRelated.json (_base64ToBinary, _binaryToBase64).
+- One new snippets/functions in fileRelated.json (_saveBinaryToFile).
+- Four new snippets/functions in gameRelated.json (_getDistanceByPythagoras, _isKeyPressed, _isKeyReleased, _isPointPositionBetween).
+- Two new snippets/functions in mathRelated.json (_kilometresToMiles, _milesToKilometres).
+- One new snippets/functions in miscRelated.json (_toggleDesktopIcons).
+- Two new snippets/functions in stringRelated.json (_getUniqueMachineGuidString, _splitStringByCountToArray).
+
+### Changed
+
+- ReadMe section "Usage" has moved to "Getting started" section.
+- Move _getGuid and _getGuidSegment from miscRelated.json to stringRelated.json snippet file.
+- Rename function _math_GreatestCommonDivisor_LeastCommonMultiple to _get_GreatestCommonDivisor_LeastCommonMultiple.
+
 ## [1.0.3] - 2021-07-10
 
 ### Added
@@ -55,7 +74,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Icon image displays correctly now in README.md file (png instead of ico).
 
-[unreleased]: https://github.com/Sven-Seyfert/VSCode-AutoItSnippets/compare/v1.0.3...HEAD
+[unreleased]: https://github.com/Sven-Seyfert/VSCode-AutoItSnippets/compare/v1.0.4...HEAD
+[1.0.4]: https://github.com/Sven-Seyfert/VSCode-AutoItSnippets/compare/v1.0.3...v1.0.4
 [1.0.3]: https://github.com/Sven-Seyfert/VSCode-AutoItSnippets/compare/v1.0.2...v1.0.3
 [1.0.2]: https://github.com/Sven-Seyfert/VSCode-AutoItSnippets/compare/v1.0.1...v1.0.2
 [1.0.1]: https://github.com/Sven-Seyfert/VSCode-AutoItSnippets/releases/tag/v1.0.1

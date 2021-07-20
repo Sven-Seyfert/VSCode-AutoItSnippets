@@ -21,10 +21,6 @@ VSCode-AutoItSnippets, display name "AutoIt Snippets" is a Visual Studio Code ex
 
 ## Features
 
-#### Usage
-
-When your current file in VSCode is in "AutoIt language mode" then just type `!au3` and the intellicence and the auto-completion mode will give you the snippets overview.
-
 ![usage](screenshots/usageExample1.gif)
 
 ![usage](screenshots/usageExample2.gif)
@@ -40,6 +36,7 @@ When your current file in VSCode is in "AutoIt language mode" then just type `!a
 | !au3_arrayCreate | ArrayCreate | Create and initialize a 1D array as example. |
 | !au3_arrayCreate2D | ArrayCreate2D | Create and initialize a 2D array as example. |
 | !au3_arrayDisplay | ArrayDisplay | Default _ArrayDisplay with the array name as title. |
+| !au3_arrayItemsToString | ArrayItemsToString | Combines all array items to a string. Similar to _ArrayToString function, but simpler. |
 | !au3_fileContentToArray | FileContentToArray | File content or multiline string to array. |
 | !au3_filterEmptyLinesFromArray | FilterEmptyLinesFromArray | Remove empty strings from array. |
 | !au3_getCount | GetCount | Get array index count. |
@@ -55,6 +52,8 @@ When your current file in VSCode is in "AutoIt language mode" then just type `!a
 
 | Prefix | Snippet | Description |
 | :--- | :--- | :--- |
+| !au3_base64ToBinary | Base64ToBinary | Convert a Base64 string to a binary string (vString). |
+| !au3_binaryToBase64 | BinaryToBase64 | Reads a binary file and convert to Base64 string. |
 | !au3_convertBinToInt | ConvertBinToInt | Convert binary to integer. |
 | !au3_convertHexToInt | ConvertHexToInt | Convert hex to integer. |
 | !au3_convertIntToBin | ConvertIntToBin | Convert integer to binary. |
@@ -115,10 +114,25 @@ When your current file in VSCode is in "AutoIt language mode" then just type `!a
 | !au3_getJustPathOfFile | GetJustPathOfFile | Get just the path of a file. |
 | !au3_isFileInUse | IsFileInUse | Check is file in use by another process. |
 | !au3_relativeToAbsolutePath | RelativeToAbsolutePath | Resolve relative path to absolute path. |
+| !au3_saveBinaryToFile | SaveBinaryToFile | Create a binary file out of a binary string (vString). See _base64ToBinary function. |
 | !au3_setMaxDirectories | SetMaxDirectories | Remove directories until the maximum count of directories is reached (e. g. for log directories with a timestamp as name). |
 | !au3_setMaxFiles | SetMaxFiles | Remove files until the maximum count of files is reached (e. g. for log files with a timestamp as name). |
 | !au3_sortFileByAscOrDesc | SortFileByAscOrDesc | Sort file content ascending or descending. |
 | !au3_writeFile | WriteFile | Create or overwrite a file with the given content. |
+
+<p>
+</details>
+
+<details>
+<summary>Snippets with "game" related context</summary>
+<p>
+
+| Prefix | Snippet | Description |
+| :--- | :--- | :--- |
+| !au3_getDistanceByPythagoras | GetDistanceByPythagoras | Get the distance from one point to an other point by Pythagoras. |
+| !au3_isKeyPressed | IsKeyPressed | Indicates that a key of the keyboard is pressed. Returns the boolean. |
+| !au3_isKeyReleased | IsKeyReleased | Indicates that a key of the keyboard was released after it was pressed. Returns the boolean. |
+| !au3_isPointPositionBetween | IsPointPositionBetween | Detects whether the position of a point is between two other positions. |
 
 <p>
 </details>
@@ -152,8 +166,10 @@ When your current file in VSCode is in "AutoIt language mode" then just type `!a
 
 | Prefix | Snippet | Description |
 | :--- | :--- | :--- |
+| !au3_get_GreatestCommonDivisor_LeastCommonMultiple | Get_GreatestCommonDivisor_LeastCommonMultiple | Get 'greatest common divisor' and 'least common multiple' of to numbers. |
 | !au3_isNumberOdd | IsNumberOdd | Is number odd or even. |
-| !au3_math_GreatestCommonDivisor_LeastCommonMultiple | Math_GreatestCommonDivisor_LeastCommonMultiple | Get 'greatest common divisor' and 'least common multiple' of to numbers. |
+| !au3_kilometresToMiles | KilometresToMiles | Calculates the miles of given kilometers. |
+| !au3_milesToKilometres | MilesToKilometres | Calculates the kilometers of given miles. |
 
 <p>
 </details>
@@ -167,8 +183,6 @@ When your current file in VSCode is in "AutoIt language mode" then just type `!a
 | !au3_deleteCurrentScriptAfterRun | DeleteCurrentScriptAfterRun | Delete current script after execution (after run). |
 | !au3_drawRecordedMouseMovesFromFile | DrawRecordedMouseMovesFromFile | Draw recorded mouse moves (like a curve) from data of a file (see function _recordMouseMovesToConsole). |
 | !au3_extractZipVia7z | ExtractZipVia7z | Extract zip archive by 7z call. |
-| !au3_getGuid | GetGuid | Get a valid GUID. |
-| !au3_getGuidSegment | GetGuidSegment | Get GUID segment which is used in function _getGuid. |
 | !au3_getMacOrIpAddress | GetMacOrIpAddress | Get MAC address or if not found the IP address. |
 | !au3_getMonitorResolution | GetMonitorResolution | Get monitor resolution data as array. |
 | !au3_getProcessPathByPID | GetProcessPathByPID | Get process path by process id (PID). |
@@ -177,6 +191,7 @@ When your current file in VSCode is in "AutoIt language mode" then just type `!a
 | !au3_recordMouseMovesToConsole | RecordMouseMovesToConsole | Record mouse move as 'MouseMove( ... )' string to console. Which is a preparation step for function _drawRecordedMouseMovesFromFile. |
 | !au3_setDisplayResolution | SetDisplayResolution | Set display resolution to specific display width and height. |
 | !au3_talkOverPcVoice | TalkOverPcVoice | Let the computer read out your text by the use of the SAPI API. |
+| !au3_toggleDesktopIcons | ToggleDesktopIcons | Toggles the visibility of the desktop icons. |
 
 <p>
 </details>
@@ -202,7 +217,11 @@ When your current file in VSCode is in "AutoIt language mode" then just type `!a
 | Prefix | Snippet | Description |
 | :--- | :--- | :--- |
 | !au3_createRandomText | CreateRandomText | Create a random text (string based on different modi). |
+| !au3_getGuid | GetGuid | Get a valid GUID. |
+| !au3_getGuidSegment | GetGuidSegment | Get GUID segment which is used in function _getGuid. |
+| !au3_getUniqueMachineGuidString | GetUniqueMachineGuidString | Get unique machine guid as string. |
 | !au3_normalizeStringLength | NormalizeStringLength | Normalize string length for a good looking table like output result. |
+| !au3_splitStringByCountToArray | SplitStringByCountToArray | Split a long string by defined count to an array. |
 
 <p>
 </details>
@@ -238,6 +257,12 @@ Variant 3 - by Visual Studio Marketplace:
 
 - Go to the [AutoIt Snippets](https://marketplace.visualstudio.com/items?itemName=sven-seyfert.autoit-snippets) on the Visual Studio Marketplace
 - Install
+
+#### Usage
+
+See the animated GIFs in the "Features" section above.
+
+When your current file in VSCode is in "AutoIt language mode" then just type `!au3` and the intellicence and the auto-completion mode will give you the snippets overview.
 
 ## Contributing
 

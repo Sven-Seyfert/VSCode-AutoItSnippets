@@ -39,6 +39,59 @@
         "description": "Create a random text (string based on different modi).",
         "prefix": "!au3_createRandomText"
     },
+    "GetGuid": {
+        "body": [
+            "Func _getGuid()",
+            "    Local $$sGuid  = _getGuidSegment( 8 )",
+            "        $$sGuid &= '-' & _getGuidSegment( 4 )",
+            "        $$sGuid &= '-' & _getGuidSegment( 4 )",
+            "        $$sGuid &= '-' & _getGuidSegment( 4 )",
+            "        $$sGuid &= '-' & _getGuidSegment( 12 )",
+            "",
+            "    Return $$sGuid",
+            "EndFunc"
+        ],
+        "description": "Get a valid GUID.",
+        "prefix": "!au3_getGuid"
+    },
+    "GetGuidSegment": {
+        "body": [
+            "Func _getGuidSegment( $$iSegmentCount )",
+            "    Local $$sGuidSegment",
+            "",
+            "    For $$i = 1 To $$iSegmentCount Step 1",
+            "        ; Ten digits, 6 alphabetical characters",
+            "        Switch Random( 1, 16, 1 )",
+            "            Case 1 To 10",
+            "                ; Character 0-9",
+            "                $$sGuidSegment &= Chr( Random( 48, 57, 1 ) )",
+            "",
+            "            Case 11 To 16",
+            "                ; Character A-F",
+            "                $$sGuidSegment &= Chr( Random( 65, 70, 1 ) )",
+            "        EndSwitch",
+            "    Next",
+            "",
+            "    Return $$sGuidSegment",
+            "EndFunc"
+        ],
+        "description": "Get GUID segment which is used in function _getGuid.",
+        "prefix": "!au3_getGuidSegment"
+    },
+    "GetUniqueMachineGuidString": {
+        "body": [
+            "Func _getUniqueMachineGuidString()",
+            "    Local $$sMachineGuid = RegRead( 'HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Cryptography', 'MachineGuid' )",
+            "    $$sMachineGuid = StringReplace( $$sMachineGuid, '-', '' )",
+            "    $$sMachineGuid = StringTrimLeft( $$sMachineGuid, 5 )",
+            "    $$sMachineGuid = StringTrimRight( $$sMachineGuid, 7 )",
+            "",
+            "    Return StringLower( $$sMachineGuid )",
+            "EndFunc"
+        ],
+        "description": "Get unique machine guid as string.",
+        "prefix": "!au3_getUniqueMachineGuidString"
+    },
     "NormalizeStringLength": {
         "body": [
             "Func _normalizeStringLength( $$sString, $$iMaxLength )",
@@ -52,5 +105,25 @@
         ],
         "description": "Normalize string length for a good looking table like output result.",
         "prefix": "!au3_normalizeStringLength"
+    },
+    "SplitStringByCountToArray": {
+        "body": [
+            "Func _splitStringByCountToArray( $$sString, $$iCount = 80 )",
+            "    Local $$iParts = Ceiling( StringLen( $$sString ) / $$iCount )",
+            "",
+            "    Dim $$aContent[$$iParts + 1], $$x = 1",
+            "",
+            "    For $$i = 1 To $$iParts Step 1",
+            "        $$aContent[$$i] = StringMid( $$sString, $$x, $$iCount )",
+            "        $$x += $$iCount",
+            "    Next",
+            "",
+            "    $$aContent[0] = $$iParts",
+            "",
+            "    Return $$aContent",
+            "EndFunc"
+        ],
+        "description": "Split a long string by defined count to an array.",
+        "prefix": "!au3_splitStringByCountToArray"
     }
 }

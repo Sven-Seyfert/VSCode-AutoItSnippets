@@ -1,4 +1,40 @@
 {
+    "Base64ToBinary": {
+        "body": [
+            "Func _base64ToBinary( $$sBase64 )",
+            "    $$sBase64 = StringReplace( $$sBase64, @CRLF, '' )",
+            "",
+            "    Local $$aCrypt  = DllCall( 'Crypt32.dll', 'bool', 'CryptStringToBinaryA', 'str', $$sBase64, 'dword', 0, 'dword', 1, 'ptr', 0, 'dword*', 0, 'ptr', 0, 'ptr', 0 )",
+            "    Local $$bBuffer = DllStructCreate( 'byte[' & $$aCrypt[5] & ']' )",
+            "",
+            "    $$aCrypt = DllCall( 'Crypt32.dll', 'bool', 'CryptStringToBinaryA', 'str', $$sBase64, 'dword', 0, 'dword', 1, 'struct*', $$bBuffer, 'dword*', $$aCrypt[5], 'ptr', 0, 'ptr', 0 )",
+            "",
+            "    Return Binary( DllStructGetData( $$bBuffer, 1 ) )",
+            "EndFunc"
+        ],
+        "description": "Convert a Base64 string to a binary string (vString).",
+        "prefix": "!au3_base64ToBinary"
+    },
+    "BinaryToBase64": {
+        "body": [
+            "Func _binaryToBase64( $$sFilePath )",
+            "    Local Const $$iBinaryMode = 16",
+            "",
+            "    Local $$hFile        = FileOpen( $$sFilePath, $$iBinaryMode )",
+            "    Local $$vFileContent = FileRead( $$hFile )",
+            "    FileClose( $$hFile )",
+            "",
+            "    Local $$oXml           = ObjCreate( 'MSXML2.DOMDocument' )",
+            "    Local $$oNode          = $$oXml.createElement( 'b64' )",
+            "    $$oNode.dataType       = 'bin.base64'",
+            "    $$oNode.nodeTypedValue = $$vFileContent",
+            "",
+            "    Return StringReplace( $$oNode.Text, @LF, '' )",
+            "EndFunc"
+        ],
+        "description": "Reads a binary file and convert to Base64 string.",
+        "prefix": "!au3_binaryToBase64"
+    },
     "ConvertBinToInt": {
         "body": [
             "Func _convertBinToInt( $$vBin )",
