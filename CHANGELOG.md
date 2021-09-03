@@ -9,6 +9,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Nothing yet.
 
+## [1.0.5] - 2021-09-03
+
+### Added
+
+- New snippet file debugRelated.json with three functions (_doesFunctionExists, _getListOfAllFunctions, _getListOfAllVariables)
+- New snippet file zipRelated.json with two functions (_createZipArchive, _extractZipArchive)
+- One new snippets/functions in fileRelated.json (_openFolder).
+- Two new snippets/functions in outputRelated.json (_getCommandLineOutput, _newLine).
+- Two new snippets/functions in stringRelated.json (_stringProperWithoutSpaces, _stringProperWithSpaces).
+
+### Changed
+
+- Moved _extractZipVia7z from miscRelated.json to zipRelated.json.
+- Readme documentation of the snippets (other order of the table columns).
+
+### Fixed
+
+- Function _appendToFile which had a invalid variable.
+
 ## [1.0.4] - 2021-07-20
 
 ### Added
@@ -74,7 +93,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Icon image displays correctly now in README.md file (png instead of ico).
 
-[unreleased]: https://github.com/Sven-Seyfert/VSCode-AutoItSnippets/compare/v1.0.4...HEAD
+[unreleased]: https://github.com/Sven-Seyfert/VSCode-AutoItSnippets/compare/v1.0.5...HEAD
+[1.0.5]: https://github.com/Sven-Seyfert/VSCode-AutoItSnippets/compare/v1.0.4...v1.0.5
 [1.0.4]: https://github.com/Sven-Seyfert/VSCode-AutoItSnippets/compare/v1.0.3...v1.0.4
 [1.0.3]: https://github.com/Sven-Seyfert/VSCode-AutoItSnippets/compare/v1.0.2...v1.0.3
 [1.0.2]: https://github.com/Sven-Seyfert/VSCode-AutoItSnippets/compare/v1.0.1...v1.0.2

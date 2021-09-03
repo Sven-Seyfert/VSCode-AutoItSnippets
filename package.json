@@ -2,7 +2,7 @@
     "name": "autoit-snippets",
     "displayName": "AutoIt Snippets",
     "description": "AutoIt Snippets is a Visual Studio Code extension that provides helpful functions which are commonly used for all kind of programming or automation tasks within AutoIt. For example for the work with strings, dates, arrays, for getting information (system and more) or to record mouse actions or even for the work with GUIs.",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "publisher": "sven-seyfert",
     "homepage": "https://github.com/Sven-Seyfert/VSCode-AutoItSnippets/blob/main/README.md",
     "license": "See LICENSE.md file next to the README.md.",
@@ -43,6 +43,10 @@
             },
             {
                 "language": "autoit",
+                "path": "./snippets/debugRelated.json"
+            },
+            {
+                "language": "autoit",
                 "path": "./snippets/fileRelated.json"
             },
             {
@@ -68,6 +72,10 @@
             {
                 "language": "autoit",
                 "path": "./snippets/stringRelated.json"
+            },
+            {
+                "language": "autoit",
+                "path": "./snippets/zipRelated.json"
             }
         ]
     },

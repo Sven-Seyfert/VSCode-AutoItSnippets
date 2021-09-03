@@ -125,5 +125,63 @@
         ],
         "description": "Split a long string by defined count to an array.",
         "prefix": "!au3_splitStringByCountToArray"
+    },
+    "StringProperWithoutSpaces": {
+        "body": [
+            "Func _stringProperWithoutSpaces( $$sString )",
+            "    Local $$sCharacter          = ''",
+            "    Local $$sProperString       = ''",
+            "    Local $$bIsCapitalCharacter = True",
+            "    Local $$iCharactersCount    = StringLen( $$sString )",
+            "    Local Const $$sRegExPattern = '[a-zA-ZÀ-ÿšœžŸ]'",
+            "",
+            "    For $$i = 1 To $$iCharactersCount Step 1",
+            "        $$sCharacter = StringMid( $$sString, $$i, 1 )",
+            "",
+            "        Select",
+            "            Case $$bIsCapitalCharacter = True",
+            "                If StringRegExp( $$sCharacter, $$sRegExPattern ) Then",
+            "                    $$sCharacter = StringUpper( $$sCharacter )",
+            "                    $$bIsCapitalCharacter = False",
+            "                EndIf",
+            "",
+            "            Case Not StringRegExp( $$sCharacter, $$sRegExPattern )",
+            "                $$bIsCapitalCharacter = True",
+            "",
+            "            Case Else",
+            "                $$sCharacter = StringLower( $$sCharacter )",
+            "        EndSelect",
+            "",
+            "        $$sProperString &= $$sCharacter",
+            "    Next",
+            "",
+            "    Return StringStripWS( $$sProperString, 8 )",
+            "EndFunc"
+        ],
+        "description": "Reformat the given string to proper case without spaces ('This string will be reformated to proper case without spaces' => 'ThisStringWillBeReformatedToProperCaseWithoutSpaces').",
+        "prefix": "!au3_stringProperWithoutSpaces"
+    },
+    "StringProperWithSpaces": {
+        "body": [
+            "Func _stringProperWithSpaces( $$sString )",
+            "    Local $$sCharacter          = ''",
+            "    Local $$sProperString       = ''",
+            "    Local $$iCharactersCount    = StringLen( $$sString )",
+            "",
+            "    For $$i = 1 To $$iCharactersCount Step 1",
+            "        $$sCharacter = StringMid( $$sString, $$i, 1 )",
+            "",
+            "        If StringIsUpper( $$sCharacter ) Then",
+            "            $$sProperString &= ' ' & $$sCharacter",
+            "        Else",
+            "            $$sProperString &= $$sCharacter",
+            "        EndIf",
+            "    Next",
+            "",
+            "    Return StringTrimLeft( $$sProperString, 1 )",
+            "EndFunc"
+        ],
+        "description": "Reformat the given string to proper case with spaces ('ThisStringWillBeReformatedToStringProperCaseWithSpaces' => 'This String Will Be Reformated To String Proper Case With Spaces').",
+        "prefix": "!au3_stringProperWithSpaces"
     }
 }

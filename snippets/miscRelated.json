@@ -28,25 +28,6 @@
         "description": "Draw recorded mouse moves (like a curve) from data of a file (see function _recordMouseMovesToConsole).",
         "prefix": "!au3_drawRecordedMouseMovesFromFile"
     },
-    "ExtractZipVia7z": {
-        "body": [
-            "Func _extractZipVia7z( $$sZipTool, $$sZip, $$sDestinationPath )",
-            "    Local $$sFileName  = _getJustFileName( $$sZip )",
-            "    $$sDestinationPath &= StringTrimRight( $$sFileName, 4 )",
-            "",
-            "    DirRemove( $$sDestinationPath, 1 )",
-            "",
-            "    Local $$iExitCode = ShellExecuteWait( @ComSpec, ' /C ' & $$sZipTool & ' x \"' & $$sZip & '\" -o\"' & $$sDestinationPath & '\"', '', '', @SW_HIDE )",
-            "    If $$iExitCode == 0 Then",
-            "        ; ...",
-            "    Else",
-            "        ; ...",
-            "    EndIf",
-            "EndFunc"
-        ],
-        "description": "Extract zip archive by 7z call.",
-        "prefix": "!au3_extractZipVia7z"
-    },
     "GetMacOrIpAddress": {
         "body": [
             "Func _getMacOrIpAddress()",

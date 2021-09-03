@@ -2,8 +2,8 @@
 #AutoIt3Wrapper_AU3Check_Stop_OnWarning=y
 #AutoIt3Wrapper_Icon=..\media\favicon.ico
 #AutoIt3Wrapper_Outfile_x64=
-#AutoIt3Wrapper_Res_Description=SnippetOverviewGenerator (2021-07-10)
-#AutoIt3Wrapper_Res_Fileversion=1.0.3
+#AutoIt3Wrapper_Res_Description=SnippetOverviewGenerator (2021-09-03)
+#AutoIt3Wrapper_Res_Fileversion=1.0.5
 #AutoIt3Wrapper_UseUpx=n
 #AutoIt3Wrapper_UseX64=y
 
@@ -73,30 +73,26 @@ EndFunc
 Func _writeDataInTableStructureToOutput()
     Local $sExtractedRelatedSection = StringReplace( $sFileName, 'Related.json', '' )
 
-    _console( '<details>' )
-    _console( '<summary>Snippets with "' & $sExtractedRelatedSection & '" related context</summary>' )
-    _console( '<p>' )
-    _console( '' )
-    _console( '| Prefix | Snippet | Description |' )
-    _console( '| :--- | :--- | :--- |' )
+    _print( '<details>' )
+    _print( '<summary>Snippets with "' & $sExtractedRelatedSection & '" related context</summary>' )
+    _print( '<p>' )
+    _print()
+    _print( '| Snippet | Prefix | Description |' )
+    _print( '| :--- | :--- | :--- |' )
 
     Local $iCount = _getCount( $aListOfPrefixes )
     For $i = 0 To $iCount Step 1
-        _console( '| ' & $aListOfPrefixes[$i] & ' | ' & $aListOfNames[$i] & ' | ' & $aListOfDescriptions[$i] & ' |' )
+        _print( '| ' & $aListOfNames[$i] & ' | ' & $aListOfPrefixes[$i] & ' | ' & $aListOfDescriptions[$i] & ' |' )
     Next
 
-    _console()
-    _console( '<p>' )
-    _console( '</details>' )
-    _console()
+    _print()
+    _print( '<p>' )
+    _print( '</details>' )
+    _print()
 EndFunc
 
-Func _console( $sText = '', $iCountOfNewLines = 1 )
-    ConsoleWrite( $sText )
-
-    For $i = 1 To $iCountOfNewLines Step 1
-        ConsoleWrite( @CRLF )
-    Next
+Func _print( $sText = '' )
+    ConsoleWrite( $sText &  @CRLF )
 EndFunc
 
 Func _getCount( $aList )

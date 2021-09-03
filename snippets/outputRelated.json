@@ -23,6 +23,30 @@
         "description": "Get AutoIt environment information.",
         "prefix": "!au3_getAutoItEnvironmentInfos"
     },
+    "GetCommandLineOutput": {
+        "body": [
+            "Func _getCommandLineOutput( $$sCommand )",
+            "    Local Const $$iStdErrChild = 4",
+            "    Local Const $$iStdOutChild = 2",
+            "",
+            "    Local $$iPID    = Run( '\"' & @ComSpec & '\" /c ' & $$sCommand, '', @SW_HIDE, $$iStdErrChild + $$iStdOutChild )",
+            "    Local $$sOutput = ''",
+            "",
+            "    While True",
+            "        $$sOutput &= StdoutRead( $$iPID, False, False )",
+            "        If @error Then",
+            "            ExitLoop",
+            "        EndIf",
+            "",
+            "        Sleep(10)",
+            "    WEnd",
+            "",
+            "    Return $$sOutput",
+            "EndFunc"
+        ],
+        "description": "Read command line output (result of a given command) to string.",
+        "prefix": "!au3_getCommandLineOutput"
+    },
     "GetComputerInfos": {
         "body": [
             "Func _getComputerInfos()",
@@ -39,6 +63,21 @@
         ],
         "description": "Get computer information.",
         "prefix": "!au3_getComputerInfos"
+    },
+    "NewLine": {
+        "body": [
+            "Func _newLine( $$iCount = 1 )",
+            "    Local $$sNewLine = null",
+            "",
+            "    For $$i = 1 To $$iCount Step 1",
+            "        $$sNewLine &= @CRLF",
+            "    Next",
+            "",
+            "    Return $$sNewLine",
+            "EndFunc"
+        ],
+        "description": "Get one newline (carriage return and line feed) by default or multiple newlines by optional parameter.",
+        "prefix": "!au3_newLine"
     },
     "Print": {
         "body": [

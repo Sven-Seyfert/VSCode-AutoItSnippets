@@ -13,7 +13,7 @@
     "AppendToFile": {
         "body": [
             "Func _appendToFile( $$sFile, $$sText )",
-            "    Local Const $iUtf8WithoutBomAndAppendMode = 256 + 1",
+            "    Local Const $$iUtf8WithoutBomAndAppendMode = 256 + 1",
             "",
             "    Local $$hFile = FileOpen( $$sFile, $$iUtf8WithoutBomAndAppendMode )",
             "    FileWrite( $$hFile, $$sText )",
@@ -227,6 +227,15 @@
         ],
         "description": "Check is file in use by another process.",
         "prefix": "!au3_isFileInUse"
+    },
+    "OpenFolder": {
+        "body": [
+            "Func _openFolder( $$sFolderPath = @DesktopDir )",
+            "    ShellExecute( $$sFolderPath )",
+            "EndFunc"
+        ],
+        "description": "Open a given folder.",
+        "prefix": "!au3_openFolder"
     },
     "RelativeToAbsolutePath": {
         "body": [

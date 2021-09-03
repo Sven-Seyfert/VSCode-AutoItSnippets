@@ -1,0 +1,63 @@
+{
+    "DoesFunctionExists": {
+        "body": [
+            "Func _doesFunctionExists( $$sFunc, $$sFilePath )",
+            "    Local $$sFileContent = FileRead( $$sFilePath )",
+            "",
+            "    Local Const $$sRegExPatternForFunction = \"(?i)(?m:^|\\n)\\s*Func\\s+(\" & $$sFunc & \")\\s*\\(\"",
+            "    Local Const $$iMatchFlag = 0",
+            "",
+            "    Return StringRegExp( $$sFileContent, $$sRegExPatternForFunction, $$iMatchFlag )",
+            "EndFunc"
+        ],
+        "description": "Check function exists by name of the function in the given file.",
+        "prefix": "!au3_doesFunctionExists"
+    },
+    "GetListOfAllFunctions": {
+        "body": [
+            "Func _getListOfAllFunctions( $$sFilePath, $$bSorted = True )",
+            "    Local $$sFileContent = FileRead( $$sFilePath )",
+            "",
+            "    Local Const $$sRegExPatternForFunctions = \"(?i)(?m:^|\\n)\\s*Func\\s+(\\w+)\\s*\\(\"",
+            "    Local Const $$iGlobalMatchesFlag = 3",
+            "",
+            "    Local $$aListOfFunctions = StringRegExp( $$sFileContent, $$sRegExPatternForFunctions, $$iGlobalMatchesFlag )",
+            "",
+            "    If $$bSorted Then",
+            "        _ArraySort( $$aListOfFunctions )",
+            "    EndIf",
+            "",
+            "    Return $$aListOfFunctions",
+            "EndFunc"
+        ],
+        "description": "List all functions of the given file to an array.",
+        "prefix": "!au3_getListOfAllFunctions"
+    },
+    "GetListOfAllVariables": {
+        "body": [
+            "Func _getListOfAllVariables( $$sFilePath = @ScriptFullPath, $$bSorted = True )",
+            "    Local $$sFileContent = FileRead( $$sFilePath )",
+            "",
+            "    Local Const $$sRegExPatternForFunction = '(?<=\\\\$)\\w+?\\b'",
+            "    Local Const $$iGlobalMatchesFlag = 3",
+            "",
+            "    Local $$aListOfVariables       = StringRegExp( $$sFileContent, $$sRegExPatternForFunction, $$iGlobalMatchesFlag )",
+            "    Local $$aListOfUniqueVariables = _ArrayUnique( $$aListOfVariables )",
+            "",
+            "    _ArrayDelete( $$aListOfUniqueVariables, 0 )",
+            "",
+            "    If $$bSorted Then",
+            "        _ArraySort( $$aListOfUniqueVariables )",
+            "    EndIf",
+            "",
+            "    For $$i = 0 To _getCount( $$aListOfUniqueVariables )",
+            "        $$aListOfUniqueVariables[$$i] = '$' & $$aListOfUniqueVariables[$$i]",
+            "    Next",
+            "",
+            "    Return $$aListOfUniqueVariables",
+            "EndFunc"
+        ],
+        "description": "List all variables of the given file to an array.",
+        "prefix": "!au3_getListOfAllVariables"
+    }
+}
