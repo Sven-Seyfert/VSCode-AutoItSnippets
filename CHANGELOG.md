@@ -13,8 +13,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- New snippet file debugRelated.json with three functions (_doesFunctionExists, _getListOfAllFunctions, _getListOfAllVariables)
-- New snippet file zipRelated.json with two functions (_createZipArchive, _extractZipArchive)
+- New snippet file debugRelated.json with three functions (_doesFunctionExists, _getListOfAllFunctions, _getListOfAllVariables).
+- New snippet file zipRelated.json with two functions (_createZipArchive, _extractZipArchive).
 - One new snippets/functions in fileRelated.json (_openFolder).
 - Two new snippets/functions in outputRelated.json (_getCommandLineOutput, _newLine).
 - Two new snippets/functions in stringRelated.json (_stringProperWithoutSpaces, _stringProperWithSpaces).
