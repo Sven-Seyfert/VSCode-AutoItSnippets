@@ -3,7 +3,7 @@
         "body": [
             "Func _consoleWriteUnicodeChars()",
             "    For $$i = 160 To 255",
-            "        ConsoleWrite( 'Ascii Char Number: ' & $$i & '    Unicode: U+' & Hex( AscW( Chr( $$i ) ), 6 ) & @CRLF )",
+            "        ConsoleWrite('Ascii Char Number: ' & $$i & '    Unicode: U+' & Hex(AscW(Chr($$i)), 6) & @CRLF)",
             "    Next",
             "EndFunc"
         ],
@@ -13,11 +13,11 @@
     "GetAutoItEnvironmentInfos": {
         "body": [
             "Func _getAutoItEnvironmentInfos()",
-            "    ConsoleWrite( '@AutoItExe:     ' & @AutoItExe & @CRLF )",
-            "    ConsoleWrite( '@AutoItVersion: ' & @AutoItVersion & @CRLF )",
-            "    ConsoleWrite( '@CPUArch:       ' & @CPUArch & @CRLF )",
-            "    ConsoleWrite( '@OSArch:        ' & @OSArch & @CRLF )",
-            "    ConsoleWrite( '@OSVersion:     ' & @OSVersion & @CRLF )",
+            "    ConsoleWrite('@AutoItExe:     ' & @AutoItExe & @CRLF)",
+            "    ConsoleWrite('@AutoItVersion: ' & @AutoItVersion & @CRLF)",
+            "    ConsoleWrite('@CPUArch:       ' & @CPUArch & @CRLF)",
+            "    ConsoleWrite('@OSArch:        ' & @OSArch & @CRLF)",
+            "    ConsoleWrite('@OSVersion:     ' & @OSVersion & @CRLF)",
             "EndFunc"
         ],
         "description": "Get AutoIt environment information.",
@@ -25,15 +25,15 @@
     },
     "GetCommandLineOutput": {
         "body": [
-            "Func _getCommandLineOutput( $$sCommand )",
+            "Func _getCommandLineOutput($$sCommand)",
             "    Local Const $$iStdErrChild = 4",
             "    Local Const $$iStdOutChild = 2",
             "",
-            "    Local $$iPID    = Run( '\"' & @ComSpec & '\" /c ' & $$sCommand, '', @SW_HIDE, $$iStdErrChild + $$iStdOutChild )",
+            "    Local $$iPID    = Run('\"' & @ComSpec & '\" /c ' & $$sCommand, '', @SW_HIDE, $$iStdErrChild + $$iStdOutChild)",
             "    Local $$sOutput = ''",
             "",
             "    While True",
-            "        $$sOutput &= StdoutRead( $$iPID, False, False )",
+            "        $$sOutput &= StdoutRead($$iPID, False, False)",
             "        If @error Then",
             "            ExitLoop",
             "        EndIf",
@@ -50,15 +50,15 @@
     "GetComputerInfos": {
         "body": [
             "Func _getComputerInfos()",
-            "    ConsoleWrite( '@ComputerName:   ' & @ComputerName & @CRLF )",
-            "    ConsoleWrite( '@UserName:       ' & @UserName & @CRLF )",
-            "    ConsoleWrite( '@UserProfileDir: ' & @UserProfileDir & @CRLF )",
-            "    ConsoleWrite( '@StartupDir:     ' & @StartupDir & @CRLF )",
-            "    ConsoleWrite( '@IPAddress1:     ' & @IPAddress1 & @CRLF )",
-            "    ConsoleWrite( '@OSVersion:      ' & @OSVersion & @CRLF )",
-            "    ConsoleWrite( '@CPUArch:        ' & @CPUArch & @CRLF )",
-            "    ConsoleWrite( '@OSArch:         ' & @OSArch & @CRLF )",
-            "    ConsoleWrite( '@OSType:         ' & @OSType & @CRLF )",
+            "    ConsoleWrite('@ComputerName:   ' & @ComputerName & @CRLF)",
+            "    ConsoleWrite('@UserName:       ' & @UserName & @CRLF)",
+            "    ConsoleWrite('@UserProfileDir: ' & @UserProfileDir & @CRLF)",
+            "    ConsoleWrite('@StartupDir:     ' & @StartupDir & @CRLF)",
+            "    ConsoleWrite('@IPAddress1:     ' & @IPAddress1 & @CRLF)",
+            "    ConsoleWrite('@OSVersion:      ' & @OSVersion & @CRLF)",
+            "    ConsoleWrite('@CPUArch:        ' & @CPUArch & @CRLF)",
+            "    ConsoleWrite('@OSArch:         ' & @OSArch & @CRLF)",
+            "    ConsoleWrite('@OSType:         ' & @OSType & @CRLF)",
             "EndFunc"
         ],
         "description": "Get computer information.",
@@ -66,7 +66,7 @@
     },
     "NewLine": {
         "body": [
-            "Func _newLine( $$iCount = 1 )",
+            "Func _newLine($$iCount = 1)",
             "    Local $$sNewLine = null",
             "",
             "    For $$i = 1 To $$iCount Step 1",
@@ -81,9 +81,9 @@
     },
     "Print": {
         "body": [
-            "Func _print( $$sText, $$bWithPipeBoundaries = False )",
-            "    If $$bWithPipeBoundaries Then ConsoleWrite( '|' & $$sText & '|' & @CRLF )",
-            "    If Not $$bWithPipeBoundaries Then ConsoleWrite( $$sText & @CRLF )",
+            "Func _print($$sText, $$bWithPipeBoundaries = False)",
+            "    If $$bWithPipeBoundaries Then ConsoleWrite('|' & $$sText & '|' & @CRLF)",
+            "    If Not $$bWithPipeBoundaries Then ConsoleWrite($$sText & @CRLF)",
             "EndFunc"
         ],
         "description": "Extends the default ConsoleWrite function by a default line break and optionally by start- and trailing pipe sign for better notice of whitespaces.",

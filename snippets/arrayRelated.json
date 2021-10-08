@@ -14,7 +14,7 @@
             "        'Sunday' _",
             "    ]",
             "",
-            "_ArrayDisplay( $$aList )"
+            "_ArrayDisplay($$aList)"
         ],
         "description": "Create and initialize a 1D array as example.",
         "prefix": "!au3_arrayCreate"
@@ -32,21 +32,21 @@
             "        ['5', 'Five'] _",
             "    ]",
             "",
-            "_ArrayDisplay( $$aList )"
+            "_ArrayDisplay($$aList)"
         ],
         "description": "Create and initialize a 2D array as example.",
         "prefix": "!au3_arrayCreate2D"
     },
     "ArrayDisplay": {
         "body": [
-            "_ArrayDisplay( ${1:$$aArray}, '$1' )"
+            "_ArrayDisplay(${1:$$aArray}, '$1')"
         ],
         "description": "Default _ArrayDisplay with the array name as title.",
         "prefix": "!au3_arrayDisplay"
     },
     "ArrayItemsToString": {
         "body": [
-            "Func _arrayItemsToString( $$aArray, $$sDelimiter = @CRLF )",
+            "Func _arrayItemsToString($$aArray, $$sDelimiter = @CRLF)",
             "    Local $$sString = ''",
             "    Local $$iCount  = $$aArray[0]",
             "",
@@ -62,11 +62,11 @@
     },
     "FileContentToArray": {
         "body": [
-            "Func _fileContentToArray( $$sContent, $$sDelimiter = @CRLF )",
-            "    Local $$aList = StringSplit( $$sContent, $$sDelimiter, 1 )",
-            "          $$aList = _transformToZeroBasedArray( $$aList )",
+            "Func _fileContentToArray($$sContent, $$sDelimiter = @CRLF)",
+            "    Local $$aList = StringSplit($$sContent, $$sDelimiter, 1)",
+            "          $$aList = _transformToZeroBasedArray($$aList)",
             "",
-            "    Return _filterEmptyLinesFromArray( $$aList )",
+            "    Return _filterEmptyLinesFromArray($$aList)",
             "EndFunc"
         ],
         "description": "File content or multiline string to array.",
@@ -74,10 +74,10 @@
     },
     "FilterEmptyLinesFromArray": {
         "body": [
-            "Func _filterEmptyLinesFromArray( $$aList )",
-            "    For $$i = _getCount( $$aList ) To 1 Step -1",
+            "Func _filterEmptyLinesFromArray($$aList)",
+            "    For $$i = _getCount($$aList) To 1 Step -1",
             "        If $$aList[$$i] == '' Then",
-            "            _ArrayDelete( $$aList, $$i )",
+            "            _ArrayDelete($$aList, $$i)",
             "        EndIf",
             "    Next",
             "",
@@ -89,8 +89,8 @@
     },
     "GetCount": {
         "body": [
-            "Func _getCount( $$aList )",
-            "    Return UBound( $$aList ) - 1",
+            "Func _getCount($$aList)",
+            "    Return UBound($$aList) - 1",
             "EndFunc"
         ],
         "description": "Get array index count.",
@@ -98,20 +98,20 @@
     },
     "SortColumnSequenceOf2dArray": {
         "body": [
-            "Func _sortColumnSequenceOf2dArray( $$a2dArray, $$iAscOrDesc = 0 )",
+            "Func _sortColumnSequenceOf2dArray($$a2dArray, $$iAscOrDesc = 0)",
             "    Local $$aJustColumns[1]",
-            "    For $$i = 0 To UBound( $$a2dArray, 2 ) - 2 Step 1",
-            "        _ArrayAdd( $$aJustColumns, $$a2dArray[0][$$i] )",
+            "    For $$i = 0 To UBound($$a2dArray, 2) - 2 Step 1",
+            "        _ArrayAdd($$aJustColumns, $$a2dArray[0][$$i])",
             "    Next",
             "",
-            "    _ArrayDelete( $$aJustColumns, 0 )",
-            "    _ArraySort( $$aJustColumns, $$iAscOrDesc )",
+            "    _ArrayDelete($$aJustColumns, 0)",
+            "    _ArraySort($$aJustColumns, $$iAscOrDesc)",
             "",
-            "    Local $$aNew2DArray[UBound( $$a2dArray, 1 )][UBound( $$a2dArray, 2 )]",
-            "    For $$i = 0 To UBound( $$aJustColumns ) - 1 Step 1",
-            "        For $$j = 0 To UBound( $$aJustColumns ) - 1 Step 1",
+            "    Local $$aNew2DArray[UBound($$a2dArray, 1)][UBound($$a2dArray, 2)]",
+            "    For $$i = 0 To UBound($$aJustColumns) - 1 Step 1",
+            "        For $$j = 0 To UBound($$aJustColumns) - 1 Step 1",
             "            If $$a2dArray[0][$$j] == $$aJustColumns[$$i] Then",
-            "                For $$k = 0 To UBound( $$a2dArray, 1 ) - 1 Step 1",
+            "                For $$k = 0 To UBound($$a2dArray, 1) - 1 Step 1",
             "                    $$aNew2DArray[$$k][$$i] = $$a2dArray[$$k][$$j]",
             "                Next",
             "            EndIf",
@@ -126,8 +126,8 @@
     },
     "TransformToZeroBasedArray": {
         "body": [
-            "Func _transformToZeroBasedArray( $$aList )",
-            "    _ArrayDelete( $$aList, 0 )",
+            "Func _transformToZeroBasedArray($$aList)",
+            "    _ArrayDelete($$aList, 0)",
             "",
             "    Return $$aList",
             "EndFunc"

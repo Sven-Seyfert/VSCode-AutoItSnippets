@@ -201,7 +201,7 @@ VSCode-AutoItSnippets, display name "AutoIt Snippets" is a Visual Studio Code ex
 | GetProcessPathByPID | !au3_getProcessPathByPID | Get process path by process id (PID). |
 | MsgBoxWithoutStop | !au3_msgBoxWithoutStop | Show a message box without stop/pause the program execution. |
 | PressKeyOrSendStringSeveralTimes | !au3_pressKeyOrSendStringSeveralTimes | Press key (keystroke) or send a string several times. |
-| RecordMouseMovesToConsole | !au3_recordMouseMovesToConsole | Record mouse move as 'MouseMove( ... )' string to console. Which is a preparation step for function _drawRecordedMouseMovesFromFile. |
+| RecordMouseMovesToConsole | !au3_recordMouseMovesToConsole | Record mouse move as 'MouseMove(...)' string to console. Which is a preparation step for function _drawRecordedMouseMovesFromFile. |
 | SetDisplayResolution | !au3_setDisplayResolution | Set display resolution to specific display width and height. |
 | TalkOverPcVoice | !au3_talkOverPcVoice | Let the computer read out your text by the use of the SAPI API. |
 | ToggleDesktopIcons | !au3_toggleDesktopIcons | Toggles the visibility of the desktop icons. |

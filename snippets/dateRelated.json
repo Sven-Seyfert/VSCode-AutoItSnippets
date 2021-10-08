@@ -1,23 +1,23 @@
 {
     "CalendarWeekToDays": {
         "body": [
-            "Func _calendarWeekToDays( $$iCalendarWeek, $$iYear = @YEAR )",
+            "Func _calendarWeekToDays($$iCalendarWeek, $$iYear = @YEAR)",
             "    Local $$iDateReduce, $$iMaxWeeks, $$aReturnDate[8]",
-            "    Local $$s4thJanuary = _DateToDayOfWeek( $$iYear, '01', '04' )",
-            "    Local $$s1thJanuary = _DateToDayOfWeek( $$iYear, '01', '01' )",
+            "    Local $$s4thJanuary = _DateToDayOfWeek($$iYear, '01', '04')",
+            "    Local $$s1thJanuary = _DateToDayOfWeek($$iYear, '01', '01')",
             "",
             "    For $$i = 1 To 6 Step 1",
             "        $$iDateReduce    =  $$s4thJanuary - $$i",
             "        If $$iDateReduce == 2 Then ExitLoop",
             "    Next",
             "",
-            "    Local $$sFirstDayWeekISO = _DateAdd( 'D', -$$i, $$iYear & '/01/04' )",
+            "    Local $$sFirstDayWeekISO = _DateAdd('D', -$$i, $$iYear & '/01/04')",
             "",
             "    Switch $$s1thJanuary",
             "        Case 5",
             "            $$iMaxWeeks = 53",
             "        Case 4",
-            "            If _DateIsLeapYear( $$iYear ) Then",
+            "            If _DateIsLeapYear($$iYear) Then",
             "                $$iMaxWeeks = 53",
             "            Else",
             "                $$iMaxWeeks = 52",
@@ -27,14 +27,14 @@
             "    EndSwitch",
             "",
             "    If $$iMaxWeeks == 52 And $$iCalendarWeek == 53 Then",
-            "        MsgBox( 16, 'Error', 'The given year only got 52 calendar weeks.', 30 )",
+            "        MsgBox(16, 'Error', 'The given year only got 52 calendar weeks.', 30)",
             "        Return -1",
             "    EndIf",
             "",
             "    $$aDaysOfTheWeek[0] = $$iMaxWeeks",
             "",
             "    For $$i = 1 To 7 Step 1",
-            "        $$aDaysOfTheWeek[$$i] = _DateAdd( 'w', $$iCalendarWeek - 1, _DateAdd( 'D', $$i - 1, $$sFirstDayWeekISO ) )",
+            "        $$aDaysOfTheWeek[$$i] = _DateAdd('w', $$iCalendarWeek - 1, _DateAdd('D', $$i - 1, $$sFirstDayWeekISO))",
             "    Next",
             "",
             "    Return $$aDaysOfTheWeek",
@@ -45,8 +45,8 @@
     },
     "GetDateDiffByBoundary": {
         "body": [
-            "Func _getDateDiffByBoundary( $$iDayBoundary = -90 )",
-            "    Return _DateAdd( 'D', $$iDayBoundary, _NowCalcDate() )",
+            "Func _getDateDiffByBoundary($$iDayBoundary = -90)",
+            "    Return _DateAdd('D', $$iDayBoundary, _NowCalcDate())",
             "EndFunc"
         ],
         "description": "Get date diff by boundary (e. g. 90 days from the current day).",
@@ -54,7 +54,7 @@
     },
     "GetDateTime": {
         "body": [
-            "Func _getDateTime( $$sChar = ' ' )",
+            "Func _getDateTime($$sChar = ' ')",
             "    Return @YEAR & '-' & @MON & '-' & @MDAY & $$sChar & @HOUR & ':' & @MIN & ':' & @SEC",
             "EndFunc"
         ],
@@ -63,14 +63,14 @@
     },
     "GetHHMMSSOfSeconds": {
         "body": [
-            "Func _getHHMMSSOfSeconds( $$iGivenSeconds )",
-            "    Local $$iHours   = Int( $$iGivenSeconds / 3600 )",
-            "    Local $$iMinutes = Int( Mod( $$iGivenSeconds, 3600 ) / 60 )",
-            "    Local $$iSeconds = Mod( $$iGivenSeconds, 60 )",
+            "Func _getHHMMSSOfSeconds($$iGivenSeconds)",
+            "    Local $$iHours   = Int($$iGivenSeconds / 3600)",
+            "    Local $$iMinutes = Int(Mod($$iGivenSeconds, 3600) / 60)",
+            "    Local $$iSeconds = Mod($$iGivenSeconds, 60)",
             "",
-            "    If $$iHours   >  0  Then Return StringFormat( '%02d:%02d:%02d', $$iHours, $$iMinutes, $$iSeconds ) & ' hours'",
-            "    If $$iMinutes >= 1  Then Return StringFormat( '%02d:%02d', $$iMinutes, $$iSeconds ) & ' minutes'",
-            "    If $$iSeconds <= 59 Then Return StringFormat( '%02d', $$iSeconds ) & ' seconds'",
+            "    If $$iHours   >  0  Then Return StringFormat('%02d:%02d:%02d', $$iHours, $$iMinutes, $$iSeconds) & ' hours'",
+            "    If $$iMinutes >= 1  Then Return StringFormat('%02d:%02d', $$iMinutes, $$iSeconds) & ' minutes'",
+            "    If $$iSeconds <= 59 Then Return StringFormat('%02d', $$iSeconds) & ' seconds'",
             "EndFunc"
         ],
         "description": "Get hours, minutes and seconds of given seconds (reverse of _getSecondsOfHHMMSS).",
@@ -78,14 +78,14 @@
     },
     "GetSecondsOfHHMMSS": {
         "body": [
-            "Func _getSecondsOfHHMMSS( $$sDurationHHMMSS )",
-            "    Local $$iHours    = Int( StringLeft( $$sDurationHHMMSS, 2 ) )",
-            "    Local $$iMinutes  = Int( StringMid( $$sDurationHHMMSS, 3, 2 ) )",
-            "    Local $$iSeconds  = Int( StringRight( $$sDurationHHMMSS, 2 ) )",
+            "Func _getSecondsOfHHMMSS($$sDurationHHMMSS)",
+            "    Local $$iHours    = Int(StringLeft($$sDurationHHMMSS, 2))",
+            "    Local $$iMinutes  = Int(StringMid($$sDurationHHMMSS, 3, 2))",
+            "    Local $$iSeconds  = Int(StringRight($$sDurationHHMMSS, 2))",
             "    Local $$iDuration = 0",
             "",
-            "    If $$iHours > 0   Then $$iDuration += ( $$iHours * 3600 )",
-            "    If $$iMinutes > 0 Then $$iDuration += ( $$iMinutes * 60 )",
+            "    If $$iHours > 0   Then $$iDuration += ($$iHours * 3600)",
+            "    If $$iMinutes > 0 Then $$iDuration += ($$iMinutes * 60)",
             "",
             "    Return $$iDuration + $$iSeconds",
             "EndFunc"
@@ -95,12 +95,12 @@
     },
     "GetTimerDiffInSecOrMin": {
         "body": [
-            "Func _getTimerDiffInSecOrMin( $$hTimer, $$bInSeconds = True )",
+            "Func _getTimerDiffInSecOrMin($$hTimer, $$bInSeconds = True)",
             "    If $$bInSeconds Then",
-            "        Return Round( ( TimerDiff( $$hTimer ) / 1000 ), 2 )",
+            "        Return Round((TimerDiff($$hTimer) / 1000), 2)",
             "    EndIf",
             "",
-            "    Return Round( ( ( TimerDiff( $$hTimer ) / 1000 ) / 60 ), 2 )",
+            "    Return Round(((TimerDiff($$hTimer) / 1000) / 60), 2)",
             "EndFunc"
         ],
         "description": "Get timer diff in seconds or minutes.",
