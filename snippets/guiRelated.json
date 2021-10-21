@@ -43,6 +43,41 @@
         "description": "Get the label size (with or height in pixel).",
         "prefix": "!au3_getLabelSize"
     },
+    "GetMouseWheelMovementDirection": {
+        "body": [
+            "Global Const $$GUI_EVENT_CLOSE = -3",
+            "Global Const $$WM_MOUSEWHEEL   = 0x020A",
+            "",
+            "GUICreate('', 150, 150)",
+            "GUICtrlCreateLabel('Direction', 15, 15)",
+            "GUISetState(@SW_SHOW)",
+            "",
+            "GUIRegisterMsg($$WM_MOUSEWHEEL, '_getMouseWheelMovementDirection')",
+            "",
+            "Func _getMouseWheelMovementDirection($$hWnd, $$iMsg, $$wParam, $$lParam)",
+            "    Local Const $$iDelta = 120",
+            "    Local Const $$iShift = 16",
+            "",
+            "    Local $$iDirection = BitShift($$wParam, $$iShift) / $$iDelta",
+            "    Local $$iControlIdOfTheLabel = 3",
+            "",
+            "    If $$iDirection < 0 Then",
+            "        GUICtrlSetData($$iControlIdOfTheLabel, 'Down')",
+            "    Else",
+            "        GUICtrlSetData($$iControlIdOfTheLabel, 'Up')",
+            "    EndIf",
+            "EndFunc",
+            "",
+            "While True",
+            "    Switch GUIGetMsg()",
+            "        Case $$GUI_EVENT_CLOSE",
+            "            ExitLoop",
+            "    EndSwitch",
+            "WEnd"
+        ],
+        "description": "Get the mouse wheel movement direction (mouse wheel detection) on the created GUI.",
+        "prefix": "!au3_getMouseWheelMovementDirection"
+    },
     "GetWindowHandle": {
         "body": [
             "Func _getWindowHandle($$sTitle)",

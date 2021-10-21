@@ -5,6 +5,12 @@ All notable changes to "VSCode-AutoItSnippets", display name "AutoIt Snippets", 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.0] - 2021-10-21
+
+### Added
+
+- One new snippets/functions in guiRelated.json (_getMouseWheelMovementDirection).
+
 ## [1.1.0] - 2021-10-08
 
 ### Changed
@@ -99,6 +105,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Icon image displays correctly now in README.md file (png instead of ico).
 
+[1.2.0]: https://github.com/Sven-Seyfert/VSCode-AutoItSnippets/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/Sven-Seyfert/VSCode-AutoItSnippets/compare/v1.0.5...v1.1.0
 [1.0.5]: https://github.com/Sven-Seyfert/VSCode-AutoItSnippets/compare/v1.0.4...v1.0.5
 [1.0.4]: https://github.com/Sven-Seyfert/VSCode-AutoItSnippets/compare/v1.0.3...v1.0.4

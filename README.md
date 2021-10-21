@@ -161,6 +161,7 @@ VSCode-AutoItSnippets, display name "AutoIt Snippets" is a Visual Studio Code ex
 | GuiFadeIn | !au3_guiFadeIn | Fade GUI window in. |
 | GuiFadeOut | !au3_guiFadeOut | Fade GUI window out. |
 | GetLabelSize | !au3_getLabelSize | Get the label size (with or height in pixel). |
+| GetMouseWheelMovementDirection | !au3_getMouseWheelMovementDirection | Get the mouse wheel movement direction (mouse wheel detection) on the created GUI. |
 | GetWindowHandle | !au3_getWindowHandle | Get window handle by title. |
 | GuiAllowedInputs | !au3_guiAllowedInputs | Control GUI input data by allowed input values (keystrokes). |
 | GuiInputFilterWMCommand | !au3_guiInputFilterWMCommand | Watch and filter specific GUI input controls by specific RegEx pattern. |
