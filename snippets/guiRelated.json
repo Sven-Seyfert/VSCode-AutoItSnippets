@@ -1,28 +1,4 @@
 {
-    "GuiFadeIn": {
-        "body": [
-            "Func _guiFadeIn($$hGui, $$iSleep = 10)",
-            "    For $$i = 0 To 255 Step 5",
-            "        WinSetTrans($$hGui, '', $$i)",
-            "        Sleep($$iSleep)",
-            "    Next",
-            "EndFunc"
-        ],
-        "description": "Fade GUI window in.",
-        "prefix": "!au3_guiFadeIn"
-    },
-    "GuiFadeOut": {
-        "body": [
-            "Func _guiFadeOut($$hGui, $$iSleep = 10)",
-            "    For $$i = 255 To 0 Step -5",
-            "        WinSetTrans($$hGui, '', $$i)",
-            "        Sleep($$iSleep)",
-            "    Next",
-            "EndFunc"
-        ],
-        "description": "Fade GUI window out.",
-        "prefix": "!au3_guiFadeOut"
-    },
     "GetLabelSize": {
         "body": [
             "Func _getLabelSize($$sLabel, $$sWidthOrHeight = 'w', $$iSize = 9, $$iWeight = 400, $$sFontName = '')",
@@ -78,6 +54,26 @@
         "description": "Get the mouse wheel movement direction (mouse wheel detection) on the created GUI.",
         "prefix": "!au3_getMouseWheelMovementDirection"
     },
+    "GetRandomColor": {
+        "body": [
+            "Func _getRandomColor($$bFormatAsVariantHex = False)",
+            "    Local $$iRed = 1, $$iGreen = 2, $$iBlue = 3",
+            "    Local $$iRadian = Random(0, 100000)",
+            "    Local $$sFormat = '#'",
+            "",
+            "    If $$bFormatAsVariantHex Then",
+            "        $$sFormat = '0x'",
+            "    EndIf",
+            "",
+            "    Return $$sFormat & _",
+            "        Hex(255 * ((Sin($$iRadian * $$iRed) + 1) / 2), 2) & _",
+            "        Hex(255 * ((Sin($$iRadian * $$iGreen) + 1) / 2), 2) & _",
+            "        Hex(255 * ((Sin($$iRadian * $$iBlue) + 1) / 2), 2)",
+            "EndFunc"
+        ],
+        "description": "Get random color as html hex color (#) or as variant color (0x).",
+        "prefix": "!au3_getRandomColor"
+    },
     "GetWindowHandle": {
         "body": [
             "Func _getWindowHandle($$sTitle)",
@@ -105,6 +101,30 @@
         ],
         "description": "Control GUI input data by allowed input values (keystrokes).",
         "prefix": "!au3_guiAllowedInputs"
+    },
+    "GuiFadeIn": {
+        "body": [
+            "Func _guiFadeIn($$hGui, $$iSleep = 10)",
+            "    For $$i = 0 To 255 Step 5",
+            "        WinSetTrans($$hGui, '', $$i)",
+            "        Sleep($$iSleep)",
+            "    Next",
+            "EndFunc"
+        ],
+        "description": "Fade GUI window in.",
+        "prefix": "!au3_guiFadeIn"
+    },
+    "GuiFadeOut": {
+        "body": [
+            "Func _guiFadeOut($$hGui, $$iSleep = 10)",
+            "    For $$i = 255 To 0 Step -5",
+            "        WinSetTrans($$hGui, '', $$i)",
+            "        Sleep($$iSleep)",
+            "    Next",
+            "EndFunc"
+        ],
+        "description": "Fade GUI window out.",
+        "prefix": "!au3_guiFadeOut"
     },
     "GuiInputFilterWMCommand": {
         "body": [
@@ -239,5 +259,20 @@
         ],
         "description": "Show or hide windows start bar.",
         "prefix": "!au3_startBarToggle"
+    },
+    "ToggleControlVisibility": {
+        "body": [
+            "Func _toggleControlVisibility($$iControlId)",
+            "    Local $$aState[2] = _",
+            "    [ _",
+            "        $$GUI_SHOW, _",
+            "        $$GUI_HIDE _",
+            "    ]",
+            "",
+            "    GUICtrlSetState($$iControlID, $$aState[Number(BitAND(GUICtrlGetState($$iControlID), $$aState[0]) = $$aState[0])])",
+            "EndFunc"
+        ],
+        "description": "Toggle the visibility of an control depending of it's current state.",
+        "prefix": "!au3_toggleControlVisibility"
     }
 }

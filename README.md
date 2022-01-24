@@ -158,12 +158,13 @@ VSCode-AutoItSnippets, display name "AutoIt Snippets" is a Visual Studio Code ex
 
 | Snippet | Prefix | Description |
 | :--- | :--- | :--- |
-| GuiFadeIn | !au3_guiFadeIn | Fade GUI window in. |
-| GuiFadeOut | !au3_guiFadeOut | Fade GUI window out. |
 | GetLabelSize | !au3_getLabelSize | Get the label size (with or height in pixel). |
 | GetMouseWheelMovementDirection | !au3_getMouseWheelMovementDirection | Get the mouse wheel movement direction (mouse wheel detection) on the created GUI. |
+| GetRandomColor | !au3_getRandomColor | Get random color as html hex color (#) or as variant color (0x). |
 | GetWindowHandle | !au3_getWindowHandle | Get window handle by title. |
 | GuiAllowedInputs | !au3_guiAllowedInputs | Control GUI input data by allowed input values (keystrokes). |
+| GuiFadeIn | !au3_guiFadeIn | Fade GUI window in. |
+| GuiFadeOut | !au3_guiFadeOut | Fade GUI window out. |
 | GuiInputFilterWMCommand | !au3_guiInputFilterWMCommand | Watch and filter specific GUI input controls by specific RegEx pattern. |
 | GuiSetWinToCenter | !au3_guiSetWinToCenter | Set window to center on screen. |
 | GuiWindowShakeAsHint | !au3_guiWindowShakeAsHint | Let the window shake a bit as a popup hint. |
@@ -172,6 +173,7 @@ VSCode-AutoItSnippets, display name "AutoIt Snippets" is a Visual Studio Code ex
 | SetVisualStateOfStartBar | !au3_setVisualStateOfStartBar | Toggle visual state of the windows start bar. |
 | ShowToolTipInfo | !au3_showToolTipInfo | Show tool tip text with padding. |
 | StartBarToggle | !au3_startBarToggle | Show or hide windows start bar. |
+| ToggleControlVisibility | !au3_toggleControlVisibility | Toggle the visibility of an control depending of it's current state. |
 
 <p>
 </details>
@@ -207,6 +209,7 @@ VSCode-AutoItSnippets, display name "AutoIt Snippets" is a Visual Studio Code ex
 | RecordMouseMovesToConsole | !au3_recordMouseMovesToConsole | Record mouse move as 'MouseMove(...)' string to console. Which is a preparation step for function _drawRecordedMouseMovesFromFile. |
 | SetDisplayResolution | !au3_setDisplayResolution | Set display resolution to specific display width and height. |
 | TalkOverPcVoice | !au3_talkOverPcVoice | Let the computer read out your text by the use of the SAPI API. |
+| Template | !au3_template | Creates a short script template to structure your code. |
 | ToggleDesktopIcons | !au3_toggleDesktopIcons | Toggles the visibility of the desktop icons. |
 
 <p>

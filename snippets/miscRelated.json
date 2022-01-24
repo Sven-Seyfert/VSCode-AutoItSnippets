@@ -223,6 +223,35 @@
         "description": "Let the computer read out your text by the use of the SAPI API.",
         "prefix": "!au3_talkOverPcVoice"
     },
+    "Template": {
+        "body": [
+            "; includes ---------------------------------------------------------------------",
+            "#include-once",
+            "",
+            "",
+            "",
+            "; opt --------------------------------------------------------------------------",
+            "Opt('MustDeclareVars', 1)",
+            "",
+            "",
+            "",
+            "; declaration ------------------------------------------------------------------",
+            "Global $$sVar = ''",
+            "",
+            "",
+            "",
+            "; processing -------------------------------------------------------------------",
+            "_dummyFunc()",
+            "",
+            "",
+            "; functions --------------------------------------------------------------------",
+            "Func _dummyFunc()",
+            "",
+            "EndFunc"
+        ],
+        "description": "Creates a short script template to structure your code.",
+        "prefix": "!au3_template"
+    },
     "ToggleDesktopIcons": {
         "body": [
             "Func _toggleDesktopIcons()",
