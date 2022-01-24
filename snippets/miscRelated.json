@@ -68,12 +68,12 @@
         "description": "Get monitor resolution data as array.",
         "prefix": "!au3_getMonitorResolution"
     },
-    "GetProcessPathByPID": {
+    "GetProcessPathByPid": {
         "body": [
-            "Func _getProcessPathByPID($$iPID = -1)",
-            "    If $$iPID = -1 Then $$iPID = WinGetProcess(WinGetTitle('[active]'))",
+            "Func _getProcessPathByPid($$iPid = -1)",
+            "    If $$iPid = -1 Then $$iPid = WinGetProcess(WinGetTitle('[active]'))",
             "",
-            "    Local $$hProcess = _WinAPI_OpenProcess(0x00000400, True, $$iPID, True)",
+            "    Local $$hProcess = _WinAPI_OpenProcess(0x00000400, True, $$iPid, True)",
             "    Local $$strPath  = DllStructCreate('char path[256]')",
             "    Local $$aRet, $$sDeviceLetter",
             "",
@@ -100,7 +100,23 @@
             "EndFunc"
         ],
         "description": "Get process path by process id (PID).",
-        "prefix": "!au3_getProcessPathByPID"
+        "prefix": "!au3_getProcessPathByPid"
+    },
+    "MouseDragAndDrop": {
+        "body": [
+            "Func _mouseDragAndDrop($$iFromX, $$iFromY, $$iToX, $$iToY, $$iSpeed = 30, $$sMouseKey = 'primary')",
+            "    ;~ MouseClickDrag() isn't working for some windows",
+            "    ;~ e. g. not for drop areas in Firefox browser",
+            "",
+            "    MouseMove($$iFromX, $$iFromY, $$iSpeed)",
+            "    MouseDown($$sMouseKey)",
+            "",
+            "    MouseMove($$iToX, $$iToY, $$iSpeed)",
+            "    MouseUp($$sMouseKey)",
+            "EndFunc"
+        ],
+        "description": "Drag and drop mouse action. Mouse click, dragging to the target position and release (drop) mouse key.",
+        "prefix": "!au3_mouseDragAndDrop"
     },
     "MsgBoxWithoutStop": {
         "body": [

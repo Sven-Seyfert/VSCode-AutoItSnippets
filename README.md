@@ -200,7 +200,8 @@ VSCode-AutoItSnippets, display name "AutoIt Snippets" is a Visual Studio Code ex
 | DrawRecordedMouseMovesFromFile | !au3_drawRecordedMouseMovesFromFile | Draw recorded mouse moves (like a curve) from data of a file (see function _recordMouseMovesToConsole). |
 | GetMacOrIpAddress | !au3_getMacOrIpAddress | Get MAC address or if not found the IP address. |
 | GetMonitorResolution | !au3_getMonitorResolution | Get monitor resolution data as array. |
-| GetProcessPathByPID | !au3_getProcessPathByPID | Get process path by process id (PID). |
+| GetProcessPathByPid | !au3_getProcessPathByPid | Get process path by process id (PID). |
+| MouseDragAndDrop | !au3_mouseDragAndDrop | Drag and drop mouse action. Mouse click, dragging to the target position and release (drop) mouse key. |
 | MsgBoxWithoutStop | !au3_msgBoxWithoutStop | Show a message box without stop/pause the program execution. |
 | PressKeyOrSendStringSeveralTimes | !au3_pressKeyOrSendStringSeveralTimes | Press key (keystroke) or send a string several times. |
 | RecordMouseMovesToConsole | !au3_recordMouseMovesToConsole | Record mouse move as 'MouseMove(...)' string to console. Which is a preparation step for function _drawRecordedMouseMovesFromFile. |
