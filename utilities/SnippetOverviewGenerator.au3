@@ -1,9 +1,9 @@
 ; compiler information for AutoIt
 #pragma compile(CompanyName, © SOLVE SMART)
-#pragma compile(FileVersion, 1.2.0)
+#pragma compile(FileVersion, 1.3.0)
 #pragma compile(LegalCopyright, © Sven Seyfert)
 #pragma compile(ProductName, SnippetOverviewGenerator)
-#pragma compile(ProductVersion, 1.2.0 - 2021-10-21)
+#pragma compile(ProductVersion, 1.3.0 - 2022-01-24)
 
 #AutoIt3Wrapper_AU3Check_Stop_OnWarning=y
 #AutoIt3Wrapper_Icon=..\media\favicon.ico
@@ -42,6 +42,9 @@ For $i = 1 To $iCountOfSnippetFiles Step 1
     _writeDataInTableStructureToOutput()
 Next
 
+
+
+; functions --------------------------------------------------------------------
 Func _getJustFileName($sFilePath)
     Return StringRegExpReplace($sFilePath, '(.+?)\\', '', 0)
 EndFunc
