@@ -5,6 +5,12 @@ All notable changes to "VSCode-AutoItSnippets", display name "AutoIt Snippets", 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.5.0] - 2022-01-25
+
+### Security
+
+- Dependency update to fix a known security vulnerability for "markdown-it" (vsce@2.6.4).
+
 ## [1.4.0] - 2022-01-24
 
 ### Added
@@ -126,6 +132,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Icon image displays correctly now in README.md file (png instead of ico).
 
+[1.5.0]: https://github.com/Sven-Seyfert/VSCode-AutoItSnippets/compare/v1.4.0...v1.5.0
 [1.4.0]: https://github.com/Sven-Seyfert/VSCode-AutoItSnippets/compare/v1.3.0...v1.4.0
 [1.3.0]: https://github.com/Sven-Seyfert/VSCode-AutoItSnippets/compare/v1.2.0...v1.3.0
 [1.2.0]: https://github.com/Sven-Seyfert/VSCode-AutoItSnippets/compare/v1.1.0...v1.2.0
