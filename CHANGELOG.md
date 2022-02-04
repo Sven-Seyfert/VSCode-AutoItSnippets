@@ -5,6 +5,19 @@ All notable changes to "VSCode-AutoItSnippets", display name "AutoIt Snippets", 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.6.0] - 2022-02-04
+
+### Added
+
+- Three new snippets/functions in guiRelated.json (_getTaskbarHeight, _guiAnimation, _guiControlCreateBorder).
+- One new snippet/function in miscRelated.json (_runProgram).
+- New snippet file mouseKeyboardRelated.json with four functions from miscRelated.json.
+- Moved from miscRelated.json (_drawRecordedMouseMovesFromFile, _mouseDragAndDrop, _pressKeyOrSendStringSeveralTimes, _recordMouseMovesToConsole).
+
+### Changed
+
+- Expand _template snippet/function in miscRelated.json.
+
 ## [1.5.0] - 2022-01-25
 
 ### Security
@@ -16,13 +29,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Two new snippets/functions in guiRelated.json (_getRandomColor, _toggleControlVisibility).
-- One new snippets/functions in miscRelated.json (_template).
+- One new snippet/function in miscRelated.json (_template).
 
 ## [1.3.0] - 2022-01-24
 
 ### Added
 
-- One new snippets/functions in miscRelated.json (_mouseDragAndDrop).
+- One new snippet/function in miscRelated.json (_mouseDragAndDrop).
 
 ### Changed
 
@@ -36,7 +49,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- One new snippets/functions in guiRelated.json (_getMouseWheelMovementDirection).
+- One new snippet/function in guiRelated.json (_getMouseWheelMovementDirection).
 
 ## [1.1.0] - 2021-10-08
 
@@ -54,7 +67,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - New snippet file debugRelated.json with three functions (_doesFunctionExists, _getListOfAllFunctions, _getListOfAllVariables).
 - New snippet file zipRelated.json with two functions (_createZipArchive, _extractZipArchive).
-- One new snippets/functions in fileRelated.json (_openFolder).
+- One new snippet/function in fileRelated.json (_openFolder).
 - Two new snippets/functions in outputRelated.json (_getCommandLineOutput, _newLine).
 - Two new snippets/functions in stringRelated.json (_stringProperWithoutSpaces, _stringProperWithSpaces).
 
@@ -71,13 +84,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Snippet file snippets/gameRelated.json.
-- One new snippets/functions in arrayRelated.json (_arrayItemsToString).
+- Snippet file gameRelated.json.
+- One new snippet/function in arrayRelated.json (_arrayItemsToString).
 - Two new snippets/functions in convertRelated.json (_base64ToBinary, _binaryToBase64).
-- One new snippets/functions in fileRelated.json (_saveBinaryToFile).
+- One new snippet/function in fileRelated.json (_saveBinaryToFile).
 - Four new snippets/functions in gameRelated.json (_getDistanceByPythagoras, _isKeyPressed, _isKeyReleased, _isPointPositionBetween).
 - Two new snippets/functions in mathRelated.json (_kilometresToMiles, _milesToKilometres).
-- One new snippets/functions in miscRelated.json (_toggleDesktopIcons).
+- One new snippet/function in miscRelated.json (_toggleDesktopIcons).
 - Two new snippets/functions in stringRelated.json (_getUniqueMachineGuidString, _splitStringByCountToArray).
 
 ### Changed
@@ -132,6 +145,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Icon image displays correctly now in README.md file (png instead of ico).
 
+[1.6.0]: https://github.com/Sven-Seyfert/VSCode-AutoItSnippets/compare/v1.5.0...v1.6.0
 [1.5.0]: https://github.com/Sven-Seyfert/VSCode-AutoItSnippets/compare/v1.4.0...v1.5.0
 [1.4.0]: https://github.com/Sven-Seyfert/VSCode-AutoItSnippets/compare/v1.3.0...v1.4.0
 [1.3.0]: https://github.com/Sven-Seyfert/VSCode-AutoItSnippets/compare/v1.2.0...v1.3.0

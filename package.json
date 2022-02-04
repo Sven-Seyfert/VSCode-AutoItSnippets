@@ -67,6 +67,10 @@
             },
             {
                 "language": "autoit",
+                "path": "./snippets/mouseKeyboardRelated.json"
+            },
+            {
+                "language": "autoit",
                 "path": "./snippets/outputRelated.json"
             },
             {

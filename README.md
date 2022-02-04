@@ -161,8 +161,11 @@ VSCode-AutoItSnippets, display name "AutoIt Snippets" is a Visual Studio Code ex
 | GetLabelSize | !au3_getLabelSize | Get the label size (with or height in pixel). |
 | GetMouseWheelMovementDirection | !au3_getMouseWheelMovementDirection | Get the mouse wheel movement direction (mouse wheel detection) on the created GUI. |
 | GetRandomColor | !au3_getRandomColor | Get random color as html hex color (#) or as variant color (0x). |
+| GetTaskbarHeight | !au3_getTaskbarHeight | Get the height of windows taskbar. |
 | GetWindowHandle | !au3_getWindowHandle | Get window handle by title. |
 | GuiAllowedInputs | !au3_guiAllowedInputs | Control GUI input data by allowed input values (keystrokes). |
+| GuiAnimation | !au3_guiAnimation | Animates GUI appearance or disappearance by specific slide animations. |
+| GuiControlCreateBorder | !au3_guiControlCreateBorder | Creates a colored border for a specific control like label or for the whole GUI. |
 | GuiFadeIn | !au3_guiFadeIn | Fade GUI window in. |
 | GuiFadeOut | !au3_guiFadeOut | Fade GUI window out. |
 | GuiInputFilterWMCommand | !au3_guiInputFilterWMCommand | Watch and filter specific GUI input controls by specific RegEx pattern. |
@@ -199,18 +202,29 @@ VSCode-AutoItSnippets, display name "AutoIt Snippets" is a Visual Studio Code ex
 | Snippet | Prefix | Description |
 | :--- | :--- | :--- |
 | DeleteCurrentScriptAfterRun | !au3_deleteCurrentScriptAfterRun | Delete current script after execution (after run). |
-| DrawRecordedMouseMovesFromFile | !au3_drawRecordedMouseMovesFromFile | Draw recorded mouse moves (like a curve) from data of a file (see function _recordMouseMovesToConsole). |
 | GetMacOrIpAddress | !au3_getMacOrIpAddress | Get MAC address or if not found the IP address. |
 | GetMonitorResolution | !au3_getMonitorResolution | Get monitor resolution data as array. |
 | GetProcessPathByPid | !au3_getProcessPathByPid | Get process path by process id (PID). |
-| MouseDragAndDrop | !au3_mouseDragAndDrop | Drag and drop mouse action. Mouse click, dragging to the target position and release (drop) mouse key. |
 | MsgBoxWithoutStop | !au3_msgBoxWithoutStop | Show a message box without stop/pause the program execution. |
-| PressKeyOrSendStringSeveralTimes | !au3_pressKeyOrSendStringSeveralTimes | Press key (keystroke) or send a string several times. |
-| RecordMouseMovesToConsole | !au3_recordMouseMovesToConsole | Record mouse move as 'MouseMove(...)' string to console. Which is a preparation step for function _drawRecordedMouseMovesFromFile. |
+| RunProgram | !au3_runProgram | Runs external program with or without parameter in a quite robust way. |
 | SetDisplayResolution | !au3_setDisplayResolution | Set display resolution to specific display width and height. |
 | TalkOverPcVoice | !au3_talkOverPcVoice | Let the computer read out your text by the use of the SAPI API. |
 | Template | !au3_template | Creates a short script template to structure your code. |
 | ToggleDesktopIcons | !au3_toggleDesktopIcons | Toggles the visibility of the desktop icons. |
+
+<p>
+</details>
+
+<details>
+<summary>Snippets with "mouseKeyboard" related context</summary>
+<p>
+
+| Snippet | Prefix | Description |
+| :--- | :--- | :--- |
+| DrawRecordedMouseMovesFromFile | !au3_drawRecordedMouseMovesFromFile | Draw recorded mouse moves (like a curve) from data of a file (see function _recordMouseMovesToConsole). |
+| MouseDragAndDrop | !au3_mouseDragAndDrop | Drag and drop mouse action. Mouse click, dragging to the target position and release (drop) mouse key. |
+| PressKeyOrSendStringSeveralTimes | !au3_pressKeyOrSendStringSeveralTimes | Press key (keystroke) or send a string several times. |
+| RecordMouseMovesToConsole | !au3_recordMouseMovesToConsole | Record mouse move as 'MouseMove(...)' string to console. Which is a preparation step for function _drawRecordedMouseMovesFromFile. |
 
 <p>
 </details>

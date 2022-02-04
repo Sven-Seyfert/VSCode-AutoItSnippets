@@ -74,6 +74,17 @@
         "description": "Get random color as html hex color (#) or as variant color (0x).",
         "prefix": "!au3_getRandomColor"
     },
+    "GetTaskbarHeight": {
+        "body": [
+            "Func _getTaskbarHeight()",
+            "    Opt('WinTitleMatchMode', 4)",
+            "",
+            "    Return WinGetPos('classname=Shell_TrayWnd')[3]",
+            "EndFunc"
+        ],
+        "description": "Get the height of windows taskbar.",
+        "prefix": "!au3_getTaskbarHeight"
+    },
     "GetWindowHandle": {
         "body": [
             "Func _getWindowHandle($$sTitle)",
@@ -101,6 +112,37 @@
         ],
         "description": "Control GUI input data by allowed input values (keystrokes).",
         "prefix": "!au3_guiAllowedInputs"
+    },
+    "GuiAnimation": {
+        "body": [
+            "Global Const \\$GUI_SLIDE_BOTTOM_TO_TOP = 0x00040008",
+            "Global Const \\$GUI_SLIDE_TOP_TO_BOTTOM = 0x00050004",
+            "",
+            "_guiAnimation(\\$hGui, \\$GUI_SLIDE_BOTTOM_TO_TOP)",
+            "",
+            "Func _guiAnimation(\\$hWindow, \\$vEffect, \\$iDuration = 400)",
+            "    DllCall('user32.dll', 'int', 'AnimateWindow', 'hwnd', \\$hWindow, 'int', \\$iDuration, 'long', \\$vEffect)",
+            "EndFunc"
+        ],
+        "description": "Animates GUI appearance or disappearance by specific slide animations.",
+        "prefix": "!au3_guiAnimation"
+    },
+    "GuiControlCreateBorder": {
+        "body": [
+            "Func _guiControlCreateBorder(\\$iWidth, \\$iHeight, \\$iBorderSize = 1, \\$vBorderColor =  0x21252B)",
+            "    \\$iBorderTop    = GUICtrlCreateLabel('', 0, 0, \\$iWidth, \\$iBorderSize)",
+            "    \\$iBorderRight  = GUICtrlCreateLabel('', \\$iWidth - \\$iBorderSize, 0, \\$iBorderSize, \\$iHeight)",
+            "    \\$iBorderBottom = GUICtrlCreateLabel('', 0, \\$iHeight - \\$iBorderSize, \\$iWidth, \\$iBorderSize)",
+            "    \\$iBorderLeft   = GUICtrlCreateLabel('', 0, 0, \\$iBorderSize, \\$iHeight)",
+            "",
+            "    GUICtrlSetBkColor(\\$iBorderTop, \\$vBorderColor)",
+            "    GUICtrlSetBkColor(\\$iBorderRight, \\$vBorderColor)",
+            "    GUICtrlSetBkColor(\\$iBorderBottom, \\$vBorderColor)",
+            "    GUICtrlSetBkColor(\\$iBorderLeft, \\$vBorderColor)",
+            "EndFunc"
+        ],
+        "description": "Creates a colored border for a specific control like label or for the whole GUI.",
+        "prefix": "!au3_guiControlCreateBorder"
     },
     "GuiFadeIn": {
         "body": [

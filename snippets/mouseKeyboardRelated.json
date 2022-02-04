@@ -1,0 +1,73 @@
+{
+    "DrawRecordedMouseMovesFromFile": {
+        "body": [
+            "Func _drawRecordedMouseMovesFromFile($$sFile, $$iXInitPosition = 0, $$iYInitPosition = 0)",
+            "    MouseMove($$iXInitPosition, $$iYInitPosition, 4)",
+            "    MouseDown('left')",
+            "",
+            "    Local $$sFileContent = _getFileContent($$sFile)",
+            "    Local $$aFileContent = StringSplit($$sFileContent, @CRLF, 1)",
+            "",
+            "    For $$i = 1 To $$aFileContent[0] Step 1",
+            "        ; expected line(s) in file are like this '400, 337, 4'",
+            "        If $$aFileContent[$$i] <> '' Then Execute('MouseMove(' & $$aFileContent[$$i] & ')')",
+            "    Next",
+            "",
+            "    MouseUp('left')",
+            "EndFunc"
+        ],
+        "description": "Draw recorded mouse moves (like a curve) from data of a file (see function _recordMouseMovesToConsole).",
+        "prefix": "!au3_drawRecordedMouseMovesFromFile"
+    },
+    "MouseDragAndDrop": {
+        "body": [
+            "Func _mouseDragAndDrop($$iFromX, $$iFromY, $$iToX, $$iToY, $$iSpeed = 30, $$sMouseKey = 'primary')",
+            "    ;~ MouseClickDrag() isn't working for some windows",
+            "    ;~ e. g. not for drop areas in Firefox browser",
+            "",
+            "    MouseMove($$iFromX, $$iFromY, $$iSpeed)",
+            "    MouseDown($$sMouseKey)",
+            "",
+            "    MouseMove($$iToX, $$iToY, $$iSpeed)",
+            "    MouseUp($$sMouseKey)",
+            "EndFunc"
+        ],
+        "description": "Drag and drop mouse action. Mouse click, dragging to the target position and release (drop) mouse key.",
+        "prefix": "!au3_mouseDragAndDrop"
+    },
+    "PressKeyOrSendStringSeveralTimes": {
+        "body": [
+            "Func _pressKeyOrSendStringSeveralTimes($$sKey, $$iHowOften = 1, $$iDelay = 120)",
+            "    For $$i = 1 To $$iHowOften Step 1",
+            "        Send($$sKey)",
+            "        Sleep($$iDelay)",
+            "    Next",
+            "EndFunc"
+        ],
+        "description": "Press key (keystroke) or send a string several times.",
+        "prefix": "!au3_pressKeyOrSendStringSeveralTimes"
+    },
+    "RecordMouseMovesToConsole": {
+        "body": [
+            "Global $$iXSave, $$iYSave, $$sMouseMoveAction",
+            "",
+            "Func _recordMouseMovesToConsole($$iMouseMoveSpeed = 4)",
+            "    If MouseGetPos()[0] <> $$iXSave Or $$iYSave <> MouseGetPos()[1] Then",
+            "        Local $$aPos = MouseGetPos()",
+            "",
+            "        ConsoleWrite($$aPos[0] & ', ' & $$aPos[1] & ', ' & $$iMouseMoveSpeed & @CRLF)",
+            "",
+            "        $$iXSave = $$aPos[0]",
+            "        $$iYSave = $$aPos[1]",
+            "    EndIf",
+            "    Sleep(100)",
+            "EndFunc",
+            "",
+            "For $$i = 1 To 10 Step 1",
+            "    _recordMouseMovesToConsole()",
+            "Next"
+        ],
+        "description": "Record mouse move as 'MouseMove(...)' string to console. Which is a preparation step for function _drawRecordedMouseMovesFromFile.",
+        "prefix": "!au3_recordMouseMovesToConsole"
+    }
+}
