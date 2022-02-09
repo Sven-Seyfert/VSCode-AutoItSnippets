@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Go to [legend](#legend---types-of-changes) for further information about the types of changes.
 
+## [1.6.1] - 2022-02-09
+
+### Fixed
+
+- RegEx pattern which was resolved wrong for function _runProgram in miscRelated.json.
+
 ## [1.6.0] - 2022-02-04
 
 ### Added
@@ -34,6 +40,7 @@ Go to [legend](#legend---types-of-changes) for further information about the typ
 
 - Two new snippets/functions in guiRelated.json (_getRandomColor, _toggleControlVisibility).
 - One new snippet/function in miscRelated.json (_template).
+- Update copyright year to 2022 in LICENSE.md file.
 
 ## [1.3.0] - 2022-01-24
 

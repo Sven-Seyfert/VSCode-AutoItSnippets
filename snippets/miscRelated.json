@@ -101,7 +101,7 @@
             "    Local \\$sWaitCommand         = ' /C '",
             "    Local \\$sDriveLetter         = StringLeft(\\$sProgramExeFilePath, 1)",
             "    Local \\$sChangeDriveCommand  = \\$sDriveLetter & ': && '",
-            "    Local \\$sExeFileName         = StringRegExpReplace(\\$sProgramExeFilePath, '(.+?)\\', '', 0)",
+            "    Local \\$sExeFileName         = StringRegExpReplace(\\$sProgramExeFilePath, '(.+?)\\\\\\', '', 0)",
             "    Local \\$sExeFolder           = StringTrimRight(\\$sProgramExeFilePath, StringLen(\\$sExeFileName))",
             "    Local \\$sChangeDirCommand    = 'cd \"' & \\$sExeFolder & '\" '",
             "    Local \\$sCallProgrammCommand = '&& \"' & \\$sExeFileName & '\"'",
