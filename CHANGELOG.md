@@ -9,6 +9,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Go to [legend](#legend---types-of-changes) for further information about the types of changes.
 
+## [1.8.0] - 2022-02-09
+
+### Changed
+
+- Update of the contributing file and pull request template.
+- Version bump.
+
 ## [1.7.0] - 2022-02-09
 
 ### Changed
@@ -169,6 +176,7 @@ Go to [legend](#legend---types-of-changes) for further information about the typ
 
 - Icon image displays correctly now in README.md file (png instead of ico).
 
+[1.8.0]: https://github.com/Sven-Seyfert/VSCode-AutoItSnippets/compare/v1.7.0...v1.8.0
 [1.7.0]: https://github.com/Sven-Seyfert/VSCode-AutoItSnippets/compare/v1.6.1...v1.7.0
 [1.6.1]: https://github.com/Sven-Seyfert/VSCode-AutoItSnippets/compare/v1.6.0...v1.6.1
 [1.6.0]: https://github.com/Sven-Seyfert/VSCode-AutoItSnippets/compare/v1.5.0...v1.6.0
