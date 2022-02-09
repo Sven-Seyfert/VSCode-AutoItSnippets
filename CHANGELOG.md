@@ -156,6 +156,7 @@ Go to [legend](#legend---types-of-changes) for further information about the typ
 
 - Icon image displays correctly now in README.md file (png instead of ico).
 
+[1.6.1]: https://github.com/Sven-Seyfert/VSCode-AutoItSnippets/compare/v1.6.0...v1.6.1
 [1.6.0]: https://github.com/Sven-Seyfert/VSCode-AutoItSnippets/compare/v1.5.0...v1.6.0
 [1.5.0]: https://github.com/Sven-Seyfert/VSCode-AutoItSnippets/compare/v1.4.0...v1.5.0
 [1.4.0]: https://github.com/Sven-Seyfert/VSCode-AutoItSnippets/compare/v1.3.0...v1.4.0
