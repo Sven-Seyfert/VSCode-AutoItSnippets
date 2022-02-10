@@ -5,14 +5,14 @@
     <h2 align="center">Welcome to <code>VSCode-AutoItSnippets</code>【ツ】</h2>
 </p>
 
-![license](https://img.shields.io/badge/license-MIT-ff69b4.svg?style=flat-square&logo=spdx)
-![contributors](https://img.shields.io/github/contributors/Sven-Seyfert/VSCode-AutoItSnippets.svg?style=flat-square&logo=github)
+[![license](https://img.shields.io/badge/license-MIT-ff69b4.svg?style=flat-square&logo=spdx)](https://github.com/Sven-Seyfert/VSCode-AutoItSnippets/blob/main/LICENSE.md)
+[![contributors](https://img.shields.io/github/contributors/Sven-Seyfert/VSCode-AutoItSnippets.svg?style=flat-square&logo=github)](https://github.com/Sven-Seyfert/VSCode-AutoItSnippets/graphs/contributors)
 ![repo size](https://img.shields.io/github/repo-size/Sven-Seyfert/VSCode-AutoItSnippets.svg?style=flat-square&logo=github)
-![last commit](https://img.shields.io/github/last-commit/Sven-Seyfert/VSCode-AutoItSnippets.svg?style=flat-square&logo=github)
-![release](https://img.shields.io/github/release/Sven-Seyfert/VSCode-AutoItSnippets.svg?style=flat-square&logo=github)
+[![last commit](https://img.shields.io/github/last-commit/Sven-Seyfert/VSCode-AutoItSnippets.svg?style=flat-square&logo=github)](https://github.com/Sven-Seyfert/VSCode-AutoItSnippets/commits/main)
+[![release](https://img.shields.io/github/release/Sven-Seyfert/VSCode-AutoItSnippets.svg?style=flat-square&logo=github)](https://github.com/Sven-Seyfert/VSCode-AutoItSnippets/releases/latest)
 ![os](https://img.shields.io/badge/os-windows-yellow.svg?style=flat-square&logo=windows)
 ![editor](https://img.shields.io/badge/editor-VSCode-blueviolet.svg?style=flat-square&logo=visual-studio-code)
-![visual studio marketplace installs](https://img.shields.io/visual-studio-marketplace/i/sven-seyfert.autoit-snippets?style=flat-square&color=3C873A)
+[![visual studio marketplace installs](https://img.shields.io/visual-studio-marketplace/i/sven-seyfert.autoit-snippets?style=flat-square&color=3C873A)]((https://marketplace.visualstudio.com/items?itemName=sven-seyfert.autoit-snippets))
 
 [Description](#description) | [Features](#features) | [Getting started](#getting-started) | [Contributing](#contributing) | [License](#license) | [Acknowledgements](#acknowledgements)
 
