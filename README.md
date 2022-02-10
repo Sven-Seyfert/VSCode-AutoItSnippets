@@ -12,7 +12,7 @@
 [![release](https://img.shields.io/github/release/Sven-Seyfert/VSCode-AutoItSnippets.svg?style=flat-square&logo=github)](https://github.com/Sven-Seyfert/VSCode-AutoItSnippets/releases/latest)
 ![os](https://img.shields.io/badge/os-windows-yellow.svg?style=flat-square&logo=windows)
 ![editor](https://img.shields.io/badge/editor-VSCode-blueviolet.svg?style=flat-square&logo=visual-studio-code)
-[![visual studio marketplace installs](https://img.shields.io/visual-studio-marketplace/i/sven-seyfert.autoit-snippets?style=flat-square&color=3C873A)]((https://marketplace.visualstudio.com/items?itemName=sven-seyfert.autoit-snippets))
+[![visual studio marketplace installs](https://img.shields.io/visual-studio-marketplace/i/sven-seyfert.autoit-snippets?style=flat-square&color=3C873A)](https://marketplace.visualstudio.com/items?itemName=sven-seyfert.autoit-snippets)
 
 [Description](#description) | [Features](#features) | [Getting started](#getting-started) | [FAQ](#faq) | [Contributing](#contributing) | [License](#license) | [Acknowledgements](#acknowledgements)
 

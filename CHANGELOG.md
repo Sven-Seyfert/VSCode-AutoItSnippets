@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Go to [legend](#legend---types-of-changes) for further information about the types of changes.
 
+## [1.9.1] - 2022-02-10
+
+### Fixed
+
+- Adjust wrong project link of the navigation icons/badges.
+
 ## [1.9.0] - 2022-02-10
 
 ### Added
@@ -188,6 +194,7 @@ Go to [legend](#legend---types-of-changes) for further information about the typ
 
 - Icon image displays correctly now in README.md file (png instead of ico).
 
+[1.9.1]: https://github.com/Sven-Seyfert/VSCode-AutoItSnippets/compare/v1.9.0...v1.9.1
 [1.9.0]: https://github.com/Sven-Seyfert/VSCode-AutoItSnippets/compare/v1.8.0...v1.9.0
 [1.8.0]: https://github.com/Sven-Seyfert/VSCode-AutoItSnippets/compare/v1.7.0...v1.8.0
 [1.7.0]: https://github.com/Sven-Seyfert/VSCode-AutoItSnippets/compare/v1.6.1...v1.7.0
