@@ -305,11 +305,11 @@
     "ToggleControlVisibility": {
         "body": [
             "Func _toggleControlVisibility($$iControlId)",
-            "    Local $$aState[2] = _",
-            "    [ _",
-            "        $$GUI_SHOW, _",
-            "        $$GUI_HIDE _",
-            "    ]",
+            "    Local $$aState[] = _",
+            "        [ _",
+            "            $$GUI_SHOW, _",
+            "            $$GUI_HIDE _",
+            "        ]",
             "",
             "    GUICtrlSetState($$iControlID, $$aState[Number(BitAND(GUICtrlGetState($$iControlID), $$aState[0]) = $$aState[0])])",
             "EndFunc"

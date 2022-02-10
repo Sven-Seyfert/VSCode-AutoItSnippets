@@ -9,6 +9,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Go to [legend](#legend---types-of-changes) for further information about the types of changes.
 
+## [1.9.0] - 2022-02-10
+
+### Added
+
+- Links to the project badges/icons.
+- FAQ section to README.md file.
+
+### Changed:
+
+- Adjust array declarations without specific count of index (in _arrayCreate, _arrayCreate2D, _convertIntToHex and _toggleControlVisibility).
+- Version bump.
+
 ## [1.8.0] - 2022-02-09
 
 ### Changed

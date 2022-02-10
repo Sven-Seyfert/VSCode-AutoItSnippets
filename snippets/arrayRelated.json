@@ -3,7 +3,7 @@
         "body": [
             "#include <Array.au3>",
             "",
-            "Global $$aList[7] = _",
+            "Global $$aList[] = _",
             "    [ _",
             "        'Monday', _",
             "        'Tuesday', _",
@@ -23,7 +23,7 @@
         "body": [
             "#include <Array.au3>",
             "",
-            "Global $$aList[5][2] = _",
+            "Global $$aList[][2] = _",
             "    [ _",
             "        ['1', 'One'], _",
             "        ['2', 'Two'], _",

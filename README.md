@@ -14,7 +14,7 @@
 ![editor](https://img.shields.io/badge/editor-VSCode-blueviolet.svg?style=flat-square&logo=visual-studio-code)
 [![visual studio marketplace installs](https://img.shields.io/visual-studio-marketplace/i/sven-seyfert.autoit-snippets?style=flat-square&color=3C873A)]((https://marketplace.visualstudio.com/items?itemName=sven-seyfert.autoit-snippets))
 
-[Description](#description) | [Features](#features) | [Getting started](#getting-started) | [Contributing](#contributing) | [License](#license) | [Acknowledgements](#acknowledgements)
+[Description](#description) | [Features](#features) | [Getting started](#getting-started) | [FAQ](#faq) | [Contributing](#contributing) | [License](#license) | [Acknowledgements](#acknowledgements)
 
 ## Description
 
@@ -308,11 +308,34 @@ Variant 3 - by Visual Studio Marketplace:
 - Go to the [AutoIt Snippets](https://marketplace.visualstudio.com/items?itemName=sven-seyfert.autoit-snippets) on the Visual Studio Marketplace
 - Install
 
-#### Usage
+#### *Usage*
 
 See the animated GIFs in the "Features" section above.
 
 When your current file in VSCode is in "AutoIt language mode" then just type `!au3` and the intellicence and the auto-completion mode will give you the snippets overview.
+
+## FAQ
+
+<details>
+<summary><i>Frequently Asked Questions</i></summary><br>
+
+  <details>
+  <summary><code>1. How to [...]</code></summary><p>
+
+  **Q:** Is there a frequently asked question already?<br>
+  **A:** No, not yet.
+
+  <br></p></details>
+
+  <details>
+  <summary><code>2. How to [...]</code></summary><p>
+
+  **Q:** [...]?<br>
+  **A:** [...].
+
+  <br></p></details>
+
+</details>
 
 ## Contributing
 
