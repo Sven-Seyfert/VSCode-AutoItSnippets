@@ -22,7 +22,7 @@ Go to [legend](#legend---types-of-changes) for further information about the typ
 - Links to the project badges/icons.
 - FAQ section to README.md file.
 
-### Changed:
+### Changed
 
 - Adjust array declarations without specific count of index (in _arrayCreate, _arrayCreate2D, _convertIntToHex and _toggleControlVisibility).
 - Version bump.
