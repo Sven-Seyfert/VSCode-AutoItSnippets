@@ -1,8 +1,8 @@
 {
     "GetDistanceByPythagoras": {
         "body": [
-            "Func _GetDistanceByPythagoras($$iX1, $$iY1, $$iX2, $$iY2)",
-            "    Return Round(Sqrt(($$iX2 - $$iX1) ^ 2 + ($$iY2 - $$iY1) ^ 2))",
+            "Func _GetDistanceByPythagoras(\\$iX1, \\$iY1, \\$iX2, \\$iY2)",
+            "    Return Round(Sqrt((\\$iX2 - \\$iX1) ^ 2 + (\\$iY2 - \\$iY1) ^ 2))",
             "EndFunc"
         ],
         "description": "Get the distance from one point to an other point by Pythagoras.",
@@ -10,10 +10,10 @@
     },
     "IsKeyPressed": {
         "body": [
-            "Func _IsKeyPressed($$sKeyHexCode)",
-            "    Local $$aReturn = DllCall('user32.dll', 'short', 'GetAsyncKeyState', 'int', '0x' & $$sKeyHexCode)",
+            "Func _IsKeyPressed(\\$sKeyHexCode)",
+            "    Local \\$aReturn = DllCall('user32.dll', 'short', 'GetAsyncKeyState', 'int', '0x' & \\$sKeyHexCode)",
             "",
-            "    Return BitAND($$aReturn[0], 0x8000) <> 0",
+            "    Return BitAND(\\$aReturn[0], 0x8000) <> 0",
             "EndFunc"
         ],
         "description": "Indicates that a key of the keyboard is pressed. Returns the boolean.",
@@ -21,9 +21,9 @@
     },
     "IsKeyReleased": {
         "body": [
-            "Func _IsKeyReleased($$sKeyHexCode)",
-            "    If _IsKeyPressed($$sKeyHexCode) Then",
-            "        While _IsKeyPressed($$sKeyHexCode)",
+            "Func _IsKeyReleased(\\$sKeyHexCode)",
+            "    If _IsKeyPressed(\\$sKeyHexCode) Then",
+            "        While _IsKeyPressed(\\$sKeyHexCode)",
             "            Sleep(10)",
             "        WEnd",
             "",
@@ -38,8 +38,8 @@
     },
     "IsPointPositionBetween": {
         "body": [
-            "Func _IsPointPositionBetween($$iPointToCheck, $$iBetweenFrom, $$iBetweenTo)",
-            "    If $$iPointToCheck >= $$iBetweenFrom And $$iPointToCheck <= $$iBetweenTo Then",
+            "Func _IsPointPositionBetween(\\$iPointToCheck, \\$iBetweenFrom, \\$iBetweenTo)",
+            "    If \\$iPointToCheck >= \\$iBetweenFrom And \\$iPointToCheck <= \\$iBetweenTo Then",
             "        Return True",
             "    EndIf",
             "",

@@ -1,22 +1,22 @@
 {
     "Get_GreatestCommonDivisor_LeastCommonMultiple": {
         "body": [
-            "Func _Get_GreatestCommonDivisor_LeastCommonMultiple($$a = 5, $$b = 37)",
-            "    Local $$sGCD = 'Greatest common divisor of ' & $$a & ' and ' & $$b & ' is '",
-            "    Local $$sLCM = 'Least common multiple of ' & $$a & ' and ' & $$b & ' is '",
-            "    Local $$c, $$f, $$m = $$a, $$n = $$b",
+            "Func _Get_GreatestCommonDivisor_LeastCommonMultiple(\\$a = 5, \\$b = 37)",
+            "    Local \\$sGCD = 'Greatest common divisor of ' & \\$a & ' and ' & \\$b & ' is '",
+            "    Local \\$sLCM = 'Least common multiple of ' & \\$a & ' and ' & \\$b & ' is '",
+            "    Local \\$c, \\$f, \\$m = \\$a, \\$n = \\$b",
             "",
-            "    $$c = 1",
-            "    While $$c <> 0",
-            "        $$f = Int($$a / $$b)",
-            "        $$c = $$a - $$b * $$f",
-            "        If $$c <> 0 Then",
-            "            $$a = $$b",
-            "            $$b = $$c",
+            "    \\$c = 1",
+            "    While \\$c <> 0",
+            "        \\$f = Int(\\$a / \\$b)",
+            "        \\$c = \\$a - \\$b * \\$f",
+            "        If \\$c <> 0 Then",
+            "            \\$a = \\$b",
+            "            \\$b = \\$c",
             "        EndIf",
             "    WEnd",
             "",
-            "    Return $$sGCD & $$b & @CRLF & $$sLCM & $$m * $$n / $$b",
+            "    Return \\$sGCD & \\$b & @CRLF & \\$sLCM & \\$m * \\$n / \\$b",
             "EndFunc"
         ],
         "description": "Get 'greatest common divisor' and 'least common multiple' of to numbers.",
@@ -24,8 +24,8 @@
     },
     "IsNumberOdd": {
         "body": [
-            "Func _IsNumberOdd($$iNumber)",
-            "    Return (Mod($$iNumber, 2) <> 0) ? True : False",
+            "Func _IsNumberOdd(\\$iNumber)",
+            "    Return (Mod(\\$iNumber, 2) <> 0) ? True : False",
             "EndFunc"
         ],
         "description": "Is number odd or even.",
@@ -33,8 +33,8 @@
     },
     "KilometresToMiles": {
         "body": [
-            "Func _KilometresToMiles($$iKilometers)",
-            "    Return $$iKilometers * 0.6214",
+            "Func _KilometresToMiles(\\$iKilometers)",
+            "    Return \\$iKilometers * 0.6214",
             "EndFunc"
         ],
         "description": "Calculates the miles of given kilometers.",
@@ -42,8 +42,8 @@
     },
     "MilesToKilometres": {
         "body": [
-            "Func _MilesToKilometres($$iMiles)",
-            "    Return $$iMiles * 1.609",
+            "Func _MilesToKilometres(\\$iMiles)",
+            "    Return \\$iMiles * 1.609",
             "EndFunc"
         ],
         "description": "Calculates the kilometers of given miles.",

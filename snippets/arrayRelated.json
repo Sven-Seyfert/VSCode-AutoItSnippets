@@ -3,7 +3,7 @@
         "body": [
             "#include <Array.au3>",
             "",
-            "Global $$aList[] = _",
+            "Global \\$aList[] = _",
             "    [ _",
             "        'Monday', _",
             "        'Tuesday', _",
@@ -14,7 +14,7 @@
             "        'Sunday' _",
             "    ]",
             "",
-            "_ArrayDisplay($$aList)"
+            "_ArrayDisplay(\\$aList)"
         ],
         "description": "Create and initialize a 1D array as example.",
         "prefix": "!_ArrayCreate"
@@ -23,7 +23,7 @@
         "body": [
             "#include <Array.au3>",
             "",
-            "Global $$aList[][2] = _",
+            "Global \\$aList[][2] = _",
             "    [ _",
             "        ['1', 'One'], _",
             "        ['2', 'Two'], _",
@@ -32,29 +32,29 @@
             "        ['5', 'Five'] _",
             "    ]",
             "",
-            "_ArrayDisplay($$aList)"
+            "_ArrayDisplay(\\$aList)"
         ],
         "description": "Create and initialize a 2d array as example.",
         "prefix": "!_ArrayCreate2d"
     },
     "ArrayDisplay": {
         "body": [
-            "_ArrayDisplay(${1:$$aArray}, '$1')"
+            "_ArrayDisplay(${1:\\$aArray}, '$1')"
         ],
         "description": "Default _ArrayDisplay with the array name as title.",
         "prefix": "!_ArrayDisplay"
     },
     "ArrayItemsToString": {
         "body": [
-            "Func _ArrayItemsToString($$aArray, $$sDelimiter = @CRLF)",
-            "    Local $$sString = ''",
-            "    Local $$iCount  = $$aArray[0]",
+            "Func _ArrayItemsToString(\\$aArray, \\$sDelimiter = @CRLF)",
+            "    Local \\$sString = ''",
+            "    Local \\$iCount  = \\$aArray[0]",
             "",
-            "    For $$i = 1 To $$iCount Step 1",
-            "        $$sString &= $$aArray[$$i] & $$sDelimiter",
+            "    For \\$i = 1 To \\$iCount Step 1",
+            "        \\$sString &= \\$aArray[\\$i] & \\$sDelimiter",
             "    Next",
             "",
-            "    Return $$sString",
+            "    Return \\$sString",
             "EndFunc"
         ],
         "description": "Combines all array items to a string. Similar to _ArrayToString function, but simpler.",
@@ -62,11 +62,11 @@
     },
     "FileContentToArray": {
         "body": [
-            "Func _FileContentToArray($$sContent, $$sDelimiter = @CRLF)",
-            "    Local $$aList = StringSplit($$sContent, $$sDelimiter, 1)",
-            "          $$aList = _TransformToZeroBasedArray($$aList)",
+            "Func _FileContentToArray(\\$sContent, \\$sDelimiter = @CRLF)",
+            "    Local \\$aList = StringSplit(\\$sContent, \\$sDelimiter, 1)",
+            "          \\$aList = _TransformToZeroBasedArray(\\$aList)",
             "",
-            "    Return _FilterEmptyLinesFromArray($$aList)",
+            "    Return _FilterEmptyLinesFromArray(\\$aList)",
             "EndFunc"
         ],
         "description": "File content or multiline string to array.",
@@ -74,14 +74,14 @@
     },
     "FilterEmptyLinesFromArray": {
         "body": [
-            "Func _FilterEmptyLinesFromArray($$aList)",
-            "    For $$i = _GetCount($$aList) To 1 Step -1",
-            "        If $$aList[$$i] == '' Then",
-            "            _ArrayDelete($$aList, $$i)",
+            "Func _FilterEmptyLinesFromArray(\\$aList)",
+            "    For \\$i = _GetCount(\\$aList) To 1 Step -1",
+            "        If \\$aList[\\$i] == '' Then",
+            "            _ArrayDelete(\\$aList, \\$i)",
             "        EndIf",
             "    Next",
             "",
-            "    Return $$aList",
+            "    Return \\$aList",
             "EndFunc"
         ],
         "description": "Remove empty strings from array.",
@@ -89,8 +89,8 @@
     },
     "GetCount": {
         "body": [
-            "Func _GetCount($$aList)",
-            "    Return UBound($$aList) - 1",
+            "Func _GetCount(\\$aList)",
+            "    Return UBound(\\$aList) - 1",
             "EndFunc"
         ],
         "description": "Get array index count.",
@@ -98,27 +98,27 @@
     },
     "SortColumnSequenceOf2dArray": {
         "body": [
-            "Func _SortColumnSequenceOf2dArray($$a2dArray, $$iAscOrDesc = 0)",
-            "    Local $$aJustColumns[1]",
-            "    For $$i = 0 To UBound($$a2dArray, 2) - 2 Step 1",
-            "        _ArrayAdd($$aJustColumns, $$a2dArray[0][$$i])",
+            "Func _SortColumnSequenceOf2dArray(\\$a2dArray, \\$iAscOrDesc = 0)",
+            "    Local \\$aJustColumns[1]",
+            "    For \\$i = 0 To UBound(\\$a2dArray, 2) - 2 Step 1",
+            "        _ArrayAdd(\\$aJustColumns, \\$a2dArray[0][\\$i])",
             "    Next",
             "",
-            "    _ArrayDelete($$aJustColumns, 0)",
-            "    _ArraySort($$aJustColumns, $$iAscOrDesc)",
+            "    _ArrayDelete(\\$aJustColumns, 0)",
+            "    _ArraySort(\\$aJustColumns, \\$iAscOrDesc)",
             "",
-            "    Local $$aNew2dArray[UBound($$a2dArray, 1)][UBound($$a2dArray, 2)]",
-            "    For $$i = 0 To UBound($$aJustColumns) - 1 Step 1",
-            "        For $$j = 0 To UBound($$aJustColumns) - 1 Step 1",
-            "            If $$a2dArray[0][$$j] == $$aJustColumns[$$i] Then",
-            "                For $$k = 0 To UBound($$a2dArray, 1) - 1 Step 1",
-            "                    $$aNew2dArray[$$k][$$i] = $$a2dArray[$$k][$$j]",
+            "    Local \\$aNew2dArray[UBound(\\$a2dArray, 1)][UBound(\\$a2dArray, 2)]",
+            "    For \\$i = 0 To UBound(\\$aJustColumns) - 1 Step 1",
+            "        For \\$j = 0 To UBound(\\$aJustColumns) - 1 Step 1",
+            "            If \\$a2dArray[0][\\$j] == \\$aJustColumns[\\$i] Then",
+            "                For \\$k = 0 To UBound(\\$a2dArray, 1) - 1 Step 1",
+            "                    \\$aNew2dArray[\\$k][\\$i] = \\$a2dArray[\\$k][\\$j]",
             "                Next",
             "            EndIf",
             "        Next",
             "    Next",
             "",
-            "    Return $$aNew2dArray",
+            "    Return \\$aNew2dArray",
             "EndFunc"
         ],
         "description": "Sort column sequence alphabetically of a multidimensional array.",
@@ -126,10 +126,10 @@
     },
     "TransformToZeroBasedArray": {
         "body": [
-            "Func _TransformToZeroBasedArray($$aList)",
-            "    _ArrayDelete($$aList, 0)",
+            "Func _TransformToZeroBasedArray(\\$aList)",
+            "    _ArrayDelete(\\$aList, 0)",
             "",
-            "    Return $$aList",
+            "    Return \\$aList",
             "EndFunc"
         ],
         "description": "Transform an array which starts on index one to a zero based array.",

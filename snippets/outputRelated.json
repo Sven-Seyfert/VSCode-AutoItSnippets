@@ -2,8 +2,8 @@
     "ConsoleWriteUnicodeChars": {
         "body": [
             "Func _ConsoleWriteUnicodeChars()",
-            "    For $$i = 160 To 255",
-            "        ConsoleWrite('Ascii Char Number: ' & $$i & '    Unicode: U+' & Hex(AscW(Chr($$i)), 6) & @CRLF)",
+            "    For \\$i = 160 To 255",
+            "        ConsoleWrite('Ascii Char Number: ' & \\$i & '    Unicode: U+' & Hex(AscW(Chr(\\$i)), 6) & @CRLF)",
             "    Next",
             "EndFunc"
         ],
@@ -25,15 +25,15 @@
     },
     "GetCommandLineOutput": {
         "body": [
-            "Func _GetCommandLineOutput($$sCommand)",
-            "    Local Const $$iStdErrChild = 4",
-            "    Local Const $$iStdOutChild = 2",
+            "Func _GetCommandLineOutput(\\$sCommand)",
+            "    Local Const \\$iStdErrChild = 4",
+            "    Local Const \\$iStdOutChild = 2",
             "",
-            "    Local $$iPID    = Run('\"' & @ComSpec & '\" /c ' & $$sCommand, '', @SW_HIDE, $$iStdErrChild + $$iStdOutChild)",
-            "    Local $$sOutput = ''",
+            "    Local \\$iPID    = Run('\"' & @ComSpec & '\" /c ' & \\$sCommand, '', @SW_HIDE, \\$iStdErrChild + \\$iStdOutChild)",
+            "    Local \\$sOutput = ''",
             "",
             "    While True",
-            "        $$sOutput &= StdoutRead($$iPID, False, False)",
+            "        \\$sOutput &= StdoutRead(\\$iPID, False, False)",
             "        If @error Then",
             "            ExitLoop",
             "        EndIf",
@@ -41,7 +41,7 @@
             "        Sleep(10)",
             "    WEnd",
             "",
-            "    Return $$sOutput",
+            "    Return \\$sOutput",
             "EndFunc"
         ],
         "description": "Read command line output (result of a given command) to string.",
@@ -66,14 +66,14 @@
     },
     "NewLine": {
         "body": [
-            "Func _NewLine($$iCount = 1)",
-            "    Local $$sNewLine = null",
+            "Func _NewLine(\\$iCount = 1)",
+            "    Local \\$sNewLine = null",
             "",
-            "    For $$i = 1 To $$iCount Step 1",
-            "        $$sNewLine &= @CRLF",
+            "    For \\$i = 1 To \\$iCount Step 1",
+            "        \\$sNewLine &= @CRLF",
             "    Next",
             "",
-            "    Return $$sNewLine",
+            "    Return \\$sNewLine",
             "EndFunc"
         ],
         "description": "Get one newline (carriage return and line feed) by default or multiple newlines by optional parameter.",
@@ -81,9 +81,9 @@
     },
     "Print": {
         "body": [
-            "Func _Print($$sText, $$bWithPipeBoundaries = False)",
-            "    If $$bWithPipeBoundaries Then ConsoleWrite('|' & $$sText & '|' & @CRLF)",
-            "    If Not $$bWithPipeBoundaries Then ConsoleWrite($$sText & @CRLF)",
+            "Func _Print(\\$sText, \\$bWithPipeBoundaries = False)",
+            "    If \\$bWithPipeBoundaries Then ConsoleWrite('|' & \\$sText & '|' & @CRLF)",
+            "    If Not \\$bWithPipeBoundaries Then ConsoleWrite(\\$sText & @CRLF)",
             "EndFunc"
         ],
         "description": "Extends the default ConsoleWrite function by a default line break and optionally by start- and trailing pipe sign for better notice of whitespaces.",

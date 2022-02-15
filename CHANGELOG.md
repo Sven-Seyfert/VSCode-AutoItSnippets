@@ -9,6 +9,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Go to [legend](#legend---types-of-changes) for further information about the types of changes.
 
+## [2.1.0] - 2022-02-15
+
+### Changed
+
+- Usage of proper escape pattern `\\$` instead of `$$`.
+- Version bump.
+
 ## [2.0.0] - 2022-02-15
 
 ### Changed
@@ -204,6 +211,7 @@ Go to [legend](#legend---types-of-changes) for further information about the typ
 
 - Icon image displays correctly now in README.md file (png instead of ico).
 
+[2.1.0]: https://github.com/Sven-Seyfert/VSCode-AutoItSnippets/compare/v2.0.0...v2.1.0
 [2.0.0]: https://github.com/Sven-Seyfert/VSCode-AutoItSnippets/compare/v1.9.1...v2.0.0
 [1.9.1]: https://github.com/Sven-Seyfert/VSCode-AutoItSnippets/compare/v1.9.0...v1.9.1
 [1.9.0]: https://github.com/Sven-Seyfert/VSCode-AutoItSnippets/compare/v1.8.0...v1.9.0

@@ -1,8 +1,8 @@
 {
     "DecryptFromUtf16LittleEndian": {
         "body": [
-            "Func _DecryptFromUtf16LittleEndian($$sText)",
-            "    Return BinaryToString('0x' & $$sText, 2)",
+            "Func _DecryptFromUtf16LittleEndian(\\$sText)",
+            "    Return BinaryToString('0x' & \\$sText, 2)",
             "EndFunc"
         ],
         "description": "Decrypt from UTF16 Little Endian (UTF-16LE).",
@@ -10,14 +10,14 @@
     },
     "DecryptString": {
         "body": [
-            "Func _DecryptString($$sData, $$sCryptKey = 'thisIsAExampleCryptKey')",
+            "Func _DecryptString(\\$sData, \\$sCryptKey = 'thisIsAExampleCryptKey')",
             "    _Crypt_Startup()",
             "",
-            "    Local $$sDecryptedString = _Crypt_DecryptData($$sData, $$sCryptKey, $$CALG_RC4)",
+            "    Local \\$sDecryptedString = _Crypt_DecryptData(\\$sData, \\$sCryptKey, \\$CALG_RC4)",
             "",
             "    _Crypt_Shutdown()",
             "",
-            "    Return BinaryToString($$sDecryptedString)",
+            "    Return BinaryToString(\\$sDecryptedString)",
             "EndFunc"
         ],
         "description": "Decrypt a encrypted string by your default crypt key to be human readable.",
@@ -25,14 +25,14 @@
     },
     "EncryptString": {
         "body": [
-            "Func _EncryptString($$sData, $$sCryptKey = 'thisIsAExampleCryptKey')",
+            "Func _EncryptString(\\$sData, \\$sCryptKey = 'thisIsAExampleCryptKey')",
             "    _Crypt_Startup()",
             "",
-            "    Local $$sEncryptedString = _Crypt_EncryptData($$sData, $$sCryptKey, $$CALG_RC4)",
+            "    Local \\$sEncryptedString = _Crypt_EncryptData(\\$sData, \\$sCryptKey, \\$CALG_RC4)",
             "",
             "    _Crypt_Shutdown()",
             "",
-            "    Return $$sEncryptedString",
+            "    Return \\$sEncryptedString",
             "EndFunc"
         ],
         "description": "Encrypt string by your default crypt key to encrypted unreadable string.",
@@ -40,8 +40,8 @@
     },
     "EncryptToUtf16LittleEndian": {
         "body": [
-            "Func _EncryptToUtf16LittleEndian($$sText)",
-            "    Return StringTrimLeft(StringToBinary($$sText, 2), 2)",
+            "Func _EncryptToUtf16LittleEndian(\\$sText)",
+            "    Return StringTrimLeft(StringToBinary(\\$sText, 2), 2)",
             "EndFunc"
         ],
         "description": "Encrypt to UTF16 Little Endian (UTF-16LE).",
