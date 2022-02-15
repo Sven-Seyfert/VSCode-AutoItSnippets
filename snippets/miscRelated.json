@@ -1,16 +1,16 @@
 {
     "DeleteCurrentScriptAfterRun": {
         "body": [
-            "Func _deleteCurrentScriptAfterRun($$sCmd = @SystemDir & '\\cmd.exe')",
+            "Func _DeleteCurrentScriptAfterRun($$sCmd = @SystemDir & '\\cmd.exe')",
             "    Run($$sCmd & ' /C del /F /Q \"' & @ScriptFullPath & '\"', @TempDir, @SW_HIDE)",
             "EndFunc"
         ],
         "description": "Delete current script after execution (after run).",
-        "prefix": "!au3_deleteCurrentScriptAfterRun"
+        "prefix": "!_DeleteCurrentScriptAfterRun"
     },
     "GetMacOrIpAddress": {
         "body": [
-            "Func _getMacOrIpAddress()",
+            "Func _GetMacOrIpAddress()",
             "    Local $$oWmiService      = ObjGet('winmgmts:{impersonationLevel=impersonate}!\\\\.\\root\\cimv2')",
             "    Local $$oNetworkAdapters = $$oWmiService.ExecQuery('select * from Win32_NetworkAdapterConfiguration where IPEnabled = True')",
             "",
@@ -25,11 +25,11 @@
             "EndFunc"
         ],
         "description": "Get MAC address or if not found the IP address.",
-        "prefix": "!au3_getMacOrIpAddress"
+        "prefix": "!_GetMacOrIpAddress"
     },
     "GetMonitorResolution": {
         "body": [
-            "Func _getMonitorResolution()",
+            "Func _GetMonitorResolution()",
             "    Local $$aPosition, $$aMonitorData = _WinAPI_EnumDisplayMonitors()",
             "",
             "    If IsArray($$aMonitorData) Then",
@@ -46,11 +46,11 @@
             "EndFunc"
         ],
         "description": "Get monitor resolution data as array.",
-        "prefix": "!au3_getMonitorResolution"
+        "prefix": "!_GetMonitorResolution"
     },
     "GetProcessPathByPid": {
         "body": [
-            "Func _getProcessPathByPid($$iPid = -1)",
+            "Func _GetProcessPathByPid($$iPid = -1)",
             "    If $$iPid = -1 Then $$iPid = WinGetProcess(WinGetTitle('[active]'))",
             "",
             "    Local $$hProcess = _WinAPI_OpenProcess(0x00000400, True, $$iPid, True)",
@@ -80,11 +80,11 @@
             "EndFunc"
         ],
         "description": "Get process path by process id (PID).",
-        "prefix": "!au3_getProcessPathByPid"
+        "prefix": "!_GetProcessPathByPid"
     },
     "MsgBoxWithoutStop": {
         "body": [
-            "Func _msgBoxWithoutStop($$iFlag, $$sTitle, $$sText, $$iTimeout = 0)",
+            "Func _MsgBoxWithoutStop($$iFlag, $$sTitle, $$sText, $$iTimeout = 0)",
             "    Local $$sAu3Exe  = '\"' & @AutoItExe & '\"'",
             "    Local $$sParam   = ' /AutoIt3ExecuteLine '",
             "    Local $$sMessage = '\"MsgBox(' & $$iFlag & ', ''' & $$sTitle & ''', ''' & $$sText & ''', ''' & $$iTimeout & ''')\"'",
@@ -93,11 +93,11 @@
             "EndFunc"
         ],
         "description": "Show a message box without stop/pause the program execution.",
-        "prefix": "!au3_msgBoxWithoutStop"
+        "prefix": "!_MsgBoxWithoutStop"
     },
     "RunProgram": {
         "body": [
-            "Func _runProgram(\\$sProgramExeFilePath, \\$sParams = '', \\$bOnlyTest = False,  \\$bWaitAfterRun = False, \\$bHidden = True)",
+            "Func _RunProgram(\\$sProgramExeFilePath, \\$sParams = '', \\$bOnlyTest = False,  \\$bWaitAfterRun = False, \\$bHidden = True)",
             "    Local \\$sWaitCommand         = ' /C '",
             "    Local \\$sDriveLetter         = StringLeft(\\$sProgramExeFilePath, 1)",
             "    Local \\$sChangeDriveCommand  = \\$sDriveLetter & ': && '",
@@ -130,11 +130,11 @@
             "EndFunc"
         ],
         "description": "Runs external program with or without parameter in a quite robust way.",
-        "prefix": "!au3_runProgram"
+        "prefix": "!_RunProgram"
     },
     "SetDisplayResolution": {
         "body": [
-            "Func _setDisplayResolution($$iDisplayWidth, $$iDisplayHeight)",
+            "Func _SetDisplayResolution($$iDisplayWidth, $$iDisplayHeight)",
             "    Local Const $$CDS_TEST               = 0x00000002",
             "    Local Const $$CDS_UPDATEREGISTRY     = 0x00000001",
             "    Local Const $$DM_BITSPERPEL          = 0x00040000",
@@ -174,11 +174,11 @@
             "EndFunc"
         ],
         "description": "Set display resolution to specific display width and height.",
-        "prefix": "!au3_setDisplayResolution"
+        "prefix": "!_SetDisplayResolution"
     },
     "TalkOverPcVoice": {
         "body": [
-            "Func _talkOverPcVoice($$sText = 'This is a test.', $$iVolume = 75)",
+            "Func _TalkOverPcVoice($$sText = 'This is a test.', $$iVolume = 75)",
             "    Local $$objSpeech = ObjCreate('SAPI.SpVoice')",
             "    $$objSpeech.Rate = -0.8",
             "    $$objSpeech.Volume = $$iVolume",
@@ -187,7 +187,7 @@
             "EndFunc"
         ],
         "description": "Let the computer read out your text by the use of the SAPI API.",
-        "prefix": "!au3_talkOverPcVoice"
+        "prefix": "!_TalkOverPcVoice"
     },
     "Template": {
         "body": [
@@ -224,25 +224,25 @@
             "",
             "",
             "; processing -------------------------------------------------------------------",
-            "_dummyFunc()",
+            "_DummyFunc()",
             "",
             "",
             "",
             "; functions --------------------------------------------------------------------",
-            "Func _dummyFunc()",
+            "Func _DummyFunc()",
             "",
             "EndFunc"
         ],
         "description": "Creates a short script template to structure your code.",
-        "prefix": "!au3_template"
+        "prefix": "!_Template"
     },
     "ToggleDesktopIcons": {
         "body": [
-            "Func _toggleDesktopIcons()",
+            "Func _ToggleDesktopIcons()",
             "    DllCall('user32.dll', 'lresult', 'SendMessage', 'hwnd', ControlGetHandle('[CLASS:Progman]', '', '[CLASS:SHELLDLL_DefView]'), 'uint', 0x0111, 'wparam', 29698, 'lparam', 0)",
             "EndFunc"
         ],
         "description": "Toggles the visibility of the desktop icons.",
-        "prefix": "!au3_toggleDesktopIcons"
+        "prefix": "!_ToggleDesktopIcons"
     }
 }

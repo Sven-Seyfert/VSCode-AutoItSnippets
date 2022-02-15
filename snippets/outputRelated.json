@@ -1,18 +1,18 @@
 {
     "ConsoleWriteUnicodeChars": {
         "body": [
-            "Func _consoleWriteUnicodeChars()",
+            "Func _ConsoleWriteUnicodeChars()",
             "    For $$i = 160 To 255",
             "        ConsoleWrite('Ascii Char Number: ' & $$i & '    Unicode: U+' & Hex(AscW(Chr($$i)), 6) & @CRLF)",
             "    Next",
             "EndFunc"
         ],
         "description": "Write Unicode characters to the console.",
-        "prefix": "!au3_consoleWriteUnicodeChars"
+        "prefix": "!_ConsoleWriteUnicodeChars"
     },
     "GetAutoItEnvironmentInfos": {
         "body": [
-            "Func _getAutoItEnvironmentInfos()",
+            "Func _GetAutoItEnvironmentInfos()",
             "    ConsoleWrite('@AutoItExe:     ' & @AutoItExe & @CRLF)",
             "    ConsoleWrite('@AutoItVersion: ' & @AutoItVersion & @CRLF)",
             "    ConsoleWrite('@CPUArch:       ' & @CPUArch & @CRLF)",
@@ -21,11 +21,11 @@
             "EndFunc"
         ],
         "description": "Get AutoIt environment information.",
-        "prefix": "!au3_getAutoItEnvironmentInfos"
+        "prefix": "!_GetAutoItEnvironmentInfos"
     },
     "GetCommandLineOutput": {
         "body": [
-            "Func _getCommandLineOutput($$sCommand)",
+            "Func _GetCommandLineOutput($$sCommand)",
             "    Local Const $$iStdErrChild = 4",
             "    Local Const $$iStdOutChild = 2",
             "",
@@ -45,11 +45,11 @@
             "EndFunc"
         ],
         "description": "Read command line output (result of a given command) to string.",
-        "prefix": "!au3_getCommandLineOutput"
+        "prefix": "!_GetCommandLineOutput"
     },
     "GetComputerInfos": {
         "body": [
-            "Func _getComputerInfos()",
+            "Func _GetComputerInfos()",
             "    ConsoleWrite('@ComputerName:   ' & @ComputerName & @CRLF)",
             "    ConsoleWrite('@UserName:       ' & @UserName & @CRLF)",
             "    ConsoleWrite('@UserProfileDir: ' & @UserProfileDir & @CRLF)",
@@ -62,11 +62,11 @@
             "EndFunc"
         ],
         "description": "Get computer information.",
-        "prefix": "!au3_getComputerInfos"
+        "prefix": "!_GetComputerInfos"
     },
     "NewLine": {
         "body": [
-            "Func _newLine($$iCount = 1)",
+            "Func _NewLine($$iCount = 1)",
             "    Local $$sNewLine = null",
             "",
             "    For $$i = 1 To $$iCount Step 1",
@@ -77,16 +77,16 @@
             "EndFunc"
         ],
         "description": "Get one newline (carriage return and line feed) by default or multiple newlines by optional parameter.",
-        "prefix": "!au3_newLine"
+        "prefix": "!_NewLine"
     },
     "Print": {
         "body": [
-            "Func _print($$sText, $$bWithPipeBoundaries = False)",
+            "Func _Print($$sText, $$bWithPipeBoundaries = False)",
             "    If $$bWithPipeBoundaries Then ConsoleWrite('|' & $$sText & '|' & @CRLF)",
             "    If Not $$bWithPipeBoundaries Then ConsoleWrite($$sText & @CRLF)",
             "EndFunc"
         ],
         "description": "Extends the default ConsoleWrite function by a default line break and optionally by start- and trailing pipe sign for better notice of whitespaces.",
-        "prefix": "!au3_print"
+        "prefix": "!_Print"
     }
 }

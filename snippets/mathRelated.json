@@ -1,7 +1,7 @@
 {
     "Get_GreatestCommonDivisor_LeastCommonMultiple": {
         "body": [
-            "Func _get_GreatestCommonDivisor_LeastCommonMultiple($$a = 5, $$b = 37)",
+            "Func _Get_GreatestCommonDivisor_LeastCommonMultiple($$a = 5, $$b = 37)",
             "    Local $$sGCD = 'Greatest common divisor of ' & $$a & ' and ' & $$b & ' is '",
             "    Local $$sLCM = 'Least common multiple of ' & $$a & ' and ' & $$b & ' is '",
             "    Local $$c, $$f, $$m = $$a, $$n = $$b",
@@ -20,33 +20,33 @@
             "EndFunc"
         ],
         "description": "Get 'greatest common divisor' and 'least common multiple' of to numbers.",
-        "prefix": "!au3_get_GreatestCommonDivisor_LeastCommonMultiple"
+        "prefix": "!_Get_GreatestCommonDivisor_LeastCommonMultiple"
     },
     "IsNumberOdd": {
         "body": [
-            "Func _isNumberOdd($$iNumber)",
+            "Func _IsNumberOdd($$iNumber)",
             "    Return (Mod($$iNumber, 2) <> 0) ? True : False",
             "EndFunc"
         ],
         "description": "Is number odd or even.",
-        "prefix": "!au3_isNumberOdd"
+        "prefix": "!_IsNumberOdd"
     },
     "KilometresToMiles": {
         "body": [
-            "Func _kilometresToMiles($$iKilometers)",
+            "Func _KilometresToMiles($$iKilometers)",
             "    Return $$iKilometers * 0.6214",
             "EndFunc"
         ],
         "description": "Calculates the miles of given kilometers.",
-        "prefix": "!au3_kilometresToMiles"
+        "prefix": "!_KilometresToMiles"
     },
     "MilesToKilometres": {
         "body": [
-            "Func _milesToKilometres($$iMiles)",
+            "Func _MilesToKilometres($$iMiles)",
             "    Return $$iMiles * 1.609",
             "EndFunc"
         ],
         "description": "Calculates the kilometers of given miles.",
-        "prefix": "!au3_milesToKilometres"
+        "prefix": "!_MilesToKilometres"
     }
 }

@@ -1,7 +1,7 @@
 {
     "CreateRandomText": {
         "body": [
-            "Func _createRandomText($$iLength = 10, $$iModi = 4)",
+            "Func _CreateRandomText($$iLength = 10, $$iModi = 4)",
             "    Local $$sText = ''",
             "",
             "    Switch $$iModi",
@@ -37,26 +37,26 @@
             "EndFunc"
         ],
         "description": "Create a random text (string based on different modi).",
-        "prefix": "!au3_createRandomText"
+        "prefix": "!_CreateRandomText"
     },
     "GetGuid": {
         "body": [
-            "Func _getGuid()",
-            "    Local $$sGuid  = _getGuidSegment(8)",
-            "        $$sGuid &= '-' & _getGuidSegment(4)",
-            "        $$sGuid &= '-' & _getGuidSegment(4)",
-            "        $$sGuid &= '-' & _getGuidSegment(4)",
-            "        $$sGuid &= '-' & _getGuidSegment(12)",
+            "Func _GetGuid()",
+            "    Local $$sGuid  = _GetGuidSegment(8)",
+            "        $$sGuid &= '-' & _GetGuidSegment(4)",
+            "        $$sGuid &= '-' & _GetGuidSegment(4)",
+            "        $$sGuid &= '-' & _GetGuidSegment(4)",
+            "        $$sGuid &= '-' & _GetGuidSegment(12)",
             "",
             "    Return $$sGuid",
             "EndFunc"
         ],
         "description": "Get a valid GUID.",
-        "prefix": "!au3_getGuid"
+        "prefix": "!_GetGuid"
     },
     "GetGuidSegment": {
         "body": [
-            "Func _getGuidSegment($$iSegmentCount)",
+            "Func _GetGuidSegment($$iSegmentCount)",
             "    Local $$sGuidSegment",
             "",
             "    For $$i = 1 To $$iSegmentCount Step 1",
@@ -75,12 +75,12 @@
             "    Return $$sGuidSegment",
             "EndFunc"
         ],
-        "description": "Get GUID segment which is used in function _getGuid.",
-        "prefix": "!au3_getGuidSegment"
+        "description": "Get GUID segment which is used in function _GetGuid.",
+        "prefix": "!_GetGuidSegment"
     },
     "GetUniqueMachineGuidString": {
         "body": [
-            "Func _getUniqueMachineGuidString()",
+            "Func _GetUniqueMachineGuidString()",
             "    Local $$sMachineGuid = RegRead('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Cryptography', 'MachineGuid')",
             "    $$sMachineGuid = StringReplace($$sMachineGuid, '-', '')",
             "    $$sMachineGuid = StringTrimLeft($$sMachineGuid, 5)",
@@ -90,11 +90,11 @@
             "EndFunc"
         ],
         "description": "Get unique machine guid as string.",
-        "prefix": "!au3_getUniqueMachineGuidString"
+        "prefix": "!_GetUniqueMachineGuidString"
     },
     "NormalizeStringLength": {
         "body": [
-            "Func _normalizeStringLength($$sString, $$iMaxLength)",
+            "Func _NormalizeStringLength($$sString, $$iMaxLength)",
             "    Local $$iLength = StringLen($$sString)",
             "    If $$iLength < $$iMaxLength Then",
             "        Return $$sString & _StringRepeat(' ', $$iMaxLength - $$iLength)",
@@ -104,11 +104,11 @@
             "EndFunc"
         ],
         "description": "Normalize string length for a good looking table like output result.",
-        "prefix": "!au3_normalizeStringLength"
+        "prefix": "!_NormalizeStringLength"
     },
     "SplitStringByCountToArray": {
         "body": [
-            "Func _splitStringByCountToArray($$sString, $$iCount = 80)",
+            "Func _SplitStringByCountToArray($$sString, $$iCount = 80)",
             "    Local $$iParts = Ceiling(StringLen($$sString) / $$iCount)",
             "",
             "    Dim $$aContent[$$iParts + 1], $$x = 1",
@@ -124,11 +124,11 @@
             "EndFunc"
         ],
         "description": "Split a long string by defined count to an array.",
-        "prefix": "!au3_splitStringByCountToArray"
+        "prefix": "!_SplitStringByCountToArray"
     },
     "StringProperWithoutSpaces": {
         "body": [
-            "Func _stringProperWithoutSpaces($$sString)",
+            "Func _StringProperWithoutSpaces($$sString)",
             "    Local $$sCharacter          = ''",
             "    Local $$sProperString       = ''",
             "    Local $$bIsCapitalCharacter = True",
@@ -159,11 +159,11 @@
             "EndFunc"
         ],
         "description": "Reformat the given string to proper case without spaces ('This string will be reformated to proper case without spaces' => 'ThisStringWillBeReformatedToProperCaseWithoutSpaces').",
-        "prefix": "!au3_stringProperWithoutSpaces"
+        "prefix": "!_StringProperWithoutSpaces"
     },
     "StringProperWithSpaces": {
         "body": [
-            "Func _stringProperWithSpaces($$sString)",
+            "Func _StringProperWithSpaces($$sString)",
             "    Local $$sCharacter          = ''",
             "    Local $$sProperString       = ''",
             "    Local $$iCharactersCount    = StringLen($$sString)",
@@ -182,6 +182,6 @@
             "EndFunc"
         ],
         "description": "Reformat the given string to proper case with spaces ('ThisStringWillBeReformatedToStringProperCaseWithSpaces' => 'This String Will Be Reformated To String Proper Case With Spaces').",
-        "prefix": "!au3_stringProperWithSpaces"
+        "prefix": "!_StringProperWithSpaces"
     }
 }

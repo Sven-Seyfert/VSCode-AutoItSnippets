@@ -1,16 +1,16 @@
 {
     "DecryptFromUtf16LittleEndian": {
         "body": [
-            "Func _decryptFromUtf16LittleEndian($$sText)",
+            "Func _DecryptFromUtf16LittleEndian($$sText)",
             "    Return BinaryToString('0x' & $$sText, 2)",
             "EndFunc"
         ],
         "description": "Decrypt from UTF16 Little Endian (UTF-16LE).",
-        "prefix": "!au3_decryptFromUtf16LittleEndian"
+        "prefix": "!_DecryptFromUtf16LittleEndian"
     },
     "DecryptString": {
         "body": [
-            "Func _decryptString($$sData, $$sCryptKey = 'thisIsAExampleCryptKey')",
+            "Func _DecryptString($$sData, $$sCryptKey = 'thisIsAExampleCryptKey')",
             "    _Crypt_Startup()",
             "",
             "    Local $$sDecryptedString = _Crypt_DecryptData($$sData, $$sCryptKey, $$CALG_RC4)",
@@ -21,11 +21,11 @@
             "EndFunc"
         ],
         "description": "Decrypt a encrypted string by your default crypt key to be human readable.",
-        "prefix": "!au3_decryptString"
+        "prefix": "!_DecryptString"
     },
     "EncryptString": {
         "body": [
-            "Func _encryptString($$sData, $$sCryptKey = 'thisIsAExampleCryptKey')",
+            "Func _EncryptString($$sData, $$sCryptKey = 'thisIsAExampleCryptKey')",
             "    _Crypt_Startup()",
             "",
             "    Local $$sEncryptedString = _Crypt_EncryptData($$sData, $$sCryptKey, $$CALG_RC4)",
@@ -36,15 +36,15 @@
             "EndFunc"
         ],
         "description": "Encrypt string by your default crypt key to encrypted unreadable string.",
-        "prefix": "!au3_encryptString"
+        "prefix": "!_EncryptString"
     },
     "EncryptToUtf16LittleEndian": {
         "body": [
-            "Func _encryptToUtf16LittleEndian($$sText)",
+            "Func _EncryptToUtf16LittleEndian($$sText)",
             "    Return StringTrimLeft(StringToBinary($$sText, 2), 2)",
             "EndFunc"
         ],
         "description": "Encrypt to UTF16 Little Endian (UTF-16LE).",
-        "prefix": "!au3_encryptToUtf16LittleEndian"
+        "prefix": "!_EncryptToUtf16LittleEndian"
     }
 }

@@ -1,18 +1,18 @@
 {
     "AddBackslashToPathEnd": {
         "body": [
-            "Func _addBackslashToPathEnd($$sPath)",
+            "Func _AddBackslashToPathEnd($$sPath)",
             "    If StringRight($$sPath, 1) <> '\\' Then $$sPath &= '\\'",
             "",
             "    Return $$sPath",
             "EndFunc"
         ],
         "description": "Ensure trailing backslash for a path.",
-        "prefix": "!au3_addBackslashToPathEnd"
+        "prefix": "!_AddBackslashToPathEnd"
     },
     "AppendToFile": {
         "body": [
-            "Func _appendToFile($$sFile, $$sText)",
+            "Func _AppendToFile($$sFile, $$sText)",
             "    Local Const $$iUtf8WithoutBomAndAppendMode = 256 + 1",
             "",
             "    Local $$hFile = FileOpen($$sFile, $$iUtf8WithoutBomAndAppendMode)",
@@ -21,11 +21,11 @@
             "EndFunc"
         ],
         "description": "Append text to file.",
-        "prefix": "!au3_appendToFile"
+        "prefix": "!_AppendToFile"
     },
     "CreateFileWithSpecificSize": {
         "body": [
-            "Func _createFileWithSpecificSize($$iSize = 5, $$sUnit = 'MB', $$sPath = @ScriptDir & '\\', $$sFile = 'SpecificFile.tmp')",
+            "Func _CreateFileWithSpecificSize($$iSize = 5, $$sUnit = 'MB', $$sPath = @ScriptDir & '\\', $$sFile = 'SpecificFile.tmp')",
             "    DllCall('kernel32.dll', 'int', 'Wow64DisableWow64FsRedirection', 'int', 1)",
             "",
             "    Local $$iByteSize",
@@ -48,29 +48,29 @@
             "EndFunc"
         ],
         "description": "Create a dummy file with a specific file size.",
-        "prefix": "!au3_createFileWithSpecificSize"
+        "prefix": "!_CreateFileWithSpecificSize"
     },
     "ExistsNotAllowedCharacters": {
         "body": [
-            "Func _existsNotAllowedCharacters($$sString)",
+            "Func _ExistsNotAllowedCharacters($$sString)",
             "    If StringInStr($$sString, '\\') <> 0 Then Return True",
-            "    If StringInStr($$sString, '/') <> 0 Then Return True",
-            "    If StringInStr($$sString, ':') <> 0 Then Return True",
-            "    If StringInStr($$sString, '*') <> 0 Then Return True",
-            "    If StringInStr($$sString, '?') <> 0 Then Return True",
+            "    If StringInStr($$sString, '/')  <> 0 Then Return True",
+            "    If StringInStr($$sString, ':')  <> 0 Then Return True",
+            "    If StringInStr($$sString, '*')  <> 0 Then Return True",
+            "    If StringInStr($$sString, '?')  <> 0 Then Return True",
             "    If StringInStr($$sString, '\"') <> 0 Then Return True",
-            "    If StringInStr($$sString, '<') <> 0 Then Return True",
-            "    If StringInStr($$sString, '>') <> 0 Then Return True",
-            "    If StringInStr($$sString, '|') <> 0 Then Return True",
+            "    If StringInStr($$sString, '<')  <> 0 Then Return True",
+            "    If StringInStr($$sString, '>')  <> 0 Then Return True",
+            "    If StringInStr($$sString, '|')  <> 0 Then Return True",
             "    Return False",
             "EndFunc"
         ],
         "description": "Check string for not allowed characters regarding a file renaming action.",
-        "prefix": "!au3_existsNotAllowedCharacters"
+        "prefix": "!_ExistsNotAllowedCharacters"
     },
     "FileExistsBranch": {
         "body": [
-            "Func _fileExistsBranch($$sFileOrPath)",
+            "Func _FileExistsBranch($$sFileOrPath)",
             "    If FileExists($$sFileOrPath) Then",
             "        ; ...",
             "    Else",
@@ -79,11 +79,11 @@
             "EndFunc"
         ],
         "description": "Check condition for file or directory exists.",
-        "prefix": "!au3_fileExistsBranch"
+        "prefix": "!_FileExistsBranch"
     },
     "GetFileContent": {
         "body": [
-            "Func _getFileContent($$sFile)",
+            "Func _GetFileContent($$sFile)",
             "    Local Const $$iUtf8WithoutBomMode = 256",
             "",
             "    Local $$hFile        = FileOpen($$sFile, $$iUtf8WithoutBomMode)",
@@ -94,11 +94,11 @@
             "EndFunc"
         ],
         "description": "Get file content to string.",
-        "prefix": "!au3_getFileContent"
+        "prefix": "!_GetFileContent"
     },
     "GetFileProperties": {
         "body": [
-            "Func _getFileProperties($$sDirectory, $$sFileName, $$bRemoveEmptyLines = True)",
+            "Func _GetFileProperties($$sDirectory, $$sFileName, $$bRemoveEmptyLines = True)",
             "    Local $$oShellApp           = ObjCreate('Shell.Application')",
             "    Local $$oFolder             = $$oShellApp.NameSpace($$sDirectory)",
             "    Local $$oFolderItem         = $$oFolder.Parsename($$sFileName)",
@@ -126,14 +126,14 @@
             "EndFunc"
         ],
         "description": "Get all possible file properties to array.",
-        "prefix": "!au3_getFileProperties"
+        "prefix": "!_GetFileProperties"
     },
     "GetFilePropertyValue": {
         "body": [
-            "Func _getFilePropertyValue($$sFile, $$sPropertyKey)",
+            "Func _GetFilePropertyValue($$sFile, $$sPropertyKey)",
             "    Local $$oShellApp      = ObjCreate('Shell.Application')",
-            "    Local $$oFolder        = $$oShellApp.NameSpace(_getJustPathOfFile($$sFile))",
-            "    Local $$oFileName      = $$oFolder.Parsename(_getJustFileName($$sFile))",
+            "    Local $$oFolder        = $$oShellApp.NameSpace(_GetJustPathOfFile($$sFile))",
+            "    Local $$oFileName      = $$oFolder.Parsename(_GetJustFileName($$sFile))",
             "    Local $$sPropertyValue = ''",
             "",
             "    For $$i = 0 To 400 Step 1",
@@ -147,11 +147,11 @@
             "EndFunc"
         ],
         "description": "Get specific file property value.",
-        "prefix": "!au3_getFilePropertyValue"
+        "prefix": "!_GetFilePropertyValue"
     },
     "GetFileShare": {
         "body": [
-            "Func _getFileShare()",
+            "Func _GetFileShare()",
             "    Local $$oWMIService = ObjGet('winmgmts:\\\\\\\\.\\root\\CIMV2')",
             "    Local $$oColItems   = $$oWMIService.ExecQuery('SELECT * FROM Win32_Share')",
             "    Local $$aFileShares[1]",
@@ -167,38 +167,38 @@
             "EndFunc"
         ],
         "description": "Get a list of FileShares as array.",
-        "prefix": "!au3_getFileShare"
+        "prefix": "!_GetFileShare"
     },
     "GetJustFileExtension": {
         "body": [
-            "Func _getJustFileExtension($$sFileName)",
+            "Func _GetJustFileExtension($$sFileName)",
             "    Return StringReverse(_StringBetween(StringReverse($$sFileName), '', '.')[0])",
             "EndFunc"
         ],
         "description": "Get just the file extension of a file name or file path.",
-        "prefix": "!au3_getJustFileExtension"
+        "prefix": "!_GetJustFileExtension"
     },
     "GetJustFileName": {
         "body": [
-            "Func _getJustFileName($$sFilePath)",
+            "Func _GetJustFileName($$sFilePath)",
             "    Return StringRegExpReplace($$sFilePath, '(.+?)\\\\\\', '', 0)",
             "EndFunc"
         ],
         "description": "Get just the file name of a file path (including the file extension).",
-        "prefix": "!au3_getJustFileName"
+        "prefix": "!_GetJustFileName"
     },
     "GetJustPathOfFile": {
         "body": [
-            "Func _getJustPathOfFile($$sFilePath)",
-            "    Return StringTrimRight($$sFilePath, StringLen(_getJustFileName($$sFilePath)))",
+            "Func _GetJustPathOfFile($$sFilePath)",
+            "    Return StringTrimRight($$sFilePath, StringLen(_GetJustFileName($$sFilePath)))",
             "EndFunc"
         ],
         "description": "Get just the path of a file.",
-        "prefix": "!au3_getJustPathOfFile"
+        "prefix": "!_GetJustPathOfFile"
     },
     "IsFileInUse": {
         "body": [
-            "Func _isFileInUse($$sFile)",
+            "Func _IsFileInUse($$sFile)",
             "    Local $$vGENERIC_READ          = 0x80000000",
             "    Local $$vGENERIC_WRITE         = 0x40000000",
             "    Local $$vFILE_ATTRIBUTE_NORMAL = 0x80",
@@ -226,20 +226,20 @@
             "EndFunc"
         ],
         "description": "Check is file in use by another process.",
-        "prefix": "!au3_isFileInUse"
+        "prefix": "!_IsFileInUse"
     },
     "OpenFolder": {
         "body": [
-            "Func _openFolder($$sFolderPath = @DesktopDir)",
+            "Func _OpenFolder($$sFolderPath = @DesktopDir)",
             "    ShellExecute($$sFolderPath)",
             "EndFunc"
         ],
         "description": "Open a given folder.",
-        "prefix": "!au3_openFolder"
+        "prefix": "!_OpenFolder"
     },
     "RelativeToAbsolutePath": {
         "body": [
-            "Func _relativeToAbsolutePath($$sRelativePath)",
+            "Func _RelativeToAbsolutePath($$sRelativePath)",
             "    Local $$aPathHierarchy = StringRegExp($$sRelativePath, '(.+?)\\\\\\', 3)",
             "    Local $$iRelativeCount = 0",
             "",
@@ -261,11 +261,11 @@
             "EndFunc"
         ],
         "description": "Resolve relative path to absolute path.",
-        "prefix": "!au3_relativeToAbsolutePath"
+        "prefix": "!_RelativeToAbsolutePath"
     },
     "SaveBinaryToFile": {
         "body": [
-            "Func _saveBinaryToFile($$vString, $$sFilePath)",
+            "Func _SaveBinaryToFile($$vString, $$sFilePath)",
             "    Local Const $$iBinaryAndWriteMode = 16 + 2",
             "",
             "    Local $$hFile = FileOpen($$sFilePath, $$iBinaryAndWriteMode)",
@@ -273,12 +273,12 @@
             "    FileClose($$hFile)",
             "EndFunc"
         ],
-        "description": "Create a binary file out of a binary string (vString). See _base64ToBinary function.",
-        "prefix": "!au3_saveBinaryToFile"
+        "description": "Create a binary file out of a binary string (vString). See _Base64ToBinary function.",
+        "prefix": "!_SaveBinaryToFile"
     },
     "SetMaxDirectories": {
         "body": [
-            "Func _setMaxDirectories($$sPath, $$i = 10)",
+            "Func _SetMaxDirectories($$sPath, $$i = 10)",
             "    Local $$aListOfPaths = _FileListToArray($$sPath, '*', 2, True)",
             "    If IsArray($$aListOfPaths) == 1 Then",
             "        If $$aListOfPaths[0] >= $$i Then",
@@ -288,11 +288,11 @@
             "EndFunc"
         ],
         "description": "Remove directories until the maximum count of directories is reached (e. g. for log directories with a timestamp as name).",
-        "prefix": "!au3_setMaxDirectories"
+        "prefix": "!_SetMaxDirectories"
     },
     "SetMaxFiles": {
         "body": [
-            "Func _setMaxFiles($$sPath, $$i = 10, $$sFileExtension = 'log')",
+            "Func _SetMaxFiles($$sPath, $$i = 10, $$sFileExtension = 'log')",
             "    Local $$aListOfFiles = _FileListToArray($$sPath, '*.' & $$sFileExtension, 1, True)",
             "    If IsArray($$aListOfFiles) Then",
             "        If $$aListOfFiles[0] >= $$i Then",
@@ -302,12 +302,12 @@
             "EndFunc"
         ],
         "description": "Remove files until the maximum count of files is reached (e. g. for log files with a timestamp as name).",
-        "prefix": "!au3_setMaxFiles"
+        "prefix": "!_SetMaxFiles"
     },
     "SortFileByAscOrDesc": {
         "body": [
-            "Func _sortFileByAscOrDesc($$sFile, $$iAscOrDesc = 0)",
-            "    Local $$sFileContent = _getFileContent($$sFile)",
+            "Func _SortFileByAscOrDesc($$sFile, $$iAscOrDesc = 0)",
+            "    Local $$sFileContent = _GetFileContent($$sFile)",
             "    Local $$aFileContent = StringSplit($$sFileContent, @CRLF, 1)",
             "",
             "    _ArrayDelete($$aFileContent, 0)",
@@ -318,15 +318,15 @@
             "        ; ...",
             "    EndIf",
             "",
-            "    _writeFile($$sFile, $$sText)",
+            "    _WriteFile($$sFile, $$sText)",
             "EndFunc"
         ],
         "description": "Sort file content ascending or descending.",
-        "prefix": "!au3_sortFileByAscOrDesc"
+        "prefix": "!_SortFileByAscOrDesc"
     },
     "WriteFile": {
         "body": [
-            "Func _writeFile($$sFile, $$sText)",
+            "Func _WriteFile($$sFile, $$sText)",
             "    Local Const $$iUtf8WithoutBomAndOverwriteCreationMode = 256 + 2 + 8",
             "",
             "    Local $$hFile = FileOpen($$sFile, $$iUtf8WithoutBomAndOverwriteCreationMode)",
@@ -335,6 +335,6 @@
             "EndFunc"
         ],
         "description": "Create or overwrite a file with the given content.",
-        "prefix": "!au3_writeFile"
+        "prefix": "!_WriteFile"
     }
 }

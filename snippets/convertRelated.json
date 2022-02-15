@@ -1,7 +1,7 @@
 {
     "Base64ToBinary": {
         "body": [
-            "Func _base64ToBinary($$sBase64)",
+            "Func _Base64ToBinary($$sBase64)",
             "    $$sBase64 = StringReplace($$sBase64, @CRLF, '')",
             "",
             "    Local $$aCrypt  = DllCall('Crypt32.dll', 'bool', 'CryptStringToBinaryA', 'str', $$sBase64, 'dword', 0, 'dword', 1, 'ptr', 0, 'dword*', 0, 'ptr', 0, 'ptr', 0)",
@@ -13,11 +13,11 @@
             "EndFunc"
         ],
         "description": "Convert a Base64 string to a binary string (vString).",
-        "prefix": "!au3_base64ToBinary"
+        "prefix": "!_Base64ToBinary"
     },
     "BinaryToBase64": {
         "body": [
-            "Func _binaryToBase64($$sFilePath)",
+            "Func _BinaryToBase64($$sFilePath)",
             "    Local Const $$iBinaryMode = 16",
             "",
             "    Local $$hFile        = FileOpen($$sFilePath, $$iBinaryMode)",
@@ -33,11 +33,11 @@
             "EndFunc"
         ],
         "description": "Reads a binary file and convert to Base64 string.",
-        "prefix": "!au3_binaryToBase64"
+        "prefix": "!_BinaryToBase64"
     },
     "ConvertBinToInt": {
         "body": [
-            "Func _convertBinToInt($$vBin)",
+            "Func _ConvertBinToInt($$vBin)",
             "    Local $$iInt, $$j = 1",
             "    Local $$aTmp = StringSplit(StringReverse($$vBin), '')",
             "",
@@ -52,20 +52,20 @@
             "EndFunc"
         ],
         "description": "Convert binary to integer.",
-        "prefix": "!au3_convertBinToInt"
+        "prefix": "!_ConvertBinToInt"
     },
     "ConvertHexToInt": {
         "body": [
-            "Func _convertHexToInt($$vHex)",
+            "Func _ConvertHexToInt($$vHex)",
             "    Return Int($$vHex)",
             "EndFunc"
         ],
         "description": "Convert hex to integer.",
-        "prefix": "!au3_convertHexToInt"
+        "prefix": "!_ConvertHexToInt"
     },
     "ConvertIntToBin": {
         "body": [
-            "Func _convertIntToBin($$i)",
+            "Func _ConvertIntToBin($$i)",
             "    If $$i == 0 Then Return 0",
             "",
             "    Local $$vBin",
@@ -78,11 +78,11 @@
             "EndFunc"
         ],
         "description": "Convert integer to binary.",
-        "prefix": "!au3_convertIntToBin"
+        "prefix": "!_ConvertIntToBin"
     },
     "ConvertIntToHex": {
         "body": [
-            "Func _convertIntToHex($$i)",
+            "Func _ConvertIntToHex($$i)",
             "    Local $$vHex",
             "    Local $$aHex[] = _",
             "        [ _",
@@ -100,11 +100,11 @@
             "EndFunc"
         ],
         "description": "Convert integer to hex.",
-        "prefix": "!au3_convertIntToHex"
+        "prefix": "!_ConvertIntToHex"
     },
     "ConvertIntToOct": {
         "body": [
-            "Func _convertIntToOct($$i)",
+            "Func _ConvertIntToOct($$i)",
             "    Local $$iOct",
             "",
             "    While 1",
@@ -117,15 +117,15 @@
             "EndFunc"
         ],
         "description": "Convert integer to octal number.",
-        "prefix": "!au3_convertIntToOct"
+        "prefix": "!_ConvertIntToOct"
     },
     "HexColorInvert": {
         "body": [
-            "Func _hexColorInvert($$vHexCode)",
+            "Func _HexColorInvert($$vHexCode)",
             "    Return '0x' & Hex (0xFFFFFF - $$vHexCode, 6)",
             "EndFunc"
         ],
         "description": "Invert the given hex color.",
-        "prefix": "!au3_hexColorInvert"
+        "prefix": "!_HexColorInvert"
     }
 }

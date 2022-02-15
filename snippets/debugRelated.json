@@ -1,26 +1,25 @@
 {
     "DoesFunctionExists": {
         "body": [
-            "Func _doesFunctionExists($$sFunc, $$sFilePath)",
-            "    Local $$sFileContent = FileRead($$sFilePath)",
-            "",
+            "Func _DoesFunctionExists($$sFunc, $$sFilePath)",
             "    Local Const $$sRegExPatternForFunction = \"(?i)(?m:^|\\n)\\s*Func\\s+(\" & $$sFunc & \")\\s*\\(\"",
             "    Local Const $$iMatchFlag = 0",
+            "",
+            "    Local $$sFileContent = FileRead($$sFilePath)",
             "",
             "    Return StringRegExp($$sFileContent, $$sRegExPatternForFunction, $$iMatchFlag)",
             "EndFunc"
         ],
         "description": "Check function exists by name of the function in the given file.",
-        "prefix": "!au3_doesFunctionExists"
+        "prefix": "!_DoesFunctionExists"
     },
     "GetListOfAllFunctions": {
         "body": [
-            "Func _getListOfAllFunctions($$sFilePath, $$bSorted = True)",
-            "    Local $$sFileContent = FileRead($$sFilePath)",
-            "",
+            "Func _GetListOfAllFunctions($$sFilePath, $$bSorted = True)",
             "    Local Const $$sRegExPatternForFunctions = \"(?i)(?m:^|\\n)\\s*Func\\s+(\\w+)\\s*\\(\"",
             "    Local Const $$iGlobalMatchesFlag = 3",
             "",
+            "    Local $$sFileContent     = FileRead($$sFilePath)",
             "    Local $$aListOfFunctions = StringRegExp($$sFileContent, $$sRegExPatternForFunctions, $$iGlobalMatchesFlag)",
             "",
             "    If $$bSorted Then",
@@ -31,16 +30,15 @@
             "EndFunc"
         ],
         "description": "List all functions of the given file to an array.",
-        "prefix": "!au3_getListOfAllFunctions"
+        "prefix": "!_GetListOfAllFunctions"
     },
     "GetListOfAllVariables": {
         "body": [
-            "Func _getListOfAllVariables($$sFilePath = @ScriptFullPath, $$bSorted = True)",
-            "    Local $$sFileContent = FileRead($$sFilePath)",
-            "",
+            "Func _GetListOfAllVariables($$sFilePath = @ScriptFullPath, $$bSorted = True)",
             "    Local Const $$sRegExPatternForFunction = '(?<=\\\\$)\\w+?\\b'",
             "    Local Const $$iGlobalMatchesFlag = 3",
             "",
+            "    Local $$sFileContent           = FileRead($$sFilePath)",
             "    Local $$aListOfVariables       = StringRegExp($$sFileContent, $$sRegExPatternForFunction, $$iGlobalMatchesFlag)",
             "    Local $$aListOfUniqueVariables = _ArrayUnique($$aListOfVariables)",
             "",
@@ -50,7 +48,7 @@
             "        _ArraySort($$aListOfUniqueVariables)",
             "    EndIf",
             "",
-            "    For $$i = 0 To _getCount($$aListOfUniqueVariables)",
+            "    For $$i = 0 To _GetCount($$aListOfUniqueVariables)",
             "        $$aListOfUniqueVariables[$$i] = '$' & $$aListOfUniqueVariables[$$i]",
             "    Next",
             "",
@@ -58,6 +56,6 @@
             "EndFunc"
         ],
         "description": "List all variables of the given file to an array.",
-        "prefix": "!au3_getListOfAllVariables"
+        "prefix": "!_GetListOfAllVariables"
     }
 }

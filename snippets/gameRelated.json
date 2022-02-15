@@ -1,29 +1,29 @@
 {
     "GetDistanceByPythagoras": {
         "body": [
-            "Func _getDistanceByPythagoras($$iX1, $$iY1, $$iX2, $$iY2)",
+            "Func _GetDistanceByPythagoras($$iX1, $$iY1, $$iX2, $$iY2)",
             "    Return Round(Sqrt(($$iX2 - $$iX1) ^ 2 + ($$iY2 - $$iY1) ^ 2))",
             "EndFunc"
         ],
         "description": "Get the distance from one point to an other point by Pythagoras.",
-        "prefix": "!au3_getDistanceByPythagoras"
+        "prefix": "!_GetDistanceByPythagoras"
     },
     "IsKeyPressed": {
         "body": [
-            "Func _isKeyPressed($$sKeyHexCode)",
+            "Func _IsKeyPressed($$sKeyHexCode)",
             "    Local $$aReturn = DllCall('user32.dll', 'short', 'GetAsyncKeyState', 'int', '0x' & $$sKeyHexCode)",
             "",
             "    Return BitAND($$aReturn[0], 0x8000) <> 0",
             "EndFunc"
         ],
         "description": "Indicates that a key of the keyboard is pressed. Returns the boolean.",
-        "prefix": "!au3_isKeyPressed"
+        "prefix": "!_IsKeyPressed"
     },
     "IsKeyReleased": {
         "body": [
-            "Func _isKeyReleased($$sKeyHexCode)",
-            "    If _isKeyPressed($$sKeyHexCode) Then",
-            "        While _isKeyPressed($$sKeyHexCode)",
+            "Func _IsKeyReleased($$sKeyHexCode)",
+            "    If _IsKeyPressed($$sKeyHexCode) Then",
+            "        While _IsKeyPressed($$sKeyHexCode)",
             "            Sleep(10)",
             "        WEnd",
             "",
@@ -34,11 +34,11 @@
             "EndFunc"
         ],
         "description": "Indicates that a key of the keyboard was released after it was pressed. Returns the boolean.",
-        "prefix": "!au3_isKeyReleased"
+        "prefix": "!_IsKeyReleased"
     },
     "IsPointPositionBetween": {
         "body": [
-            "Func _isPointPositionBetween($$iPointToCheck, $$iBetweenFrom, $$iBetweenTo)",
+            "Func _IsPointPositionBetween($$iPointToCheck, $$iBetweenFrom, $$iBetweenTo)",
             "    If $$iPointToCheck >= $$iBetweenFrom And $$iPointToCheck <= $$iBetweenTo Then",
             "        Return True",
             "    EndIf",
@@ -47,6 +47,6 @@
             "EndFunc"
         ],
         "description": "Detects whether the position of a point is between two other positions.",
-        "prefix": "!au3_isPointPositionBetween"
+        "prefix": "!_IsPointPositionBetween"
     }
 }

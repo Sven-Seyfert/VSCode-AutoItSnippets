@@ -9,6 +9,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Go to [legend](#legend---types-of-changes) for further information about the types of changes.
 
+## [2.0.0] - 2022-02-15
+
+### Changed
+
+- All function names renamed to start with capital letter; `BreakingChange`.
+- Trigger key from `!au3` to `!_` to see the snippets overview by the VSCode IntelliSense (Auto-Completion mode); `BreakingChange`.
+- Adjusting the using example screenshots to match the new trigger key.
+- Update README.md, also for the trigger key.
+- Version bump.
+
 ## [1.9.1] - 2022-02-10
 
 ### Fixed
@@ -24,7 +34,7 @@ Go to [legend](#legend---types-of-changes) for further information about the typ
 
 ### Changed
 
-- Adjust array declarations without specific count of index (in _arrayCreate, _arrayCreate2D, _convertIntToHex and _toggleControlVisibility).
+- Adjust array declarations without specific count of index (in _arrayCreate, _arrayCreate2d, _convertIntToHex and _toggleControlVisibility).
 - Version bump.
 
 ## [1.8.0] - 2022-02-09
@@ -152,7 +162,7 @@ Go to [legend](#legend---types-of-changes) for further information about the typ
 
 ### Added
 
-- Five new snippets/functions (_arrayCreate, _arrayCreate2D, _decryptString, _encryptString, _print).
+- Five new snippets/functions (_arrayCreate, _arrayCreate2d, _decryptString, _encryptString, _print).
 
 ### Changed
 
@@ -194,6 +204,7 @@ Go to [legend](#legend---types-of-changes) for further information about the typ
 
 - Icon image displays correctly now in README.md file (png instead of ico).
 
+[2.0.0]: https://github.com/Sven-Seyfert/VSCode-AutoItSnippets/compare/v1.9.1...v2.0.0
 [1.9.1]: https://github.com/Sven-Seyfert/VSCode-AutoItSnippets/compare/v1.9.0...v1.9.1
 [1.9.0]: https://github.com/Sven-Seyfert/VSCode-AutoItSnippets/compare/v1.8.0...v1.9.0
 [1.8.0]: https://github.com/Sven-Seyfert/VSCode-AutoItSnippets/compare/v1.7.0...v1.8.0

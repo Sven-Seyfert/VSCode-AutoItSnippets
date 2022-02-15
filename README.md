@@ -35,7 +35,7 @@ VSCode-AutoItSnippets, display name "AutoIt Snippets" is a Visual Studio Code ex
 | Snippet | Prefix | Description |
 | :--- | :--- | :--- |
 | ArrayCreate | !au3_arrayCreate | Create and initialize a 1D array as example. |
-| ArrayCreate2D | !au3_arrayCreate2D | Create and initialize a 2D array as example. |
+| ArrayCreate2d | !au3_arrayCreate2d | Create and initialize a 2d array as example. |
 | ArrayDisplay | !au3_arrayDisplay | Default _ArrayDisplay with the array name as title. |
 | ArrayItemsToString | !au3_arrayItemsToString | Combines all array items to a string. Similar to _ArrayToString function, but simpler. |
 | FileContentToArray | !au3_fileContentToArray | File content or multiline string to array. |
@@ -312,7 +312,7 @@ Variant 3 - by Visual Studio Marketplace:
 
 See the animated GIFs in the "Features" section above.
 
-When your current file in VSCode is in "AutoIt language mode" then just type `!au3` and the intellicence and the auto-completion mode will give you the snippets overview.
+When your current file in VSCode is in "AutoIt language mode" then just type the trigger key `!_` and the VSCode IntelliSense (Auto-Completion mode) will give you the snippets overview.
 
 ## FAQ
 

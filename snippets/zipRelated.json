@@ -1,7 +1,7 @@
 {
     "CreateZipArchive": {
         "body": [
-            "Func _createZipArchive($$sArchiveFilePath, $$sSourceFolder)",
+            "Func _CreateZipArchive($$sArchiveFilePath, $$sSourceFolder)",
             "    Local $$sZipFileSignature = Chr(80) & Chr(75) & Chr(5) & Chr(6) & _StringRepeat(Chr(0), 18)",
             "    Local Const $$iOverwriteCreatePathAndBinaryMode = 2 + 8 + 16",
             "",
@@ -25,11 +25,11 @@
             "EndFunc"
         ],
         "description": "Creates a zip archive by windows built in functionality.",
-        "prefix": "!au3_createZipArchive"
+        "prefix": "!_CreateZipArchive"
     },
     "ExtractZipArchive": {
         "body": [
-            "Func _extractZipArchive($$sArchiveFilePath, $$sDestFolder)",
+            "Func _ExtractZipArchive($$sArchiveFilePath, $$sDestFolder)",
             "    If Not FileExists($$sDestFolder) Then",
             "        DirCreate($$sDestFolder)",
             "    EndIf",
@@ -44,12 +44,12 @@
             "EndFunc"
         ],
         "description": "Extract a zip archive by windows built in functionality.",
-        "prefix": "!au3_extractZipArchive"
+        "prefix": "!_ExtractZipArchive"
     },
     "ExtractZipVia7z": {
         "body": [
-            "Func _extractZipVia7z($$sZipTool, $$sZip, $$sDestinationPath)",
-            "    Local $$sFileName  = _getJustFileName($$sZip)",
+            "Func _ExtractZipVia7z($$sZipTool, $$sZip, $$sDestinationPath)",
+            "    Local $$sFileName  = _GetJustFileName($$sZip)",
             "    $$sDestinationPath &= StringTrimRight($$sFileName, 4)",
             "",
             "    DirRemove($$sDestinationPath, 1)",
@@ -63,6 +63,6 @@
             "EndFunc"
         ],
         "description": "Extract zip archive by 7z call.",
-        "prefix": "!au3_extractZipVia7z"
+        "prefix": "!_ExtractZipVia7z"
     }
 }

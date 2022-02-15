@@ -1,9 +1,9 @@
 ; compiler information for AutoIt
 #pragma compile(CompanyName, © SOLVE SMART)
-#pragma compile(FileVersion, 1.8.0)
+#pragma compile(FileVersion, 2.0.0)
 #pragma compile(LegalCopyright, © Sven Seyfert)
 #pragma compile(ProductName, SnippetOverviewGenerator)
-#pragma compile(ProductVersion, 1.8.0 - 2022-02-09)
+#pragma compile(ProductVersion, 2.0.0 - 2022-02-15)
 
 #AutoIt3Wrapper_AU3Check_Stop_OnWarning=y
 #AutoIt3Wrapper_Icon=..\media\favicon.ico
@@ -33,23 +33,23 @@ Global $iCountOfSnippetFiles = $aListOfSnippetFiles[0]
 
 For $i = 1 To $iCountOfSnippetFiles Step 1
     Global $sFilePath           = $aListOfSnippetFiles[$i]
-    Global $sFileName           = _getJustFileName($sFilePath)
-    Global $sSnippetFileContent = _getFileContent($aListOfSnippetFiles[$i])
-    Global $aListOfPrefixes     = _getAllPrefixes()
-    Global $aListOfNames        = _getAllNames()
-    Global $aListOfDescriptions = _getAllDescriptions()
+    Global $sFileName           = _GetJustFileName($sFilePath)
+    Global $sSnippetFileContent = _GetFileContent($aListOfSnippetFiles[$i])
+    Global $aListOfPrefixes     = _GetAllPrefixes()
+    Global $aListOfNames        = _GetAllNames()
+    Global $aListOfDescriptions = _GetAllDescriptions()
 
-    _writeDataInTableStructureToOutput()
+    _WriteDataInTableStructureToOutput()
 Next
 
 
 
 ; functions --------------------------------------------------------------------
-Func _getJustFileName($sFilePath)
+Func _GetJustFileName($sFilePath)
     Return StringRegExpReplace($sFilePath, '(.+?)\\', '', 0)
 EndFunc
 
-Func _getFileContent($sFile)
+Func _GetFileContent($sFile)
     Local Const $iUtf8WithoutBomMode = 256
 
     Local $hFile        = FileOpen($sFile, $iUtf8WithoutBomMode)
@@ -59,49 +59,49 @@ Func _getFileContent($sFile)
     Return $sFileContent
 EndFunc
 
-Func _getAllPrefixes()
+Func _GetAllPrefixes()
     Local $sRegExPatternOfTheNames = '"prefix": "(.+?)"'
 
     Return StringRegExp($sSnippetFileContent, $sRegExPatternOfTheNames, 3)
 EndFunc
 
-Func _getAllNames()
+Func _GetAllNames()
     Local $sRegExPatternOfThePrefixes = '"(.+?)": \{'
 
     Return StringRegExp($sSnippetFileContent, $sRegExPatternOfThePrefixes, 3)
 EndFunc
 
-Func _getAllDescriptions()
+Func _GetAllDescriptions()
     Local $sRegExPatternOfTheDescriptions = '"description": "(.+?)"'
 
     Return StringRegExp($sSnippetFileContent, $sRegExPatternOfTheDescriptions, 3)
 EndFunc
 
-Func _writeDataInTableStructureToOutput()
+Func _WriteDataInTableStructureToOutput()
     Local $sExtractedRelatedSection = StringReplace($sFileName, 'Related.json', '')
 
-    _print('<details>')
-    _print('<summary>Snippets with "' & $sExtractedRelatedSection & '" related context</summary>')
-    _print('<p>')
-    _print()
-    _print('| Snippet | Prefix | Description |')
-    _print('| :--- | :--- | :--- |')
+    _Print('<details>')
+    _Print('<summary>Snippets with "' & $sExtractedRelatedSection & '" related context</summary>')
+    _Print('<p>')
+    _Print()
+    _Print('| Snippet | Prefix | Description |')
+    _Print('| :--- | :--- | :--- |')
 
-    Local $iCount = _getCount($aListOfPrefixes)
+    Local $iCount = _GetCount($aListOfPrefixes)
     For $i = 0 To $iCount Step 1
-        _print('| ' & $aListOfNames[$i] & ' | ' & $aListOfPrefixes[$i] & ' | ' & $aListOfDescriptions[$i] & ' |')
+        _Print('| ' & $aListOfNames[$i] & ' | ' & $aListOfPrefixes[$i] & ' | ' & $aListOfDescriptions[$i] & ' |')
     Next
 
-    _print()
-    _print('<p>')
-    _print('</details>')
-    _print()
+    _Print()
+    _Print('<p>')
+    _Print('</details>')
+    _Print()
 EndFunc
 
-Func _print($sText = '')
+Func _Print($sText = '')
     ConsoleWrite($sText &  @CRLF)
 EndFunc
 
-Func _getCount($aList)
+Func _GetCount($aList)
     Return UBound($aList) - 1
 EndFunc

@@ -1,7 +1,7 @@
 {
     "CalendarWeekToDays": {
         "body": [
-            "Func _calendarWeekToDays($$iCalendarWeek, $$iYear = @YEAR)",
+            "Func _CalendarWeekToDays($$iCalendarWeek, $$iYear = @YEAR)",
             "    Local $$iDateReduce, $$iMaxWeeks, $$aReturnDate[8]",
             "    Local $$s4thJanuary = _DateToDayOfWeek($$iYear, '01', '04')",
             "    Local $$s1thJanuary = _DateToDayOfWeek($$iYear, '01', '01')",
@@ -41,29 +41,29 @@
             "EndFunc"
         ],
         "description": "Get an array of days from the given calendar week.",
-        "prefix": "!au3_calendarWeekToDays"
+        "prefix": "!_CalendarWeekToDays"
     },
     "GetDateDiffByBoundary": {
         "body": [
-            "Func _getDateDiffByBoundary($$iDayBoundary = -90)",
+            "Func _GetDateDiffByBoundary($$iDayBoundary = -90)",
             "    Return _DateAdd('D', $$iDayBoundary, _NowCalcDate())",
             "EndFunc"
         ],
         "description": "Get date diff by boundary (e. g. 90 days from the current day).",
-        "prefix": "!au3_getDateDiffByBoundary"
+        "prefix": "!_GetDateDiffByBoundary"
     },
     "GetDateTime": {
         "body": [
-            "Func _getDateTime($$sChar = ' ')",
+            "Func _GetDateTime($$sChar = ' ')",
             "    Return @YEAR & '-' & @MON & '-' & @MDAY & $$sChar & @HOUR & ':' & @MIN & ':' & @SEC",
             "EndFunc"
         ],
         "description": "Get current date and time as a timestamp.",
-        "prefix": "!au3_getDateTime"
+        "prefix": "!_GetDateTime"
     },
     "GetHHMMSSOfSeconds": {
         "body": [
-            "Func _getHHMMSSOfSeconds($$iGivenSeconds)",
+            "Func _GetHHMMSSOfSeconds($$iGivenSeconds)",
             "    Local $$iHours   = Int($$iGivenSeconds / 3600)",
             "    Local $$iMinutes = Int(Mod($$iGivenSeconds, 3600) / 60)",
             "    Local $$iSeconds = Mod($$iGivenSeconds, 60)",
@@ -73,12 +73,12 @@
             "    If $$iSeconds <= 59 Then Return StringFormat('%02d', $$iSeconds) & ' seconds'",
             "EndFunc"
         ],
-        "description": "Get hours, minutes and seconds of given seconds (reverse of _getSecondsOfHHMMSS).",
-        "prefix": "!au3_getHHMMSSOfSeconds"
+        "description": "Get hours, minutes and seconds of given seconds (reverse of _GetSecondsOfHHMMSS).",
+        "prefix": "!_GetHHMMSSOfSeconds"
     },
     "GetSecondsOfHHMMSS": {
         "body": [
-            "Func _getSecondsOfHHMMSS($$sDurationHHMMSS)",
+            "Func _GetSecondsOfHHMMSS($$sDurationHHMMSS)",
             "    Local $$iHours    = Int(StringLeft($$sDurationHHMMSS, 2))",
             "    Local $$iMinutes  = Int(StringMid($$sDurationHHMMSS, 3, 2))",
             "    Local $$iSeconds  = Int(StringRight($$sDurationHHMMSS, 2))",
@@ -90,12 +90,12 @@
             "    Return $$iDuration + $$iSeconds",
             "EndFunc"
         ],
-        "description": "Get seconds of given hours, minutes and seconds (reverse of _getHHMMSSOfSeconds).",
-        "prefix": "!au3_getSecondsOfHHMMSS"
+        "description": "Get seconds of given hours, minutes and seconds (reverse of _GetHHMMSSOfSeconds).",
+        "prefix": "!_GetSecondsOfHHMMSS"
     },
     "GetTimerDiffInSecOrMin": {
         "body": [
-            "Func _getTimerDiffInSecOrMin($$hTimer, $$bInSeconds = True)",
+            "Func _GetTimerDiffInSecOrMin($$hTimer, $$bInSeconds = True)",
             "    If $$bInSeconds Then",
             "        Return Round((TimerDiff($$hTimer) / 1000), 2)",
             "    EndIf",
@@ -104,6 +104,6 @@
             "EndFunc"
         ],
         "description": "Get timer diff in seconds or minutes.",
-        "prefix": "!au3_getTimerDiffInSecOrMin"
+        "prefix": "!_GetTimerDiffInSecOrMin"
     }
 }
