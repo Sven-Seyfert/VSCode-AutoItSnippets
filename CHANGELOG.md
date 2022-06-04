@@ -11,6 +11,17 @@ Go to [legend](#legend---types-of-changes) for further information about the typ
 
 ## [Unreleased]
 
+## [2.2.0] - 2022-06-04
+
+### Changed
+
+- General dependency update.
+- Version bump.
+
+### Security
+
+- Dependency update to fix a known security vulnerability for "minimist" (Prototype Pollution in minimist).
+
 ## [2.1.0] - 2022-02-15
 
 ### Changed
@@ -213,7 +224,8 @@ Go to [legend](#legend---types-of-changes) for further information about the typ
 
 - Icon image displays correctly now in README.md file (png instead of ico).
 
-[Unreleased]: https://github.com/Sven-Seyfert/VSCode-AutoItSnippets/compare/v2.1.0...HEAD
+[Unreleased]: https://github.com/Sven-Seyfert/VSCode-AutoItSnippets/compare/v2.2.0...HEAD
+[2.2.0]: https://github.com/Sven-Seyfert/VSCode-AutoItSnippets/compare/v2.1.0...v2.2.0
 [2.1.0]: https://github.com/Sven-Seyfert/VSCode-AutoItSnippets/compare/v2.0.0...v2.1.0
 [2.0.0]: https://github.com/Sven-Seyfert/VSCode-AutoItSnippets/compare/v1.9.1...v2.0.0
 [1.9.1]: https://github.com/Sven-Seyfert/VSCode-AutoItSnippets/compare/v1.9.0...v1.9.1
