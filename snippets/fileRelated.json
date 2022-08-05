@@ -152,7 +152,7 @@
     "GetFileShare": {
         "body": [
             "Func _GetFileShare()",
-            "    Local \\$oWMIService = ObjGet('winmgmts:\\\\\\\\.\\root\\CIMV2')",
+            "    Local \\$oWMIService = ObjGet('winmgmts:\\\\\\.\\root\\CIMV2')",
             "    Local \\$oColItems   = \\$oWMIService.ExecQuery('SELECT * FROM Win32_Share')",
             "    Local \\$aFileShares[1]",
             "",
