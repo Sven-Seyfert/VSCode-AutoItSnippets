@@ -11,7 +11,7 @@
     "GetMacOrIpAddress": {
         "body": [
             "Func _GetMacOrIpAddress()",
-            "    Local \\$oWmiService      = ObjGet('winmgmts:{impersonationLevel=impersonate}!\\\\.\\root\\cimv2')",
+            "    Local \\$oWmiService      = ObjGet('winmgmts:{impersonationLevel=impersonate}!\\\\\\.\\root\\cimv2')",
             "    Local \\$oNetworkAdapters = \\$oWmiService.ExecQuery('select * from Win32_NetworkAdapterConfiguration where IPEnabled = True')",
             "",
             "    Local \\$sMacAddress = ''",
