@@ -184,7 +184,7 @@
             ";",
             "; GUIRegisterMsg(\\$WM_COMMAND, '_GuiInputFilterWMCommand')",
             ";",
-            "; While 1",
+            "; While True",
             ";     Switch GUIGetMsg()",
             ";         Case \\$GUI_EVENT_CLOSE",
             ";             GUIDelete(\\$oMain)",
