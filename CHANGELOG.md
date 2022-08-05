@@ -15,6 +15,7 @@ Go to [legend](#legend---types-of-changes) for further information about the typ
 
 ### Changed
 
+- Packages update.
 - Project file structure to fit the default from Au3NewProject.
 
 ## [2.2.0] - 2022-06-04
