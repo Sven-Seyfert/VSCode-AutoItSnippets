@@ -1,7 +1,7 @@
 #####
 
 <p align="center">
-    <img src="images/icon.png" width="80" />
+    <img src="media/images/icon.png" width="80" />
     <h2 align="center">Welcome to <code>VSCode-AutoItSnippets</code>【ツ】</h2>
 </p>
 
@@ -22,9 +22,9 @@ VSCode-AutoItSnippets, display name "AutoIt Snippets" is a Visual Studio Code ex
 
 ## Features
 
-![usage](screenshots/usageExample1.gif)
+![usage](media/screenshots/usageExample1.gif)
 
-![usage](screenshots/usageExample2.gif)
+![usage](media/screenshots/usageExample2.gif)
 
 #### Snippets
 

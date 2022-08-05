@@ -6,7 +6,7 @@
 #pragma compile(ProductVersion, 2.2.0 - 2022-06-04)
 
 #AutoIt3Wrapper_AU3Check_Stop_OnWarning=y
-#AutoIt3Wrapper_Icon=..\media\favicon.ico
+#AutoIt3Wrapper_Icon=..\media\icons\favicon.ico
 #AutoIt3Wrapper_Outfile_x64=..\build\SnippetOverviewGenerator.exe
 #AutoIt3Wrapper_UseUpx=n
 #AutoIt3Wrapper_UseX64=y

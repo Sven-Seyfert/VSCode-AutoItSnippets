@@ -22,7 +22,7 @@
         "AutoIt3",
         "Snippets"
     ],
-    "icon": "images/icon.png",
+    "icon": "media/images/icon.png",
     "contributes": {
         "snippets": [
             {
