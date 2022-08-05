@@ -11,6 +11,20 @@ Go to [legend](#legend---types-of-changes) for further information about the typ
 
 ## [Unreleased]
 
+## [2.4.0] - 2022-08-05
+
+### Changed
+
+- Code style adjustment in _GuiInputFilterWMCommand.
+- Code style of function _RelativeToAbsolutePath to match the return-early pattern.
+- Fulfill default style from Au3NewProject for snippet _Template.
+- Small code style adjustments.
+
+### Fixed
+
+- Wrong count of backslashes in function _GetFileShare.
+- Wrong count of backslashes in function _GetMacOrIpAddress.
+
 ## [2.3.0] - 2022-08-05
 
 ### Changed
@@ -231,7 +245,8 @@ Go to [legend](#legend---types-of-changes) for further information about the typ
 
 - Icon image displays correctly now in README.md file (png instead of ico).
 
-[Unreleased]: https://github.com/Sven-Seyfert/VSCode-AutoItSnippets/compare/v2.3.0...HEAD
+[Unreleased]: https://github.com/Sven-Seyfert/VSCode-AutoItSnippets/compare/v2.4.0...HEAD
+[2.4.0]: https://github.com/Sven-Seyfert/VSCode-AutoItSnippets/compare/v2.3.0...v2.4.0
 [2.3.0]: https://github.com/Sven-Seyfert/VSCode-AutoItSnippets/compare/v2.2.0...v2.3.0
 [2.2.0]: https://github.com/Sven-Seyfert/VSCode-AutoItSnippets/compare/v2.1.0...v2.2.0
 [2.1.0]: https://github.com/Sven-Seyfert/VSCode-AutoItSnippets/compare/v2.0.0...v2.1.0
